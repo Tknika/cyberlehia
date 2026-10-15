@@ -1,0 +1,37 @@
+<footer class="relative mt-28 border-t border-ink-700 bg-ink-900">
+  <div class="absolute inset-x-0 -top-px h-px bg-gradient-to-r from-transparent via-pink/60 to-transparent"></div>
+
+  {{/* Organizer / partner logos */}}
+  <div class="container-site py-14">
+    <h2 class="sr-only">{{ i18n "organizers" }}</h2>
+    <ul class="flex flex-wrap items-center justify-center gap-x-14 gap-y-10 lg:justify-between">
+      {{ range site.Params.organizers }}
+        <li>
+          {{ $inner := "" }}
+          {{ if .logo }}
+            {{ $inner = printf `<img src="%s" alt="%s" class="h-12 w-auto lg:h-16" loading="lazy">` (.logo | relURL) .name }}
+          {{ else }}
+            {{ $inner = printf `<span class="font-display text-2xl font-bold text-white">%s</span>` .name }}
+          {{ end }}
+          {{ with .url }}<a href="{{ . }}" rel="noopener" class="block transition hover:opacity-75">{{ $inner | safeHTML }}</a>{{ else }}{{ $inner | safeHTML }}{{ end }}
+        </li>
+      {{ end }}
+    </ul>
+  </div>
+
+  {{/* Contact + legal */}}
+  <div class="border-t border-ink-700">
+    <div class="container-site py-10 text-center">
+      {{ with site.Params.email }}
+        <p class="text-ink-100">{{ i18n "contactUs" }}: <a href="mailto:{{ . }}" class="text-cyan transition hover:underline">{{ . }}</a></p>
+      {{ end }}
+      <ul class="mt-3 flex flex-wrap items-center justify-center gap-x-2 gap-y-1 text-sm uppercase tracking-wide">
+        {{ range $i, $m := site.Menus.footer }}
+          {{ if $i }}<li class="text-ink-400" aria-hidden="true">·</li>{{ end }}
+          <li><a href="{{ $m.URL }}" class="text-cyan transition hover:text-white">{{ $m.Name }}</a></li>
+        {{ end }}
+      </ul>
+      <p class="mt-6 font-mono text-xs text-ink-400">&copy; {{ now.Year }} {{ site.Title }} · CC BY-SA 4.0</p>
+    </div>
+  </div>
+</footer>

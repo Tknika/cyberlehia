@@ -1,0 +1,8 @@
+{{- /* Collapsible question. Usage: {{< faq "Question?" >}}Markdown answer{{< /faq >}} */ -}}
+<details class="group rounded-xl border border-ink-700 bg-ink-900/70 open:border-brand/60 [&_summary::-webkit-details-marker]:hidden">
+  <summary class="flex cursor-pointer list-none items-center justify-between gap-4 px-6 py-5 font-display text-lg font-semibold text-white">
+    <span>{{ .Get 0 }}</span>
+    <span class="flex size-7 shrink-0 items-center justify-center rounded-md border border-ink-600 font-mono text-pink transition group-open:rotate-45" aria-hidden="true">+</span>
+  </summary>
+  <div class="prose-cyber border-t border-ink-700 px-6 py-5">{{ .Inner | .Page.RenderString (dict "display" "block") }}</div>
+</details>

@@ -1,0 +1,26 @@
+{{ define "main" }}
+{{ partial "page-header.html" . }}
+
+<div class="container-site py-16">
+  {{ with .Params.phases }}
+    <div class="mb-16">{{ partial "timeline.html" . }}</div>
+  {{ end }}
+
+  {{ with .Content }}
+    <div class="prose-cyber max-w-3xl">{{ . }}</div>
+  {{ end }}
+
+  {{ $pages := .Pages.ByWeight }}
+  {{ if eq .Params.sort "desc" }}{{ $pages = $pages.Reverse }}{{ end }}
+  {{ if $pages }}
+    {{ with .Params.list_title }}<h2 class="mt-20 text-2xl font-bold text-white sm:text-3xl">{{ . }}</h2>{{ end }}
+    <div class="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      {{ range $pages }}{{ partial "card.html" . }}{{ end }}
+    </div>
+  {{ else }}
+    {{ with .Params.empty_text }}
+      <p class="mt-12 rounded-lg border border-dashed border-ink-600 p-8 text-center font-mono text-sm text-ink-400">{{ . }}</p>
+    {{ end }}
+  {{ end }}
+</div>
+{{ end }}

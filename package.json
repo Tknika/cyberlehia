@@ -1,0 +1,15 @@
+{
+  "name": "cyberlehia-web",
+  "private": true,
+  "scripts": {
+    "dev": "hugo server",
+    "build": "hugo --gc --minify"
+  },
+  "devDependencies": {
+    "@tailwindcss/cli": "^4.1.0",
+    "tailwindcss": "^4.1.0"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

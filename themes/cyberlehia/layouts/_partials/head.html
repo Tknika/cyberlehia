@@ -1,0 +1,25 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{ if .IsHome }}{{ site.Title }} · {{ site.Params.description }}{{ else }}{{ .Title }} · {{ site.Title }}{{ end }}</title>
+{{ $desc := .Description | default .Summary | default site.Params.description | plainify | truncate 160 }}
+<meta name="description" content="{{ $desc }}">
+<meta name="theme-color" content="#07080f">
+<link rel="canonical" href="{{ .Permalink }}">
+{{ range .AllTranslations }}
+  <link rel="alternate" hreflang="{{ .Language.Lang }}" href="{{ .Permalink }}">
+{{ end }}
+
+<meta property="og:type" content="{{ if .IsPage }}article{{ else }}website{{ end }}">
+<meta property="og:site_name" content="{{ site.Title }}">
+<meta property="og:title" content="{{ .Title }}">
+<meta property="og:description" content="{{ $desc }}">
+<meta property="og:url" content="{{ .Permalink }}">
+<meta property="og:locale" content="{{ site.Language.Lang }}">
+{{ with .Params.image | default "images/final.jpg" }}
+  <meta property="og:image" content="{{ . | absURL }}">
+{{ end }}
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="icon" type="image/svg+xml" href="{{ "favicon.svg" | relURL }}">
+<link rel="preload" href="{{ "fonts/space-grotesk-latin-wght-normal.woff2" | relURL }}" as="font" type="font/woff2" crossorigin>
+{{ partial "css.html" . }}

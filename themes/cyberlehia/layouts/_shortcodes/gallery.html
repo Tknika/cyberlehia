@@ -1,0 +1,21 @@
+{{- /* Image grid. One image per line: `path | caption`.
+Usage:
+{{< gallery >}}
+images/photo.jpg | Caption
+{{< /gallery >}}
+*/ -}}
+<div class="not-prose grid gap-4 sm:grid-cols-2">
+  {{ range split (trim .Inner "\n ") "\n" }}
+    {{ $parts := split . "|" }}
+    {{ $src := trim (index $parts 0) " " }}
+    {{ $caption := "" }}{{ if gt (len $parts) 1 }}{{ $caption = trim (index $parts 1) " " }}{{ end }}
+    {{ with $src }}
+      <figure class="group overflow-hidden rounded-xl border border-ink-700 bg-ink-900">
+        <a href="{{ . | relURL }}" class="block aspect-[4/3] overflow-hidden">
+          <img src="{{ . | relURL }}" alt="{{ $caption }}" loading="lazy" class="size-full object-cover transition duration-500 group-hover:scale-105">
+        </a>
+        {{ with $caption }}<figcaption class="px-4 py-3 font-mono text-xs text-ink-300">{{ . }}</figcaption>{{ end }}
+      </figure>
+    {{ end }}
+  {{ end }}
+</div>

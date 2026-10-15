@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="{{ site.Language.Lang }}" class="h-full">
+<head>
+  {{ partial "head.html" . }}
+</head>
+<body class="flex min-h-full flex-col">
+  <a href="#main" class="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:rounded focus:bg-pink focus:px-4 focus:py-2 focus:text-white">{{ i18n "skipToContent" }}</a>
+  {{ partial "header.html" . }}
+  <main id="main" class="flex-1">
+    {{ block "main" . }}{{ end }}
+  </main>
+  {{ partial "footer.html" . }}
+  {{ with resources.Get "js/main.js" | js.Build (dict "minify" hugo.IsProduction) | fingerprint }}
+    <script src="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}" defer></script>
+  {{ end }}
+</body>
+</html>

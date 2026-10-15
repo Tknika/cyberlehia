@@ -1,0 +1,5 @@
+{{- $u := urls.Parse .Destination -}}
+{{- $href := .Destination -}}
+{{- if and (not $u.IsAbs) (hasPrefix .Destination "/") -}}{{- $href = .Destination | relLangURL -}}{{- end -}}
+<a href="{{ $href }}"{{ with .Title }} title="{{ . }}"{{ end }}{{ if $u.IsAbs }} rel="noopener"{{ end }}>{{ .Text }}</a>
+{{- /**/ -}}

@@ -1,0 +1,16 @@
+{{- /* Content card. Context: page. */ -}}
+<a href="{{ .RelPermalink }}" class="card group flex flex-col overflow-hidden">
+  {{ with .Params.image }}
+    <div class="aspect-[16/9] overflow-hidden bg-ink-800">
+      <img src="{{ . | relURL }}" alt="" loading="lazy" class="size-full object-cover opacity-80 transition duration-500 group-hover:scale-105 group-hover:opacity-100">
+    </div>
+  {{ end }}
+  <div class="flex flex-1 flex-col p-6">
+    {{ with .Params.eyebrow }}<p class="eyebrow">{{ . }}</p>{{ end }}
+    <h3 class="mt-2 text-xl font-semibold text-white">{{ .Title }}</h3>
+    {{ with .Description | default .Summary }}<p class="mt-2 line-clamp-3 text-sm text-ink-300">{{ . | plainify }}</p>{{ end }}
+    <span class="mt-auto inline-flex items-center gap-2 pt-5 font-mono text-xs font-semibold text-cyan">
+      {{ i18n "readMore" }} <span class="transition group-hover:translate-x-1" aria-hidden="true">→</span>
+    </span>
+  </div>
+</a>

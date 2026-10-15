@@ -1,0 +1,38 @@
+{{ define "main" }}
+{{ partial "page-header.html" . }}
+
+{{ $section := .Parent }}
+{{ $siblings := slice }}
+{{ if and $section (not $section.IsHome) }}{{ $siblings = $section.Pages.ByWeight }}{{ end }}
+
+<div class="container-site py-16">
+  <div class="grid gap-12 {{ if gt (len $siblings) 1 }}lg:grid-cols-12{{ end }}">
+    {{ if gt (len $siblings) 1 }}
+      <aside class="lg:col-span-3">
+        <nav class="lg:sticky lg:top-28" aria-label="{{ i18n "inThisSection" }}">
+          <p class="eyebrow">{{ i18n "inThisSection" }}</p>
+          <ul class="mt-4 space-y-1 border-l border-ink-700">
+            <li><a href="{{ $section.RelPermalink }}" class="-ml-px block border-l-2 border-transparent py-1.5 pl-4 text-sm font-semibold text-ink-100 hover:text-white">{{ $section.LinkTitle }}</a></li>
+            {{ range $siblings }}
+              {{ $current := eq .RelPermalink $.RelPermalink }}
+              <li>
+                <a href="{{ .RelPermalink }}" {{ if $current }}aria-current="page"{{ end }}
+                   class="-ml-px block border-l-2 py-1.5 pl-4 text-sm transition {{ if $current }}border-pink text-white{{ else }}border-transparent text-ink-400 hover:border-ink-400 hover:text-ink-100{{ end }}">{{ .LinkTitle }}</a>
+              </li>
+            {{ end }}
+          </ul>
+        </nav>
+      </aside>
+    {{ end }}
+
+    <article class="{{ if gt (len $siblings) 1 }}lg:col-span-9{{ end }} max-w-3xl">
+      {{ with .Params.image }}
+        <img src="{{ . | relURL }}" alt="" class="mb-10 aspect-[16/9] w-full rounded-xl border border-ink-700 object-cover">
+      {{ end }}
+      {{ with .Params.phases }}<div class="mb-12">{{ partial "timeline.html" . }}</div>{{ end }}
+      <div class="prose-cyber">{{ .Content }}</div>
+      {{ with .Date }}{{ if $.Params.show_date }}<p class="mt-12 font-mono text-xs text-ink-400">{{ . | time.Format ":date_long" }}</p>{{ end }}{{ end }}
+    </article>
+  </div>
+</div>
+{{ end }}

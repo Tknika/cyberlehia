@@ -1,0 +1,8 @@
+{{- /* Privacy-enhanced YouTube embed. Usage: {{< youtube id="VIDEO_ID" title="Title" >}} */ -}}
+{{ $id := .Get "id" | default (.Get 0) }}
+<div class="not-prose aspect-video overflow-hidden rounded-xl border border-ink-700 bg-ink-900">
+  <iframe class="size-full" src="https://www.youtube-nocookie.com/embed/{{ $id }}?rel=0"
+          title="{{ .Get "title" | default "YouTube" }}" loading="lazy"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+</div>

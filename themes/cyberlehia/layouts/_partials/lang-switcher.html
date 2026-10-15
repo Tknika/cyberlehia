@@ -1,0 +1,14 @@
+{{- /* Links to the translation of the current page, or to the other language's home page if there is none. */ -}}
+{{ $page := . }}
+<div class="flex items-center rounded-md border border-ink-700 p-0.5 font-mono text-xs font-semibold" role="group" aria-label="{{ i18n "language" }}">
+  {{ range site.Home.AllTranslations }}
+    {{ $lang := .Language.Lang }}
+    {{ $target := . }}
+    {{ range $page.AllTranslations }}{{ if eq .Language.Lang $lang }}{{ $target = . }}{{ end }}{{ end }}
+    {{ if eq $lang site.Language.Lang }}
+      <span class="rounded bg-ink-700 px-2 py-1 text-white" aria-current="true" title="{{ .Language.Label }}">{{ upper $lang }}</span>
+    {{ else }}
+      <a href="{{ $target.RelPermalink }}" hreflang="{{ $lang }}" lang="{{ $lang }}" class="rounded px-2 py-1 text-ink-400 transition hover:text-white" title="{{ .Language.Label }}">{{ upper $lang }}</a>
+    {{ end }}
+  {{ end }}
+</div>

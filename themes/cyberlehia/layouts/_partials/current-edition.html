@@ -1,0 +1,4 @@
+{{- /* Returns the section page flagged with `current_edition: true` in the current language (or false). */ -}}
+{{- $p := false -}}
+{{- range first 1 (where site.Pages "Params.current_edition" true) }}{{ $p = . }}{{ end -}}
+{{- return $p -}}

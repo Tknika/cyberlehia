@@ -1,0 +1,19 @@
+{{- /* Page title band with breadcrumb. Context: page. */ -}}
+<section class="relative overflow-hidden border-b border-ink-700/60">
+  <div class="bg-grid pointer-events-none absolute inset-0" aria-hidden="true"></div>
+  <div class="pointer-events-none absolute -top-40 right-0 size-[28rem] rounded-full bg-violet/20 blur-3xl" aria-hidden="true"></div>
+  <div class="container-site relative py-14 lg:py-20">
+    <nav aria-label="Breadcrumb" class="font-mono text-xs text-ink-400">
+      <ol class="flex flex-wrap items-center gap-2">
+        {{ range .Ancestors.Reverse }}
+          <li><a href="{{ .RelPermalink }}" class="transition hover:text-cyan">{{ if .IsHome }}~{{ else }}{{ .LinkTitle | lower }}{{ end }}</a></li>
+          <li aria-hidden="true" class="text-ink-600">/</li>
+        {{ end }}
+        <li class="text-ink-300" aria-current="page">{{ .LinkTitle | lower }}</li>
+      </ol>
+    </nav>
+    {{ with .Params.eyebrow }}<p class="eyebrow mt-8">{{ . }}</p>{{ end }}
+    <h1 class="{{ if .Params.eyebrow }}mt-3{{ else }}mt-8{{ end }} max-w-4xl text-4xl font-bold text-white sm:text-5xl lg:text-6xl">{{ .Title }}</h1>
+    {{ with .Description }}<p class="mt-5 max-w-2xl text-lg text-ink-300">{{ . }}</p>{{ end }}
+  </div>
+</section>

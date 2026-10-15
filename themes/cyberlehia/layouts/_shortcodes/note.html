@@ -1,0 +1,8 @@
+{{- /* Highlighted box. Usage: {{< note >}}Markdown{{< /note >}} (type="warning" for pink) */ -}}
+{{ $warn := eq (.Get "type") "warning" }}
+<div class="rounded-xl border {{ if $warn }}border-pink/40 bg-pink/5{{ else }}border-cyan/40 bg-cyan/5{{ end }} px-6 py-5">
+  <div class="flex gap-4">
+    <span class="font-mono font-bold {{ if $warn }}text-pink{{ else }}text-cyan{{ end }}" aria-hidden="true">{{ if $warn }}!{{ else }}i{{ end }}</span>
+    <div class="text-ink-100 [&>p]:m-0">{{ .Inner | .Page.RenderString (dict "display" "block") }}</div>
+  </div>
+</div>

@@ -1,0 +1,78 @@
+{{ $page := . }}
+<div class="hidden border-b border-ink-800 bg-ink-950 lg:block">
+  <div class="container-site flex h-10 items-center justify-end">
+    {{ partial "lang-switcher.html" $page }}
+  </div>
+</div>
+<header class="sticky top-0 z-40 border-b border-ink-700/60 bg-ink-950/80 backdrop-blur-md">
+  <div class="container-site flex h-20 items-center justify-between gap-6 lg:h-24">
+    <a href="{{ site.Home.RelPermalink }}" class="flex shrink-0 items-center" aria-label="{{ site.Title }} · {{ i18n "home" }}">
+      <img src="{{ "images/logo-cyberlehia.png" | relURL }}" alt="{{ site.Title }}" width="283" height="128" class="h-11 w-auto lg:h-14">
+    </a>
+
+    {{/* Desktop navigation */}}
+    <nav class="hidden lg:block" aria-label="{{ i18n "menu" }}">
+      <ul class="flex items-center gap-1">
+        {{ range site.Menus.main }}
+          {{ $active := or ($page.IsMenuCurrent "main" .) ($page.HasMenuCurrent "main" .) }}
+          <li class="group relative">
+            <a href="{{ .URL }}"
+               class="flex items-center gap-1 whitespace-nowrap rounded-md px-2 py-2 font-display text-base font-medium transition xl:px-3 xl:text-lg {{ if $active }}text-white{{ else }}text-ink-300 hover:text-white{{ end }}"
+               {{ if $page.IsMenuCurrent "main" . }}aria-current="page"{{ end }}>
+              {{ .Name }}
+              {{ if .HasChildren }}
+                <svg class="size-4 text-ink-400 transition group-hover:rotate-180 group-focus-within:rotate-180" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 0 1 1.06.02L10 11.17l3.71-3.94a.75.75 0 1 1 1.08 1.04l-4.25 4.5a.75.75 0 0 1-1.08 0l-4.25-4.5a.75.75 0 0 1 .02-1.06Z" clip-rule="evenodd"/></svg>
+              {{ end }}
+            </a>
+            {{ if $active }}<span class="absolute inset-x-3 -bottom-px h-0.5 bg-gradient-to-r from-cyan to-pink"></span>{{ end }}
+            {{ if .HasChildren }}
+              <div class="invisible absolute left-0 top-full pt-2 opacity-0 transition group-focus-within:visible group-focus-within:opacity-100 group-hover:visible group-hover:opacity-100">
+                <ul class="w-80 rounded-xl border border-ink-700 bg-ink-900 p-2 shadow-2xl shadow-black/50">
+                  {{ range .Children }}
+                    <li>
+                      <a href="{{ .URL }}" class="flex items-center gap-3 rounded-lg px-3 py-2.5 text-base transition {{ if $page.IsMenuCurrent "main" . }}bg-ink-800 text-white{{ else }}text-ink-300 hover:bg-ink-800 hover:text-white{{ end }}">
+                        <span class="font-mono text-xs text-pink" aria-hidden="true">&gt;</span>{{ .Name }}
+                      </a>
+                    </li>
+                  {{ end }}
+                </ul>
+              </div>
+            {{ end }}
+          </li>
+        {{ end }}
+      </ul>
+    </nav>
+
+    <div class="flex items-center gap-2">
+      <div class="lg:hidden">{{ partial "lang-switcher.html" $page }}</div>
+
+      <button type="button" class="inline-flex size-10 items-center justify-center rounded-md border border-ink-700 text-ink-100 lg:hidden"
+              data-menu-toggle aria-controls="mobile-menu" aria-expanded="false">
+        <span class="sr-only">{{ i18n "menu" }}</span>
+        <svg class="size-5" data-icon-open viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" d="M4 7h16M4 12h16M4 17h10"/></svg>
+        <svg class="hidden size-5" data-icon-close viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" d="M6 6l12 12M18 6 6 18"/></svg>
+      </button>
+    </div>
+  </div>
+
+  {{/* Mobile navigation */}}
+  <nav id="mobile-menu" class="hidden max-h-[calc(100dvh-5rem)] overflow-y-auto border-t border-ink-700 bg-ink-950 lg:hidden" aria-label="{{ i18n "menu" }}">
+    <ul class="container-site space-y-1 py-4">
+      {{ range site.Menus.main }}
+        <li>
+          <a href="{{ .URL }}" class="block rounded-md px-3 py-2.5 font-display text-xl font-medium {{ if or ($page.IsMenuCurrent "main" .) ($page.HasMenuCurrent "main" .) }}text-white{{ else }}text-ink-300{{ end }}">{{ .Name }}</a>
+          {{ if .HasChildren }}
+            <ul class="mb-2 ml-3 space-y-0.5 border-l border-ink-700 pl-3">
+              {{ range .Children }}
+                <li><a href="{{ .URL }}" class="block rounded-md px-3 py-2 text-base {{ if $page.IsMenuCurrent "main" . }}text-cyan{{ else }}text-ink-400{{ end }}">{{ .Name }}</a></li>
+              {{ end }}
+            </ul>
+          {{ end }}
+        </li>
+      {{ end }}
+      {{ range site.Menus.utility }}
+        <li class="pt-3"><a href="{{ .URL }}" class="btn-ghost w-full justify-center">{{ .Name }}</a></li>
+      {{ end }}
+    </ul>
+  </nav>
+</header>

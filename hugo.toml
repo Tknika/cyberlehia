@@ -1,0 +1,81 @@
+baseURL = "https://cyberlehia.fpeuskadi.eus/"
+title = "CyberLehia"
+theme = "cyberlehia"
+
+defaultContentLanguage = "eu"
+defaultContentLanguageInSubdir = false
+enableRobotsTXT = true
+disableKinds = ["taxonomy", "term"]
+
+[params]
+  description = "Euskadiko Lanbide Heziketako zibersegurtasun lehiaketa (CTF)"
+  email = "cyberlehia@tknika.eus"
+
+  # Logos shown in the footer, in this order. Without `logo`, the name is shown as text.
+  [[params.organizers]]
+    name = "Tknika"
+    logo = "images/logo-tknika.png"
+    url = "https://tknika.eus/"
+  [[params.organizers]]
+    name = "CyberZaintza"
+    logo = "images/logo-cyberzaintza.png"
+    url = "https://www.ciberseguridad.eus/"
+  [[params.organizers]]
+    name = "Eusko Jaurlaritza · Gobierno Vasco — Hezkuntza Saila"
+    logo = "images/logo-eusko-jaurlaritza.png"
+    url = "https://www.euskadi.eus/"
+  [[params.organizers]]
+    name = "FP Euskadi"
+    # logo = "images/logo-fp-euskadi.png"   # TODO: add the logo file
+    url = "https://www.fpeuskadi.eus/"
+
+[languages]
+  [languages.eu]
+    label = "Euskara"
+    weight = 1
+    contentDir = "content/eu"
+    [languages.eu.params]
+      description = "Euskadiko Lanbide Heziketako zibersegurtasun lehiaketa (CTF)"
+      # Registration form ("Parte hartu" button). Leave empty to hide the button.
+      registrationURL = "https://galdetegiak.tknika.eus/index.php/496418?lang=eu"
+  [languages.es]
+    label = "Español"
+    weight = 2
+    contentDir = "content/es"
+    [languages.es.params]
+      description = "Competición de ciberseguridad (CTF) de la Formación Profesional de Euskadi"
+      registrationURL = "https://galdetegiak.tknika.eus/index.php/496418?lang=es"
+
+[markup.goldmark.renderer]
+  unsafe = true
+
+[markup.goldmark.parser.attribute]
+  block = true
+
+# --- Tailwind CSS v4 (https://gohugo.io/functions/css/tailwindcss/) ---
+[build]
+  [build.buildStats]
+    enable = true
+  [[build.cachebusters]]
+    source = "assets/notwatching/hugo_stats\\.json"
+    target = "css"
+  [[build.cachebusters]]
+    source = "(postcss|tailwind)\\.config\\.js"
+    target = "css"
+
+[module]
+  [[module.mounts]]
+    source = "assets"
+    target = "assets"
+  [[module.mounts]]
+    disableWatch = true
+    source = "hugo_stats.json"
+    target = "assets/notwatching/hugo_stats.json"
+
+[outputs]
+  home = ["html", "rss"]
+  section = ["html"]
+
+# Allow the Tailwind CLI (npm package or standalone binary on PATH)
+[security.exec]
+  allow = ['^(dart-)?sass$', '^go$', '^git$', '^node$', '^postcss$', '^tailwindcss$']

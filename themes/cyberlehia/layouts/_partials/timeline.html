@@ -1,0 +1,23 @@
+{{- /* Phases timeline. Context: list of phases (title, dates, description, items, status: done|active|upcoming). */ -}}
+<ol class="relative grid gap-6 md:grid-cols-2 xl:grid-cols-4">
+  {{ range $i, $p := . }}
+    {{ $status := $p.status | default "upcoming" }}
+    <li class="card relative flex flex-col p-6 {{ if eq $status "active" }}border-pink/70 shadow-lg shadow-pink/10{{ end }}">
+      <div class="flex items-center justify-between">
+        <span class="font-mono text-sm font-bold {{ if eq $status "done" }}text-ink-400{{ else }}text-pink{{ end }}">0{{ add $i 1 }}</span>
+        <span class="inline-flex items-center gap-1.5 rounded-full border px-2.5 py-0.5 font-mono text-[11px] uppercase tracking-wider
+          {{ if eq $status "active" }}border-pink/50 text-pink{{ else if eq $status "done" }}border-ink-600 text-ink-400{{ else }}border-cyan/40 text-cyan{{ end }}">
+          <span class="size-1.5 rounded-full {{ if eq $status "active" }}animate-pulse bg-pink{{ else if eq $status "done" }}bg-ink-400{{ else }}bg-cyan{{ end }}"></span>
+          {{ $p.dates }}
+        </span>
+      </div>
+      <h3 class="mt-5 text-xl font-semibold text-white">{{ $p.title }}</h3>
+      {{ with $p.description }}<p class="mt-2 text-sm leading-relaxed text-ink-300">{{ . | markdownify }}</p>{{ end }}
+      {{ with $p.items }}
+        <ul class="mt-4 space-y-1.5 text-sm text-ink-300">
+          {{ range . }}<li class="flex gap-2"><span class="font-mono text-pink" aria-hidden="true">&gt;</span><span>{{ . | markdownify }}</span></li>{{ end }}
+        </ul>
+      {{ end }}
+    </li>
+  {{ end }}
+</ol>
