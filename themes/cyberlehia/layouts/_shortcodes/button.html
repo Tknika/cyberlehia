@@ -1,4 +1,4 @@
 {{- /* Usage: {{< button href="/kontaktua/" >}}Label{{< /button >}}  (style="ghost" for the secondary style) */ -}}
 {{ $href := .Get "href" }}
 {{ if hasPrefix $href "/" }}{{ $href = $href | relLangURL }}{{ end }}
-<a href="{{ $href }}" class="{{ if eq (.Get "style") "ghost" }}btn-ghost{{ else }}btn-primary{{ end }}">{{ .Inner | .Page.RenderString }}</a>
+<a href="{{ $href }}" class="{{ if eq (.Get "style") "ghost" }}btn-ghost{{ else }}btn-primary{{ end }}">{{/* Strip auto-linked URLs/emails: a link inside a link breaks the button */}}{{ .Inner | .Page.RenderString | replaceRE `</?a\b[^>]*>` "" | safeHTML }}</a>

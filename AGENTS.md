@@ -68,7 +68,7 @@ There is no test suite. **A change is verified when:**
 ## Open items (as of 2026-10)
 
 - 4th edition dates, rules, venue and prizes: unknown, shown as "Laster" / "Próximamente".
-- FP Euskadi logo missing (`[[params.organizers]]` shows text); add `static/images/logo-fp-euskadi.png` and uncomment `logo`.
+- FP Euskadi logo is a small 111×109 PNG from the old site; replace it with an SVG or larger PNG if available.
 - Testimonials page is a placeholder.
 - The cookie policy (copied from WordPress) still lists `_pk_*` analytics cookies that the static site doesn't set; it needs a legal review.
 - `registrationURL` points to last edition's (expired) LimeSurvey form; update it with the new survey ID.

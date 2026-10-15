@@ -26,7 +26,7 @@ disableKinds = ["taxonomy", "term"]
     url = "https://www.euskadi.eus/"
   [[params.organizers]]
     name = "FP Euskadi"
-    # logo = "images/logo-fp-euskadi.png"   # TODO: add the logo file
+    logo = "images/logo-fp-euskadi.png"
     url = "https://www.fpeuskadi.eus/"
 
 [languages]

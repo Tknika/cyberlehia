@@ -138,7 +138,7 @@ phases:
 
 **Press release.** Copy `prentsa-gunea/adibidea.md` (and `sala-de-prensa/ejemplo.md`), give it `weight` ≥ 100 so it appears after the three fixed cards, and remove `draft: true`.
 
-**Footer logos.** Edit `[[params.organizers]]` in `hugo.toml` (`name`, optional `logo`, `url`). Without `logo`, the name is shown as text. The FP Euskadi logo file is still missing.
+**Footer logos.** Edit `[[params.organizers]]` in `hugo.toml` (`name`, optional `logo`, `url`). Without `logo`, the name is shown as text.
 
 **Images.** Put them in `static/images/` and reference them as `images/file.jpg` in front matter, or `/images/file.jpg` in Markdown links.
 
