@@ -5,7 +5,8 @@
     {{ partial "lang-switcher.html" $page }}
   </div>
 </div>
-<header class="sticky top-0 z-40 border-b border-ink-700/60 bg-ink-950/80 backdrop-blur-md">
+<header class="sticky top-0 z-40 border-b border-ink-700 bg-ink-850/85 shadow-lg shadow-black/40 backdrop-blur-md">
+  <div class="pointer-events-none absolute inset-x-0 -bottom-px h-px bg-gradient-to-r from-transparent via-cyan/60 to-transparent" aria-hidden="true"></div>
   <div class="container-site flex h-20 items-center justify-between gap-6 lg:h-24">
     <a href="{{ site.Home.RelPermalink }}" class="flex shrink-0 items-center" aria-label="{{ site.Title }} · {{ i18n "home" }}">
       <img src="{{ "images/logo-cyberlehia.png" | relURL }}" alt="{{ site.Title }}" width="283" height="128" class="h-11 w-auto lg:h-14">
@@ -57,7 +58,7 @@
   </div>
 
   {{/* Mobile navigation */}}
-  <nav id="mobile-menu" class="hidden max-h-[calc(100dvh-5rem)] overflow-y-auto border-t border-ink-700 bg-ink-950 lg:hidden" aria-label="{{ i18n "menu" }}">
+  <nav id="mobile-menu" class="hidden max-h-[calc(100dvh-5rem)] overflow-y-auto border-t border-ink-700 bg-ink-850 lg:hidden" aria-label="{{ i18n "menu" }}">
     <ul class="container-site space-y-1 py-4">
       {{ range site.Menus.main }}
         <li>
