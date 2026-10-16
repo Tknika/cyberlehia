@@ -29,57 +29,11 @@
     </div>
   {{ end }}
 
-  {{/* Phases: a progress track (informative only, no links) overlapping the bottom of the video.
-       Nodes + connecting line make the current phase obvious; vertical on mobile, horizontal from lg. */}}
+  {{/* Phases: the shared progress track (_partials/timeline.html), overlapping the bottom of the video. */}}
   {{ with $edition }}
     {{ with .Params.phases }}
-      {{ $last := sub (len .) 1 }}
       <div class="container-site relative z-10 -mt-28 sm:-mt-24">
-        <div class="rounded-xl border border-ink-700 bg-ink-900/95 p-5 shadow-2xl shadow-black/60 backdrop-blur-md sm:p-6 lg:p-8">
-          <div class="mb-6 flex flex-wrap items-baseline justify-between gap-x-6 gap-y-1">
-            <p class="eyebrow">{{ $edition.Params.eyebrow | default $edition.Title }}</p>
-            <p class="font-mono text-xs uppercase tracking-wider text-ink-400">{{ i18n "phases" }}</p>
-          </div>
-          <ol class="grid lg:grid-cols-4" aria-label="{{ i18n "phases" }}">
-            {{ range $i, $p := . }}
-              {{ $status := $p.status | default "upcoming" }}
-              <li class="relative flex gap-4 {{ if lt $i $last }}pb-7 lg:pb-0{{ end }} lg:block lg:pr-6"
-                  {{ if eq $status "active" }}aria-current="step"{{ end }}>
-                {{/* Line to the next phase: solid once a phase is done, fading out after the active one */}}
-                {{ if lt $i $last }}
-                  <span class="absolute left-[11px] top-6 bottom-0 w-0.5 lg:left-6 lg:right-0 lg:top-[11px] lg:bottom-auto lg:h-0.5 lg:w-auto
-                    {{ if eq $status "done" }}bg-ink-400{{ else if eq $status "active" }}bg-gradient-to-b from-pink to-ink-700 lg:bg-gradient-to-r{{ else }}bg-ink-700{{ end }}" aria-hidden="true"></span>
-                {{ end }}
-
-                {{/* Node */}}
-                {{ if eq $status "active" }}
-                  <span class="relative z-10 grid size-6 shrink-0 place-items-center rounded-full bg-pink-600 ring-4 ring-pink/25" aria-hidden="true">
-                    <span class="absolute inset-0 animate-ping rounded-full bg-pink/40 motion-reduce:hidden"></span>
-                    <span class="relative size-2 rounded-full bg-white"></span>
-                  </span>
-                {{ else if eq $status "done" }}
-                  <span class="relative z-10 grid size-6 shrink-0 place-items-center rounded-full bg-ink-400 text-ink-950" aria-hidden="true">
-                    <svg class="size-3.5" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 8.5l3 3 6-7"/></svg>
-                  </span>
-                {{ else }}
-                  <span class="relative z-10 block size-6 shrink-0 rounded-full border-2 border-ink-600 bg-ink-900" aria-hidden="true"></span>
-                {{ end }}
-
-                <div class="min-w-0 lg:mt-4">
-                  <div class="flex flex-wrap items-center gap-x-2 gap-y-1 font-mono text-xs">
-                    {{ if eq $status "active" }}
-                      <span class="rounded bg-pink-600 px-1.5 py-0.5 font-semibold uppercase tracking-wider text-white">{{ i18n "now" }}</span>
-                      <span class="text-pink">{{ $p.dates }}</span>
-                    {{ else }}
-                      <span class="text-ink-400">0{{ add $i 1 }} · {{ $p.dates }}</span>
-                    {{ end }}
-                  </div>
-                  <p class="mt-1.5 font-display leading-snug {{ if eq $status "active" }}text-lg font-bold text-white sm:text-xl{{ else if eq $status "done" }}text-base font-medium text-ink-400 line-through decoration-ink-600{{ else }}text-base font-medium text-ink-300{{ end }}">{{ $p.title }}</p>
-                </div>
-              </li>
-            {{ end }}
-          </ol>
-        </div>
+        {{ partial "timeline.html" (dict "phases" . "eyebrow" ($edition.Params.eyebrow | default $edition.Title) "class" "shadow-2xl shadow-black/60 backdrop-blur-md") }}
       </div>
     {{ end }}
   {{ end }}

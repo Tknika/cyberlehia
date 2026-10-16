@@ -1,4 +1,5 @@
 {{- /* Phases of the current edition (page flagged `current_edition: true`). Usage: {{< timeline >}} */ -}}
 {{ with partial "current-edition.html" . }}
-  {{ with .Params.phases }}<div class="not-prose my-10">{{ partial "timeline.html" . }}</div>{{ end }}
+  {{ $edition := . }}
+  {{ with .Params.phases }}<div class="not-prose my-10">{{ partial "timeline.html" (dict "phases" . "eyebrow" ($edition.Params.eyebrow | default $edition.Title) "details" true) }}</div>{{ end }}
 {{ end }}
