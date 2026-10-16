@@ -9,6 +9,4 @@ menus:
     weight: 10
 ---
 
-CyberLehia Euskadiko Lanbide Heziketako Sailburuordetzak eta CyberZaintzak, Zibersegurtasunaren Euskal Agentziak, sustatutako zibersegurtasun lehiaketa bat da: **CTF** (*Capture The Flag*) txapelketa bat eta, aldi berean, Lanbide Heziketako ikasleen topaketa.
-
-Lanbide Heziketan zibersegurtasunaren kultura sustatzea, ikastetxeetan egiten den lanaren berri ematea eta ikasleen motibazioa sustatzea dira helburu nagusiak.
+CyberLehia Euskadiko Lanbide Heziketako Sailburuordetzak eta CyberZaintza, Zibersegurtasunaren Euskal Agentziak sustatutako Zibersegurtasun lehiaketa bat da. Lanbide Heziketan zibersegurtasunaren kultura sustatzea, ikastetxeetan egiten den lanaren berri ematea eta ikasleen motibazioa sustatzea dira helburu nagusiak.

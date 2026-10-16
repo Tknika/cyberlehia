@@ -1,6 +1,6 @@
 ---
 title: CyberLehia
-description: Euskadiko Lanbide Heziketako zibersegurtasun txapelketa (CTF) eta ikasleen topaketa.
+description: XXX-an final handia Bilboko Alhondigan!
 video:
   youtube: 5rsiuSXlulo
   title: CyberLehia 2026 laburpena
@@ -11,11 +11,11 @@ benefits:
   title: Parte hartzearen abantailak
   text: CyberLehia lehiaketa bat baino gehiago da.
   items:
-    - Beste ikastetxeetako ikasleengandik ikasteko aukera
-    - Ezagutza partekatzeko aukera
-    - Gaur egun zibersegurtasunaren munduan dauden enpresekin harremanetan jartzeko aukera
-    - Zure burua ezagutzera emateko aukera
-    - Ikasitakoa proban jartzeko aukera
+    - Beste ikastetxeetako ikasleengandik ikasi
+    - Ezagutza partekatu
+    - Gaur egun zibersegurtasunaren munduan dauden enpresekin harremanetan jarri
+    - Zure burua ezagutzera eman
+    - Ikasitakoa proban jarri
   button: Parte hartu
 press:
   section: /prentsa-gunea
