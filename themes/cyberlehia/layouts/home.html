@@ -141,18 +141,7 @@
           <a href="{{ .RelPermalink }}" class="shrink-0 font-mono text-sm font-semibold text-cyan hover:underline">{{ i18n "seeAll" }} →</a>
         </div>
         <div class="mt-10 grid gap-6 sm:grid-cols-3">
-          {{ range first 3 .Pages.ByWeight }}
-            {{/* Image fades into the card; the text sits on the solid end of the gradient */}}
-            <a href="{{ .RelPermalink }}" class="group relative flex aspect-[4/3] flex-col justify-end overflow-hidden rounded-xl border border-ink-700 bg-ink-900 transition hover:border-cyan/60 sm:aspect-[3/4] lg:aspect-[4/3]">
-              {{ with .Params.image }}<img src="{{ . | relURL }}" alt="" loading="lazy" class="absolute inset-0 size-full object-cover opacity-75 transition duration-500 group-hover:scale-105 group-hover:opacity-100">{{ end }}
-              <div class="absolute inset-0 bg-gradient-to-t from-ink-950 from-30% via-ink-950/70 via-55% to-ink-950/0"></div>
-              <div class="relative border-l-2 border-pink p-6 pl-5 lg:p-7 lg:pl-6">
-                <h3 class="font-display text-2xl font-bold text-white">{{ .LinkTitle }}</h3>
-                {{ with .Description }}<p class="mt-1.5 text-sm leading-relaxed text-ink-300">{{ . }}</p>{{ end }}
-                <span class="mt-4 inline-flex items-center gap-2 font-mono text-xs font-semibold uppercase tracking-wider text-cyan" aria-hidden="true">{{ i18n "seeMore" }} <span class="transition group-hover:translate-x-1">→</span></span>
-              </div>
-            </a>
-          {{ end }}
+          {{ range first 3 .Pages.ByWeight }}{{ partial "card.html" . }}{{ end }}
         </div>
       </div>
     </section>
