@@ -29,88 +29,126 @@
     </div>
   {{ end }}
 
-  {{/* Phases: informative only, overlapping the bottom of the video */}}
+  {{/* Phases: a progress track (informative only, no links) overlapping the bottom of the video.
+       Nodes + connecting line make the current phase obvious; vertical on mobile, horizontal from lg. */}}
   {{ with $edition }}
     {{ with .Params.phases }}
+      {{ $last := sub (len .) 1 }}
       <div class="container-site relative z-10 -mt-28 sm:-mt-24">
-        <div class="mb-3 flex items-center gap-3">
-          <p class="eyebrow">{{ $edition.Params.eyebrow | default $edition.Title }}</p>
-          <span class="h-px flex-1 bg-gradient-to-r from-ink-600 to-transparent"></span>
+        <div class="rounded-xl border border-ink-700 bg-ink-900/95 p-5 shadow-2xl shadow-black/60 backdrop-blur-md sm:p-6 lg:p-8">
+          <div class="mb-6 flex flex-wrap items-baseline justify-between gap-x-6 gap-y-1">
+            <p class="eyebrow">{{ $edition.Params.eyebrow | default $edition.Title }}</p>
+            <p class="font-mono text-xs uppercase tracking-wider text-ink-400">{{ i18n "phases" }}</p>
+          </div>
+          <ol class="grid lg:grid-cols-4" aria-label="{{ i18n "phases" }}">
+            {{ range $i, $p := . }}
+              {{ $status := $p.status | default "upcoming" }}
+              <li class="relative flex gap-4 {{ if lt $i $last }}pb-7 lg:pb-0{{ end }} lg:block lg:pr-6"
+                  {{ if eq $status "active" }}aria-current="step"{{ end }}>
+                {{/* Line to the next phase: solid once a phase is done, fading out after the active one */}}
+                {{ if lt $i $last }}
+                  <span class="absolute left-[11px] top-6 bottom-0 w-0.5 lg:left-6 lg:right-0 lg:top-[11px] lg:bottom-auto lg:h-0.5 lg:w-auto
+                    {{ if eq $status "done" }}bg-ink-400{{ else if eq $status "active" }}bg-gradient-to-b from-pink to-ink-700 lg:bg-gradient-to-r{{ else }}bg-ink-700{{ end }}" aria-hidden="true"></span>
+                {{ end }}
+
+                {{/* Node */}}
+                {{ if eq $status "active" }}
+                  <span class="relative z-10 grid size-6 shrink-0 place-items-center rounded-full bg-pink-600 ring-4 ring-pink/25" aria-hidden="true">
+                    <span class="absolute inset-0 animate-ping rounded-full bg-pink/40 motion-reduce:hidden"></span>
+                    <span class="relative size-2 rounded-full bg-white"></span>
+                  </span>
+                {{ else if eq $status "done" }}
+                  <span class="relative z-10 grid size-6 shrink-0 place-items-center rounded-full bg-ink-400 text-ink-950" aria-hidden="true">
+                    <svg class="size-3.5" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 8.5l3 3 6-7"/></svg>
+                  </span>
+                {{ else }}
+                  <span class="relative z-10 block size-6 shrink-0 rounded-full border-2 border-ink-600 bg-ink-900" aria-hidden="true"></span>
+                {{ end }}
+
+                <div class="min-w-0 lg:mt-4">
+                  <div class="flex flex-wrap items-center gap-x-2 gap-y-1 font-mono text-xs">
+                    {{ if eq $status "active" }}
+                      <span class="rounded bg-pink-600 px-1.5 py-0.5 font-semibold uppercase tracking-wider text-white">{{ i18n "now" }}</span>
+                      <span class="text-pink">{{ $p.dates }}</span>
+                    {{ else }}
+                      <span class="text-ink-400">0{{ add $i 1 }} · {{ $p.dates }}</span>
+                    {{ end }}
+                  </div>
+                  <p class="mt-1.5 font-display leading-snug {{ if eq $status "active" }}text-lg font-bold text-white sm:text-xl{{ else if eq $status "done" }}text-base font-medium text-ink-400 line-through decoration-ink-600{{ else }}text-base font-medium text-ink-300{{ end }}">{{ $p.title }}</p>
+                </div>
+              </li>
+            {{ end }}
+          </ol>
         </div>
-        <ol class="grid grid-cols-2 overflow-hidden rounded-xl border border-ink-700 bg-ink-900/95 shadow-2xl shadow-black/60 backdrop-blur-md lg:grid-cols-4">
-          {{ range $i, $p := . }}
-            {{ $status := $p.status | default "upcoming" }}
-            <li class="relative border-ink-700 p-5 lg:p-6 {{ if gt $i 0 }}lg:border-l{{ end }} {{ if ge $i 2 }}border-t lg:border-t-0{{ end }} {{ if eq (mod $i 2) 1 }}border-l{{ end }} {{ if eq $status "active" }}bg-ink-800/80{{ end }}"
-                {{ if eq $status "active" }}aria-current="step"{{ end }}>
-              <span class="absolute inset-x-0 top-0 h-0.5 {{ if eq $status "active" }}bg-gradient-to-r from-cyan to-pink{{ else if eq $status "done" }}bg-ink-400/60{{ else }}bg-ink-700{{ end }}" aria-hidden="true"></span>
-              <div class="flex items-center gap-2 font-mono text-xs">
-                <span class="font-bold {{ if eq $status "active" }}text-pink{{ else if eq $status "done" }}text-ink-400{{ else }}text-cyan{{ end }}">0{{ add $i 1 }}</span>
-                <span class="text-ink-600" aria-hidden="true">/</span>
-                <span class="inline-flex items-center gap-1.5 {{ if eq $status "active" }}text-pink{{ else }}text-ink-400{{ end }}">
-                  {{ if eq $status "active" }}<span class="size-1.5 animate-pulse rounded-full bg-pink"></span>{{ end }}
-                  {{ $p.dates }}
-                </span>
-              </div>
-              <p class="mt-2 font-display text-base font-semibold leading-snug sm:text-lg {{ if eq $status "done" }}text-ink-400 line-through decoration-ink-600{{ else }}text-white{{ end }}">{{ $p.title }}</p>
-            </li>
-          {{ end }}
-        </ol>
       </div>
     {{ end }}
   {{ end }}
 </section>
 
 {{/* ---------- Zer da CyberLehia? ---------- */}}
-<section class="container-site pt-20 lg:pt-24">
+<section class="container-site py-20 lg:py-24">
   <div class="max-w-3xl">
     {{ with .Params.about.title }}<h2 class="text-3xl font-bold text-white sm:text-4xl">{{ . }}</h2>{{ end }}
     <div class="prose-cyber mt-6 text-lg">{{ .Content }}</div>
   </div>
 </section>
 
-{{/* ---------- Parte hartzearen abantailak ---------- */}}
+{{/* ---------- Parte hartzearen abantailak (navy band with dot pattern) ---------- */}}
 {{ with .Params.benefits }}
-  <section class="container-site pt-20">
-    <div class="max-w-3xl">
-      <h2 class="text-3xl font-bold text-white sm:text-4xl">{{ .title }}</h2>
-      {{ with .text }}<p class="mt-6 text-lg leading-relaxed text-ink-300">{{ . | markdownify }}</p>{{ end }}
-    </div>
-    {{ with .items }}
-      <ul class="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-        {{ range . }}
-          <li class="card flex items-start gap-3 p-5 text-ink-100">
-            <span class="font-mono font-bold text-lime" aria-hidden="true">&gt;</span>
-            <span>{{ . | markdownify }}</span>
-          </li>
-        {{ end }}
-      </ul>
-    {{ end }}
-    {{ with site.Params.registrationURL }}
-      <div class="mt-10">
-        <a href="{{ . }}" rel="noopener" class="btn-primary text-base">{{ $.Params.benefits.button | default (i18n "register") }} <span aria-hidden="true">→</span></a>
+  <section class="relative overflow-hidden border-y border-ink-800 bg-ink-900 py-20 lg:py-24">
+    <div class="bg-dots pointer-events-none absolute inset-0" aria-hidden="true"></div>
+    <div class="pointer-events-none absolute -right-32 -top-32 size-[28rem] rounded-full bg-violet/20 blur-3xl" aria-hidden="true"></div>
+    <div class="container-site relative">
+      <div class="max-w-3xl">
+        <h2 class="text-3xl font-bold text-white sm:text-4xl">{{ .title }}</h2>
+        {{ with .text }}<p class="mt-6 text-lg leading-relaxed text-ink-300">{{ . | markdownify }}</p>{{ end }}
       </div>
-    {{ end }}
+      {{ with .items }}
+        <ul class="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {{ range . }}
+            <li class="flex items-start gap-3 rounded-xl border border-ink-700 bg-ink-950/70 p-5 text-ink-100">
+              <span class="font-mono font-bold text-lime" aria-hidden="true">&gt;</span>
+              <span>{{ . | markdownify }}</span>
+            </li>
+          {{ end }}
+        </ul>
+      {{ end }}
+      {{ with site.Params.registrationURL }}
+        <div class="mt-10">
+          <a href="{{ . }}" rel="noopener" class="btn-primary text-base">{{ $.Params.benefits.button | default (i18n "register") }} <span aria-hidden="true">→</span></a>
+        </div>
+      {{ end }}
+    </div>
   </section>
 {{ end }}
 
 {{/* ---------- Prentsa gunea ---------- */}}
 {{ with .Params.press }}
   {{ with site.GetPage .section }}
-    <section class="container-site pt-24">
-      <div class="flex items-end justify-between gap-6">
-        <h2 class="text-3xl font-bold text-white sm:text-4xl">{{ .Title }}</h2>
-        <a href="{{ .RelPermalink }}" class="font-mono text-sm font-semibold text-cyan hover:underline">{{ i18n "seeAll" }} →</a>
-      </div>
-      <div class="mt-10 grid gap-6 sm:grid-cols-3">
-        {{ range first 3 .Pages.ByWeight }}
-          <a href="{{ .RelPermalink }}" class="group relative block aspect-[4/3] overflow-hidden rounded-xl border border-ink-700 bg-ink-900">
-            {{ with .Params.image }}<img src="{{ . | relURL }}" alt="" loading="lazy" class="absolute inset-0 size-full object-cover opacity-60 transition duration-500 group-hover:scale-105 group-hover:opacity-80">{{ end }}
-            <div class="absolute inset-0 bg-gradient-to-t from-ink-950/90 via-ink-950/20 to-transparent"></div>
-            <div class="absolute inset-x-5 bottom-5">
-              <span class="inline-block bg-ink-950 px-4 py-2.5 font-display text-xl font-bold text-white ring-1 ring-ink-700 transition group-hover:ring-cyan">{{ .LinkTitle }}</span>
-            </div>
-          </a>
-        {{ end }}
+    <section class="relative pt-20 lg:pt-24">
+      <div class="bg-grid pointer-events-none absolute inset-x-0 top-0 h-96" aria-hidden="true"></div>
+      <div class="container-site relative">
+        <div class="flex items-end justify-between gap-6">
+          <div>
+            {{ with .Params.eyebrow }}<p class="eyebrow mb-3">{{ . }}</p>{{ end }}
+            <h2 class="text-3xl font-bold text-white sm:text-4xl">{{ .Title }}</h2>
+          </div>
+          <a href="{{ .RelPermalink }}" class="shrink-0 font-mono text-sm font-semibold text-cyan hover:underline">{{ i18n "seeAll" }} →</a>
+        </div>
+        <div class="mt-10 grid gap-6 sm:grid-cols-3">
+          {{ range first 3 .Pages.ByWeight }}
+            {{/* Image fades into the card; the text sits on the solid end of the gradient */}}
+            <a href="{{ .RelPermalink }}" class="group relative flex aspect-[4/3] flex-col justify-end overflow-hidden rounded-xl border border-ink-700 bg-ink-900 transition hover:border-cyan/60 sm:aspect-[3/4] lg:aspect-[4/3]">
+              {{ with .Params.image }}<img src="{{ . | relURL }}" alt="" loading="lazy" class="absolute inset-0 size-full object-cover opacity-75 transition duration-500 group-hover:scale-105 group-hover:opacity-100">{{ end }}
+              <div class="absolute inset-0 bg-gradient-to-t from-ink-950 from-30% via-ink-950/70 via-55% to-ink-950/0"></div>
+              <div class="relative border-l-2 border-pink p-6 pl-5 lg:p-7 lg:pl-6">
+                <h3 class="font-display text-2xl font-bold text-white">{{ .LinkTitle }}</h3>
+                {{ with .Description }}<p class="mt-1.5 text-sm leading-relaxed text-ink-300">{{ . }}</p>{{ end }}
+                <span class="mt-4 inline-flex items-center gap-2 font-mono text-xs font-semibold uppercase tracking-wider text-cyan" aria-hidden="true">{{ i18n "seeMore" }} <span class="transition group-hover:translate-x-1">→</span></span>
+              </div>
+            </a>
+          {{ end }}
+        </div>
       </div>
     </section>
   {{ end }}
