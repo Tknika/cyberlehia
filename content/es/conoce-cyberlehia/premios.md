@@ -18,7 +18,3 @@ Habrá premios para **todos los equipos finalistas**. Los premios se darán a co
 ## Todas las personas participantes
 
 Asimismo, se realizarán **sorteos** entre todas las personas participantes de la competición.
-
-{{< note >}}
-Los detalles de los premios de la 4ª edición se publicarán próximamente.
-{{< /note >}}

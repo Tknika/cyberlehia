@@ -1,0 +1,7 @@
+{{- /* Highlight cards linking to other pages of the same language (same design as section listings).
+       Usage: {{< cards "/ezagutu-cyberlehia/sariak" "/kontaktua" >}} (content paths, without the language). */ -}}
+<div class="not-prose my-10 grid gap-6 sm:grid-cols-2">
+  {{- range .Params }}
+    {{- with site.GetPage . }}{{ partial "card.html" . }}{{ else }}{{ errorf "cards shortcode: page %q not found in %s" . $.Position }}{{ end }}
+  {{- end }}
+</div>

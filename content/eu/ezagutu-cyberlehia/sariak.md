@@ -18,7 +18,3 @@ menus:
 ## Partaide guztiak
 
 Era berean, **zozketak** egingo dira lehiaketan parte hartzen duten guztien artean.
-
-{{< note >}}
-4. edizioko sarien xehetasunak laster argitaratuko dira.
-{{< /note >}}

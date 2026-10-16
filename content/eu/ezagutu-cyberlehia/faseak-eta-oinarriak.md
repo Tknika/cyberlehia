@@ -87,10 +87,4 @@ Parte-hartzaileek arau hauek bete beharko dituzte:
 
 > **Oharra:** antolakuntzak arau-hauste baten zantzurik sumatuz gero, partaideak kanporatzeko eskubidea du.
 
-## Sariak
-
-Talde finalista guztientzako sariak egongo dira. Era berean, zozketak egingo dira lehiaketan parte hartzen duten guztien artean. Ikus [Sariak](/ezagutu-cyberlehia/sariak/).
-
-## Komunikazioa eta harremana
-
-Txapelketari buruzko komunikazioa posta elektronikoz egingo da. Antolakuntzarekin harremanetan jartzeko: [cyberlehia@tknika.eus](mailto:cyberlehia@tknika.eus).
+{{< cards "/ezagutu-cyberlehia/sariak" "/kontaktua" >}}
