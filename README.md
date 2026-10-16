@@ -114,9 +114,10 @@ menus:
 
 | Field | What it controls |
 | --- | --- |
-| `video.src` | Self-hosted MP4 background video (preferred; e.g. `videos/cyberlehia.mp4` in `static/`) |
+| `video.src` | Self-hosted MP4 background loop (preferred): `videos/hero.mp4`, made with `scripts/encode-hero-video.sh` |
+| `video.webm` | Optional VP9 version of the same loop (`videos/hero.webm`), smaller; used first where supported |
 | `video.youtube` | YouTube ID used when there is no `video.src` (currently `5rsiuSXlulo`, "CyberLehia 2026 laburpena") |
-| `video.poster` | Image shown until the video plays, and when autoplay is blocked |
+| `video.poster` | Hero image: always shown first, and the only thing shown with reduced motion, Save-Data, a 2G connection, blocked autoplay, or (YouTube only) on screens under 768px |
 | `about.title` + page body | The "Zer da CyberLehia?" section |
 | `benefits` | "Parte hartzearen abantailak": `title`, `text`, `items`, `button` label |
 | `press.section` | Section whose first 3 pages (by `weight`) are shown as cards |
@@ -163,7 +164,7 @@ phases:
 themes/cyberlehia/
 ├── assets/
 │   ├── css/main.css              # Tailwind entry: @theme tokens, base styles, components (prose-cyber, video-bg…)
-│   └── js/main.js                # Mobile menu + background-video reveal (bundled with js.Build)
+│   └── js/main.js                # Mobile menu + background-video loader (bundled with js.Build)
 ├── i18n/{eu,es}.yaml             # Interface strings
 ├── layouts/
 │   ├── baseof.html               # Page skeleton

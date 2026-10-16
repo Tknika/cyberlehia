@@ -50,13 +50,14 @@ There is no test suite. **A change is verified when:**
 - In Tailwind v4 you **can't `@apply` a custom component class** (e.g. `@apply btn`). Repeat the utilities instead.
 - Markdown output is wrapped in `.prose-cyber`. Inside it, add `not-prose` to any custom HTML block (shortcodes like `timeline`, `gallery` and `youtube` do this) so the prose styles don't leak into it. Prose link styles only apply to `<a>` without a `class`.
 - Tailwind only sees classes that appear in `hugo_stats.json` (rendered HTML) or literally in the CSS. Classes built dynamically in templates (e.g. `printf "text-%s" $color`) are not detected, so write full class names.
-- Respect `prefers-reduced-motion` (the background video and animations are already disabled with `motion-reduce:`).
+- Respect `prefers-reduced-motion` (animations use `motion-reduce:`; the background video is never loaded, see below).
 - The site is dark-only (`color-scheme: dark`).
 
 ## Home page specifics
 
 - The background video area is `.video-bg` (`container-type: size`). The YouTube iframe is sized to *cover* using the picture ratio of the current video (≈2.25:1 letterboxed inside 16:9) and scaled ×1.2 to crop YouTube's UI. If the video changes, recompute the `width`/`height` in `main.css`. A self-hosted MP4 (`video.src`) uses `object-cover` and needs no maths.
-- `assets/js/main.js` keeps the poster visible and fades the iframe in only while the YouTube player reports `PLAYING`.
+- The HTML never downloads video: the poster `<img>` is the hero. `assets/js/main.js` attaches the video after `load` (when idle), and only without reduced motion, Save-Data or 2G. The self-hosted `<video>` uses `<source data-src>` + `preload="none"`; the YouTube iframe is created from `data-youtube-id`, on screens ≥ 768px only. Either fades in only once it is playing and pauses off-screen or in a background tab.
+- To make the self-hosted loop from an original file: `scripts/encode-hero-video.sh <file> [start] [duration]` (needs ffmpeg), then set `video.src` / `video.webm` / `video.poster` in both `_index.md` files.
 - The phase bar under/over the video is informative only (no links). `status: active` gets the cyan→pink top line and a pulsing dot.
 
 ## Git & CI
@@ -72,4 +73,4 @@ There is no test suite. **A change is verified when:**
 - Testimonials page is a placeholder.
 - The cookie policy (copied from WordPress) still lists `_pk_*` analytics cookies that the static site doesn't set; it needs a legal review.
 - `registrationURL` points to last edition's (expired) LimeSurvey form; update it with the new survey ID.
-- Optional: replace the YouTube background with a short self-hosted MP4 loop (`video.src`).
+- Replace the YouTube background with a short self-hosted loop (`video.src`): needs the original video file from the organisers (see `scripts/encode-hero-video.sh`).

@@ -7,20 +7,20 @@
 
   {{ with .Params.video }}
     <div class="video-bg relative h-[62vh] min-h-[360px] max-h-[860px] overflow-hidden bg-ink-950 lg:h-[78vh]" aria-hidden="true">
-      {{ with .poster }}<img src="{{ . | relURL }}" alt="" class="absolute inset-0 size-full object-cover">{{ end }}
+      {{/* The poster is the real hero image (fast LCP); the video only fades in on top once it is playing.
+           Nothing video-related is downloaded from the HTML: main.js attaches the source after the page has
+           loaded, and only without reduced motion, Save-Data or a slow connection (see bgVideo in main.js). */}}
+      {{ with .poster }}<img src="{{ . | relURL }}" alt="" fetchpriority="high" class="absolute inset-0 size-full object-cover">{{ end }}
       {{ with .src }}
-        {{/* Self-hosted file (preferred): no third-party player UI or cookies. */}}
-        <video class="absolute inset-0 size-full object-cover motion-reduce:hidden" autoplay muted loop playsinline preload="auto"
-               {{ with $.Params.video.poster }}poster="{{ . | relURL }}"{{ end }}>
-          <source src="{{ . | relURL }}" type="video/mp4">
+        {{/* Self-hosted loop (preferred): small, no third-party requests or player UI. */}}
+        <video class="absolute inset-0 size-full object-cover opacity-0 transition-opacity duration-1000" data-bg-video="file"
+               muted loop playsinline preload="none" disablepictureinpicture>
+          {{ with $.Params.video.webm }}<source data-src="{{ . | relURL }}" type="video/webm; codecs=vp9">{{ end }}
+          <source data-src="{{ . | relURL }}" type="video/mp4">
         </video>
       {{ else with .youtube }}
-        {{/* Background-style player: muted, looped, no controls, cropped to cover. youtube-nocookie avoids tracking cookies. */}}
-        <iframe class="opacity-0 transition-opacity duration-1000 motion-reduce:hidden" data-bg-video
-                src="https://www.youtube-nocookie.com/embed/{{ . }}?autoplay=1&mute=1&loop=1&playlist={{ . }}&controls=0&modestbranding=1&rel=0&playsinline=1&disablekb=1&iv_load_policy=3&enablejsapi=1"
-                title="{{ $.Params.video.title | default site.Title }}"
-                allow="autoplay; encrypted-media" referrerpolicy="strict-origin-when-cross-origin"
-                tabindex="-1"></iframe>
+        {{/* Fallback: YouTube background player, created by main.js on wide screens only. youtube-nocookie avoids tracking cookies. */}}
+        <div data-bg-video="youtube" data-youtube-id="{{ . }}" data-title="{{ $.Params.video.title | default site.Title }}"></div>
       {{ end }}
       {{/* Tint + fade into the page background */}}
       <div class="absolute inset-0 bg-ink-950/25"></div>
