@@ -35,4 +35,4 @@ Las fechas de inscripción de la 4ª edición se publicarán próximamente. Mien
 - Para la final, cada participante deberá llevar su propio **ordenador portátil**.
 - Ganas, curiosidad y disposición para trabajar en equipo.
 
-{{< button href="/conoce-cyberlehia/fases-y-bases/" >}}Lee las bases de la competición →{{< /button >}}
+{{< button href="/conoce-cyberlehia/fases-y-bases/" >}}Ver las fases y bases de la competición →{{< /button >}}

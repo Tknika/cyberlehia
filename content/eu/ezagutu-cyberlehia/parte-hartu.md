@@ -35,4 +35,4 @@ Izen-ematea online egiten da, lehiaketa hasi aurretik. Gehienez **1000 partaide*
 - Finalerako, parte-hartzaile bakoitzak bere **ordenagailu eramangarria**.
 - Gogoa, jakin-mina eta taldean lan egiteko prestutasuna.
 
-{{< button href="/ezagutu-cyberlehia/faseak-eta-oinarriak/" >}}Irakurri lehiaketaren oinarriak →{{< /button >}}
+{{< button href="/ezagutu-cyberlehia/faseak-eta-oinarriak/" >}}Ikusi lehiaketaren faseak eta oinarriak →{{< /button >}}
