@@ -1,8 +1,16 @@
-{{- /* Page title band with breadcrumb. Context: page. */ -}}
+{{- /* Page title band with breadcrumb. Context: page. Optional `header_image` adds a darkened photo behind it. */ -}}
 <section class="relative overflow-hidden border-b border-ink-700/60">
+  {{ with .Params.header_image }}
+    <div class="pointer-events-none absolute inset-0" aria-hidden="true">
+      <img src="{{ . | relURL }}" alt="" class="size-full object-cover object-center opacity-40 sm:opacity-60">
+      {{/* Solid on the text side, the photo shows through on the right; fades into the page at the bottom */}}
+      <div class="absolute inset-0 bg-gradient-to-r from-ink-950 from-20% via-ink-950/85 via-50% to-ink-950/30"></div>
+      <div class="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-ink-950 to-transparent"></div>
+    </div>
+  {{ end }}
   <div class="bg-grid pointer-events-none absolute inset-0" aria-hidden="true"></div>
   <div class="pointer-events-none absolute -top-40 right-0 size-[28rem] rounded-full bg-violet/20 blur-3xl" aria-hidden="true"></div>
-  <div class="container-site relative py-14 lg:py-20">
+  <div class="container-site relative {{ if .Params.header_image }}py-20 lg:py-32{{ else }}py-14 lg:py-20{{ end }}">
     <nav aria-label="Breadcrumb" class="font-mono text-xs text-ink-400">
       <ol class="flex flex-wrap items-center gap-2">
         {{ range .Ancestors.Reverse }}

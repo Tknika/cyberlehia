@@ -2,7 +2,7 @@
 title: Ezagutu CyberLehia
 translationKey: about
 eyebrow: Lehiaketa
-description: Zer da CyberLehia, nork har dezake parte, nola antolatzen da eta zer sari daude.
+header_image: images/final.jpg
 menus:
   main:
     identifier: ezagutu

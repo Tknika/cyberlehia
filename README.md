@@ -66,8 +66,7 @@ Every push to `main` runs [`.github/workflows/pages.yml`](.github/workflows/page
 | `ezagutu-cyberlehia/_index.md` | `conoce-cyberlehia/_index.md` | `about` |
 | ├ `parte-hartu.md` | ├ `participa.md` | `participate` |
 | ├ `faseak-eta-oinarriak.md` | ├ `fases-y-bases.md` | `rules` |
-| ├ `sariak.md` | ├ `premios.md` | `prizes` |
-| └ `ohiko-galderak.md` | └ `preguntas-frecuentes.md` | `faq` |
+| └ `sariak.md` | └ `premios.md` | `prizes` |
 | `4-edizioa/_index.md` | `4-edicion/_index.md` | `edition-4` |
 | `aurreko-edizioak/` (`2024.md`, `2025.md`, `2026.md`) | `ediciones-previas/` | `editions`, `edition-YYYY` |
 | `prentsa-gunea/_index.md` | `sala-de-prensa/_index.md` | `press` |
@@ -95,6 +94,7 @@ eyebrow: Sariak                 # small label above the title
 description: One sentence.      # subtitle, meta description and card text
 weight: 30                      # order inside its section (lower first)
 image: images/edizioa-2026.jpg  # card/header image: path under static/, no leading slash
+header_image: images/final.jpg  # optional photo behind the page title band (darkened for contrast)
 menus:
   main:
     parent: ezagutu             # submenu of "Ezagutu CyberLehia"

@@ -2,7 +2,7 @@
 title: Conoce CyberLehia
 translationKey: about
 eyebrow: La competición
-description: Qué es CyberLehia, quién puede participar, cómo se organiza y qué premios hay.
+header_image: images/final.jpg
 menus:
   main:
     identifier: ezagutu
