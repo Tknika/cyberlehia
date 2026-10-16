@@ -76,6 +76,13 @@
     mask-image: radial-gradient(ellipse at 50% 0%, black 30%, transparent 75%);
   }
 
+  /* Dot pattern for content bands; fades out towards the bottom-left */
+  .bg-dots {
+    background-image: radial-gradient(rgb(112 73 186 / 0.45) 1px, transparent 1.5px);
+    background-size: 22px 22px;
+    mask-image: linear-gradient(to bottom left, black 10%, transparent 65%);
+  }
+
   .text-gradient {
     @apply bg-gradient-to-r from-cyan via-brand to-pink bg-clip-text text-transparent;
   }
