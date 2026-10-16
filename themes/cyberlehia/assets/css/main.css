@@ -35,7 +35,9 @@
   /* Brand colours from the current CyberLehia site */
   --color-brand: #4f5bd5;      /* logo indigo */
   --color-cyan: #16b2c9;
-  --color-pink: #e95095;
+  --color-pink: #e95095;       /* accent text on dark backgrounds (5.7:1 on ink-950) */
+  --color-pink-600: #c7357a;   /* filled surfaces under white text (5:1, WCAG AA) */
+  --color-pink-700: #b8306f;   /* hover state of pink-600 (5.7:1 with white) */
   --color-violet: #7049ba;
   --color-lime: #a3e635;       /* "terminal" accent for small details */
 }
@@ -53,7 +55,7 @@
     @apply font-display tracking-tight;
   }
   ::selection {
-    @apply bg-pink text-white;
+    @apply bg-pink-600 text-white;
   }
   :focus-visible {
     @apply outline-2 outline-offset-2 outline-cyan;
@@ -83,7 +85,7 @@
   }
 
   .btn-primary {
-    @apply inline-flex items-center gap-2 rounded-md px-5 py-3 font-mono text-sm font-semibold transition bg-pink text-white shadow-lg shadow-pink/20 hover:bg-pink/85;
+    @apply inline-flex items-center gap-2 rounded-md px-5 py-3 font-mono text-sm font-semibold transition bg-pink-600 text-white shadow-lg shadow-pink/20 hover:bg-pink-700;
   }
   .btn-ghost {
     @apply inline-flex items-center gap-2 rounded-md px-5 py-3 font-mono text-sm font-semibold transition border border-ink-600 text-ink-100 hover:border-cyan hover:text-cyan;
