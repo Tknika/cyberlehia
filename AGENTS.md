@@ -56,7 +56,7 @@ There is no test suite. **A change is verified when:**
 ## Home page specifics
 
 - The background video area is `.video-bg` (`container-type: size`). The YouTube iframe is sized to *cover* using the picture ratio of the current video (≈2.25:1 letterboxed inside 16:9) and scaled ×1.2 to crop YouTube's UI. If the video changes, recompute the `width`/`height` in `main.css`. A self-hosted MP4 (`video.src`) uses `object-cover` and needs no maths.
-- The HTML never downloads video: the poster `<img>` is the hero. `assets/js/main.js` attaches the video after `load` (when idle), and only without reduced motion, Save-Data or 2G. The self-hosted `<video>` uses `<source data-src>` + `preload="none"`; the YouTube iframe is created from `data-youtube-id`, on screens ≥ 768px only. Either fades in only once it is playing and pauses off-screen or in a background tab.
+- The HTML never downloads video: the poster `<img>` is the hero. `assets/js/main.js` attaches the video after `load` (when idle), and only without reduced motion, Save-Data or 2G. The self-hosted `<video>` uses `<source data-src>` + `preload="none"`; the YouTube iframe is created from `data-youtube-id`. Either one is created only while the hero is on screen and the viewport is ≥ 768px (re-checked on resize: narrowing pauses it and shows the poster again), fades in only once it is playing, and pauses off-screen or in a background tab.
 - To make the self-hosted loop from an original file: `scripts/encode-hero-video.sh <file> [start] [duration]` (needs ffmpeg), then set `video.src` / `video.webm` / `video.poster` in both `_index.md` files.
 - The phase bar under/over the video is informative only (no links). `status: active` gets the cyan→pink top line and a pulsing dot.
 

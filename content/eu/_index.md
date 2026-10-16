@@ -4,7 +4,7 @@ description: Euskadiko Lanbide Heziketako zibersegurtasun txapelketa (CTF) eta i
 video:
   youtube: 5rsiuSXlulo
   title: CyberLehia 2026 laburpena
-  poster: images/video-poster.jpg
+  poster: images/edizioa-2026.jpg
 about:
   title: Zer da CyberLehia?
 benefits:

@@ -12,15 +12,17 @@ if (toggle && menu) {
   });
 }
 
-// Background video. The poster image is always shown; the video is only loaded after the page has
-// finished loading, and never with reduced motion, Save-Data or a slow (2G) connection. It fades in
-// once it is actually playing (hides black frames, blocked autoplay and player UI) and pauses while
-// off-screen or in a background tab.
+// Background video. The poster image is the hero and is always shown first. The video is created only
+// once the page has finished loading (and the browser is idle), while the hero is on screen, on screens
+// >= 768px, and never with reduced motion, Save-Data or a slow (2G) connection. It fades in once it is
+// actually playing (hides black frames, blocked autoplay and player UI); it is paused and hidden again
+// when it scrolls off-screen, the tab is hidden or the window is narrowed below 768px.
 const bgVideo = document.querySelector("[data-bg-video]");
 const connection = navigator.connection;
 const canPlayBgVideo =
   !window.matchMedia("(prefers-reduced-motion: reduce)").matches &&
   !(connection && (connection.saveData || /(^|-)2g$/.test(connection.effectiveType || "")));
+const wideScreen = window.matchMedia("(min-width: 768px)");
 
 // Run fn after load, when the browser is idle, so the video never competes with the page itself.
 const whenIdle = (fn) => {
@@ -29,51 +31,36 @@ const whenIdle = (fn) => {
   else window.addEventListener("load", run, { once: true });
 };
 
-// Call play/pause as the hero enters/leaves the viewport or the tab is hidden.
-const playWhileVisible = (el, play, pause) => {
-  let inView = true;
-  const update = () => (inView && !document.hidden ? play() : pause());
-  new IntersectionObserver(([entry]) => {
-    inView = entry.isIntersecting;
-    update();
-  }).observe(el);
-  document.addEventListener("visibilitychange", update);
-};
-
-// Self-hosted loop (preferred): attach the <source> URLs, then play.
-const setupFileVideo = (video) => {
-  video.querySelectorAll("source[data-src]").forEach((s) => (s.src = s.dataset.src));
+// Self-hosted loop (preferred). start() attaches the <source> URLs the first time only.
+const fileVideo = (video) => {
+  let started = false;
   video.addEventListener("playing", () => video.classList.remove("opacity-0"));
-  video.load();
-  playWhileVisible(
-    video,
-    () => video.play().catch(() => {}), // autoplay refused: the poster stays visible
-    () => video.pause(),
-  );
+  video.addEventListener("pause", () => video.classList.add("opacity-0"));
+  return {
+    start() {
+      if (started) return;
+      started = true;
+      video.querySelectorAll("source[data-src]").forEach((s) => (s.src = s.dataset.src));
+      video.load();
+    },
+    play: () => video.play().catch(() => {}), // autoplay refused: the poster stays visible
+    pause: () => video.pause(),
+  };
 };
 
-// YouTube fallback: create the iframe and drive it with the IFrame API.
-const setupYouTube = (holder) => {
-  const id = holder.dataset.youtubeId;
-  const iframe = document.createElement("iframe");
-  iframe.className = "opacity-0 transition-opacity duration-1000";
-  iframe.src = `https://www.youtube-nocookie.com/embed/${id}?autoplay=1&mute=1&loop=1&playlist=${id}&controls=0&modestbranding=1&rel=0&playsinline=1&disablekb=1&iv_load_policy=3&enablejsapi=1`;
-  iframe.title = holder.dataset.title;
-  iframe.allow = "autoplay; encrypted-media";
-  iframe.referrerPolicy = "strict-origin-when-cross-origin";
-  iframe.tabIndex = -1;
-  holder.replaceWith(iframe);
+// YouTube fallback. start() creates the iframe and loads the IFrame API the first time only.
+const youTubeVideo = (holder) => {
+  let player = null;
+  let wantPlay = false;
 
-  const setup = () => {
+  const createPlayer = (iframe) => {
     new window.YT.Player(iframe, {
       events: {
         onReady: (e) => {
-          e.target.mute();
-          playWhileVisible(
-            iframe,
-            () => e.target.playVideo(),
-            () => e.target.pauseVideo(),
-          );
+          player = e.target;
+          player.mute();
+          if (wantPlay) player.playVideo();
+          else player.pauseVideo(); // narrowed or scrolled away while the player was loading
         },
         onStateChange: (e) => {
           iframe.classList.toggle("opacity-0", e.data !== window.YT.PlayerState.PLAYING);
@@ -82,25 +69,66 @@ const setupYouTube = (holder) => {
     });
   };
 
-  if (window.YT && window.YT.Player) {
-    setup();
-  } else {
-    const previous = window.onYouTubeIframeAPIReady;
-    window.onYouTubeIframeAPIReady = () => {
-      if (previous) previous();
-      setup();
-    };
-    const tag = document.createElement("script");
-    tag.src = "https://www.youtube.com/iframe_api";
-    document.head.appendChild(tag);
-  }
+  return {
+    start() {
+      if (!holder.isConnected) return; // already started
+      const id = holder.dataset.youtubeId;
+      const iframe = document.createElement("iframe");
+      iframe.className = "opacity-0 transition-opacity duration-1000";
+      iframe.src = `https://www.youtube-nocookie.com/embed/${id}?autoplay=1&mute=1&loop=1&playlist=${id}&controls=0&modestbranding=1&rel=0&playsinline=1&disablekb=1&iv_load_policy=3&enablejsapi=1`;
+      iframe.title = holder.dataset.title;
+      iframe.allow = "autoplay; encrypted-media";
+      iframe.referrerPolicy = "strict-origin-when-cross-origin";
+      iframe.tabIndex = -1;
+      holder.replaceWith(iframe);
+
+      if (window.YT && window.YT.Player) {
+        createPlayer(iframe);
+      } else {
+        const previous = window.onYouTubeIframeAPIReady;
+        window.onYouTubeIframeAPIReady = () => {
+          if (previous) previous();
+          createPlayer(iframe);
+        };
+        const tag = document.createElement("script");
+        tag.src = "https://www.youtube.com/iframe_api";
+        document.head.appendChild(tag);
+      }
+    },
+    play() {
+      wantPlay = true;
+      if (player) player.playVideo();
+    },
+    pause() {
+      wantPlay = false;
+      if (player) player.pauseVideo();
+    },
+  };
 };
 
 if (bgVideo && canPlayBgVideo) {
-  if (bgVideo.dataset.bgVideo === "file") {
-    whenIdle(() => setupFileVideo(bgVideo));
-  } else if (window.matchMedia("(min-width: 768px)").matches) {
-    // The YouTube player is ~0.5 MB of script plus a streamed video: on phones the poster is enough.
-    whenIdle(() => setupYouTube(bgVideo));
-  }
+  const video = bgVideo.dataset.bgVideo === "file" ? fileVideo(bgVideo) : youTubeVideo(bgVideo);
+  const hero = bgVideo.closest(".video-bg") || bgVideo;
+  let pageReady = false;
+  let inView = false;
+
+  const update = () => {
+    if (pageReady && inView && wideScreen.matches && !document.hidden) {
+      video.start();
+      video.play();
+    } else {
+      video.pause();
+    }
+  };
+
+  new IntersectionObserver(([entry]) => {
+    inView = entry.isIntersecting;
+    update();
+  }).observe(hero);
+  document.addEventListener("visibilitychange", update);
+  wideScreen.addEventListener("change", update);
+  whenIdle(() => {
+    pageReady = true;
+    update();
+  });
 }

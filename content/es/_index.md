@@ -4,7 +4,7 @@ description: Campeonato de ciberseguridad (CTF) y encuentro del alumnado de Form
 video:
   youtube: 5rsiuSXlulo
   title: Resumen CyberLehia 2026
-  poster: images/video-poster.jpg
+  poster: images/edizioa-2026.jpg
 about:
   title: ¿Qué es CyberLehia?
 benefits:
