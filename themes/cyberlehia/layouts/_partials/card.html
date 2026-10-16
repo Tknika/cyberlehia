@@ -1,6 +1,6 @@
 {{- /* Content card, the same on the home page and in section listings. Context: page.
        With `image`, the photo fades into the card and the text sits on the solid end of the gradient;
-       without one, a dot pattern with cyan and pink glows takes its place. The pink bar beside the text
+       without one, a plain dark dot pattern takes its place. The pink bar beside the text
        and the cyan "see more" cue keep both brand colours on every card. */ -}}
 <a href="{{ .RelPermalink }}" class="group relative flex min-h-72 flex-col justify-end overflow-hidden rounded-xl border border-ink-700 bg-ink-900 transition hover:border-cyan/60">
   {{ with .Params.image }}
@@ -8,9 +8,7 @@
     <div class="absolute inset-0 bg-gradient-to-t from-ink-950 from-30% via-ink-950/70 via-55% to-ink-950/0"></div>
   {{ else }}
     <div class="pointer-events-none absolute inset-0" aria-hidden="true">
-      <div class="bg-dots absolute inset-0"></div>
-      <div class="absolute -right-12 -top-16 size-60 rounded-full bg-pink/35 blur-3xl transition duration-500 group-hover:bg-pink/45"></div>
-      <div class="absolute -left-16 top-4 size-52 rounded-full bg-cyan/30 blur-3xl transition duration-500 group-hover:bg-cyan/40"></div>
+      <div class="bg-dots absolute inset-0 opacity-60 transition duration-500 group-hover:opacity-100"></div>
       <div class="absolute inset-0 bg-gradient-to-t from-ink-950 from-20% via-ink-950/60 via-45% to-ink-950/0"></div>
     </div>
   {{ end }}
