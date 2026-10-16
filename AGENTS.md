@@ -18,14 +18,14 @@ hugo --gc --minify --baseURL https://tknika.github.io/cyberlehia/ -d /tmp/out   
 There is no test suite. **A change is verified when:**
 1. `hugo --gc --minify` finishes with no `ERROR` and no `WARN` lines.
 2. A build with a subpath `baseURL` (command above) has no links that miss the prefix:
-   `grep -rhoE '(href|src|poster)="/[^"]*"' /tmp/out --include=*.html | grep -v '"/cyberlehia/'` prints nothing.
+   `grep -rhoE '(href|src|poster)="?/[^" >]*' /tmp/out --include=*.html | grep -vE '="?/cyberlehia/'` prints nothing (minified HTML leaves most attributes unquoted, hence the `"?`).
 3. For visual changes, check the pages in a browser (or headless Chrome screenshots) at ~1440px, ~1024px and ~390px wide, in **both** languages.
 
 ## Hard rules
 
 1. **Both languages, always.** Every content change in `content/eu/` needs the matching change in `content/es/` (and vice versa), with the same `translationKey`. Every new UI string goes in both `themes/cyberlehia/i18n/eu.yaml` and `es.yaml`. Use `{{ i18n "key" }}` in templates and never hardcode Basque or Spanish text in layouts.
 2. **Basque is the source language.** The Spanish slugs and texts are translations; keep the URLs of the legal pages (`lege-oharra`, `pribatutasun-politika`, `cookie-politika`, `es/aviso-legal`, `es/politica-de-privacidad`, `es/politica-de-cookies`) and of `aurreko-edizioak` / `es/ediciones-previas` stable, because they match the old WordPress site.
-3. **Never hardcode URLs** in templates. Use `.RelPermalink`, `relURL`, `relLangURL` or `absURL`. Asset paths passed to `relURL` must **not** start with `/` (use `images/x.jpg`, not `/images/x.jpg`), or the GitHub Pages subpath is lost. In CSS, reference `static/` files with relative URLs (`../fonts/…`).
+3. **Never hardcode URLs** in templates. Use `.RelPermalink`, `relURL`, `relLangURL` or `absURL`. Asset paths passed to `relURL` must **not** start with `/` (use `images/x.jpg`, not `/images/x.jpg`), or the GitHub Pages subpath is lost. In CSS, reference `static/` files with relative URLs (`../fonts/…`). In Markdown, write internal links as `/path/` without the language prefix (`/kontaktua/`, `/images/x.png`): `_markup/render-link.html` turns pages into `relLangURL` and files (anything with an extension) into `relURL`.
 4. **Don't invent facts.** Dates, venues, prizes, results, testimonials and press coverage come from the organisers. If a fact is unknown, use the existing placeholders ("Laster" / "Próximamente", or a `{{< note >}}`) and say so in your summary.
 5. **Tailwind: npm only.** Hugo 0.16x refuses the standalone `tailwindcss` binary ("not a Node.js script"). Don't add PostCSS, a `tailwind.config.js` or extra npm packages unless asked; Tailwind v4 is configured in CSS (`@theme` in `assets/css/main.css`).
 6. **Don't commit build output:** `public/`, `resources/_gen/`, `node_modules/`, `hugo_stats.json` and `.hugo_build.lock` are git-ignored.
