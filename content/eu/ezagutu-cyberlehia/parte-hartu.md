@@ -25,8 +25,10 @@ Euskadiko **Lanbide Heziketako Ikastetxe integratuetako** edo **Zibersegurtasun 
 
 Izen-ematea online egiten da, lehiaketa hasi aurretik. Gehienez **1000 partaide** onartzen dira.
 
+{{< register >}}
+
 {{< note >}}
-4. edizioko izen-emate datak laster argitaratuko dira. Bitartean, idatzi [cyberlehia@tknika.eus](mailto:cyberlehia@tknika.eus) helbidera edozein zalantzarekin.
+4\. edizioko izen-emate datak laster argitaratuko dira. Bitartean, idatzi [cyberlehia@tknika.eus](mailto:cyberlehia@tknika.eus) helbidera edozein zalantzarekin.
 {{< /note >}}
 
 ## Zer behar duzu?

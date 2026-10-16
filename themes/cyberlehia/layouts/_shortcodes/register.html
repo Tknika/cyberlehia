@@ -1,0 +1,7 @@
+{{- /* Call-to-action button to the registration form (site param `registrationURL`, per language in hugo.toml).
+       Usage: {{< register >}}. Hidden when registrationURL is empty. */ -}}
+{{- with site.Params.registrationURL -}}
+<div class="not-prose my-8">
+  <a href="{{ . }}" rel="noopener" class="btn-primary text-base">{{ i18n "register" }} <span aria-hidden="true">→</span></a>
+</div>
+{{- end -}}

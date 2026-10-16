@@ -25,6 +25,8 @@ Puede participar cualquier alumna o alumno de **Centros Integrados de Formación
 
 La inscripción se realiza online, antes del inicio de la competición. Se admite un máximo de **1000 participantes**.
 
+{{< register >}}
+
 {{< note >}}
 Las fechas de inscripción de la 4ª edición se publicarán próximamente. Mientras tanto, escribe a [cyberlehia@tknika.eus](mailto:cyberlehia@tknika.eus) con cualquier duda.
 {{< /note >}}
