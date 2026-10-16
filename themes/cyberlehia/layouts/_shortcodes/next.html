@@ -1,0 +1,19 @@
+{{- /* "Keep reading" links at the end of a page: the pages the reader should go to after this one.
+       Usage (two per page, side by side):
+         {{< next-links >}}
+         {{< next "/ezagutu-cyberlehia/sariak" >}}One sentence that ties this page to that one.{{< /next >}}
+         {{< next "/kontaktua" >}}…{{< /next >}}
+         {{< /next-links >}}
+       Content path without the language; with no inner text, the target page's description is shown. */ -}}
+{{- with site.GetPage (.Get 0) -}}
+<a href="{{ .RelPermalink }}" class="group relative flex items-center gap-4 overflow-hidden rounded-xl border border-ink-700 border-l-2 border-l-pink bg-ink-900 px-5 py-4 transition hover:border-cyan/60 hover:border-l-pink">
+  <span class="min-w-0 flex-1">
+    {{ with .Params.eyebrow }}<span class="eyebrow block">{{ . }}</span>{{ end }}
+    <span class="mt-1 block font-display text-lg font-bold text-white">{{ .LinkTitle }}</span>
+    <span class="mt-1 block text-sm leading-relaxed text-ink-300">{{/* No links inside the link */}}{{ with $.Inner }}{{ . | $.Page.RenderString | replaceRE `</?a\b[^>]*>` "" | safeHTML }}{{ else }}{{ .Description }}{{ end }}</span>
+  </span>
+  <span class="font-mono text-lg text-cyan transition group-hover:translate-x-1" aria-hidden="true">→</span>
+</a>
+{{- else -}}
+{{ errorf "next shortcode: page %q not found in %s" (.Get 0) .Position }}
+{{- end -}}

@@ -18,3 +18,8 @@ Habrá premios para **todos los equipos finalistas**. Los premios se darán a co
 ## Todas las personas participantes
 
 Asimismo, se realizarán **sorteos** entre todas las personas participantes de la competición.
+
+{{< next-links >}}
+{{< next "/4-edicion" >}}¿Te animas? Sigue las novedades de la 4ª edición: fechas, inscripción y sede de la final.{{< /next >}}
+{{< next "/ediciones-previas" >}}Descubre cómo fueron las ediciones anteriores y dónde se jugaron las finales.{{< /next >}}
+{{< /next-links >}}

@@ -1,0 +1,5 @@
+{{- /* Wrapper for the `next` links at the end of a page (see next.html). */ -}}
+<nav class="not-prose mt-14" aria-label="{{ i18n "nextRead" }}">
+  <p class="font-mono text-xs uppercase tracking-wider text-ink-400">{{ i18n "nextRead" }}</p>
+  <div class="mt-4 grid gap-4 sm:grid-cols-2">{{ .Inner }}</div>
+</nav>

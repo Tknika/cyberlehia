@@ -18,3 +18,8 @@ menus:
 ## Partaide guztiak
 
 Era berean, **zozketak** egingo dira lehiaketan parte hartzen duten guztien artean.
+
+{{< next-links >}}
+{{< next "/4-edizioa" >}}Prest zaude? Egon adi 4. edizioaren berriei: datak, izen-ematea eta finalaren egoitza.{{< /next >}}
+{{< next "/aurreko-edizioak" >}}Ezagutu nola joan ziren aurreko edizioak eta non jokatu ziren finalak.{{< /next >}}
+{{< /next-links >}}
