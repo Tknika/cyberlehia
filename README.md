@@ -94,7 +94,7 @@ eyebrow: Sariak                 # small label above the title
 description: One sentence.      # subtitle, meta description and card text
 weight: 30                      # order inside its section (lower first)
 image: images/edizioa-2026.jpg  # card/header image: path under static/, no leading slash
-header_image: images/final.jpg  # optional photo behind the page title band (darkened for contrast)
+header_image: images/final.jpg  # optional photo behind the page title band (darkened for contrast); replaces the in-article `image`
 menus:
   main:
     parent: ezagutu             # submenu of "Ezagutu CyberLehia"

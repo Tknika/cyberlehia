@@ -2,6 +2,7 @@
 title: Fases y bases de la competición
 linkTitle: Fases y bases
 translationKey: rules
+header_image: images/final.jpg
 eyebrow: Bases
 description: Estructura de la competición, fases, condiciones de participación y reglas.
 weight: 20

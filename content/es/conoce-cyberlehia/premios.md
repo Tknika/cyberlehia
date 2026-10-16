@@ -1,6 +1,7 @@
 ---
 title: Premios
 translationKey: prizes
+header_image: images/edizioa-2024.jpg
 eyebrow: Premios
 description: Premios para todos los equipos finalistas y sorteos entre todas las personas participantes.
 weight: 30

@@ -1,6 +1,7 @@
 ---
 title: Lehiaketaren faseak eta oinarriak
 translationKey: rules
+header_image: images/final.jpg
 linkTitle: Faseak eta oinarriak
 eyebrow: Oinarriak
 description: Lehiaketaren egitura, faseak, parte-hartze baldintzak eta arauak.

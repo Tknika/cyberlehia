@@ -1,6 +1,7 @@
 ---
 title: 4ª edición
 translationKey: edition-4
+header_image: images/edizioa-2025.jpg
 eyebrow: CyberLehia 2027
 description: Cuarta edición de CyberLehia. Fechas y detalles próximamente.
 current_edition: true

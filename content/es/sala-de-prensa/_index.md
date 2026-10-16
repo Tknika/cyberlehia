@@ -1,6 +1,7 @@
 ---
 title: Sala de prensa
 translationKey: press
+header_image: images/edizioa-2026.jpg
 eyebrow: Medios
 description: Notas de prensa, logotipos y contacto para medios de comunicación.
 menus:

@@ -1,6 +1,7 @@
 ---
 title: Sariak
 translationKey: prizes
+header_image: images/edizioa-2024.jpg
 eyebrow: Sariak
 description: Talde finalista guztientzako sariak eta zozketak partaide guztien artean.
 weight: 30

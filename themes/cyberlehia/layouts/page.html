@@ -26,7 +26,8 @@
     {{ end }}
 
     <article class="{{ if gt (len $siblings) 1 }}lg:col-span-9{{ end }} max-w-3xl">
-      {{ with .Params.image }}
+      {{/* `image` is shown in the article only when the page has no header photo */}}
+      {{ with and (not .Params.header_image) .Params.image }}
         <img src="{{ . | relURL }}" alt="" class="mb-10 aspect-[16/9] w-full rounded-xl border border-ink-700 object-cover">
       {{ end }}
       {{ with .Params.phases }}<div class="mb-12">{{ partial "timeline.html" . }}</div>{{ end }}

@@ -1,6 +1,7 @@
 ---
 title: Argazki bilduma
 translationKey: press-photos
+header_image: images/edizioa-2026.jpg
 description: CyberLehiaren edizioetako argazkiak.
 weight: 10
 image: images/edizioa-2026.jpg

@@ -1,6 +1,7 @@
 ---
 title: 4. edizioa
 translationKey: edition-4
+header_image: images/edizioa-2025.jpg
 eyebrow: CyberLehia 2027
 description: CyberLehiaren laugarren edizioa. Datak eta xehetasunak laster.
 current_edition: true

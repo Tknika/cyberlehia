@@ -1,6 +1,7 @@
 ---
 title: Bideoak
 translationKey: press-videos
+header_image: images/video-poster.jpg
 description: CyberLehiaren bideoak.
 weight: 30
 image: images/video-poster.jpg

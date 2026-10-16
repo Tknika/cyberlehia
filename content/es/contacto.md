@@ -1,6 +1,7 @@
 ---
 title: Contacto
 translationKey: contact
+header_image: images/edizioa-2025.jpg
 eyebrow: Contacto
 description: Ponte en contacto con la organización de CyberLehia.
 menus:

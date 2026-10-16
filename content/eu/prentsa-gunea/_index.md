@@ -1,6 +1,7 @@
 ---
 title: Prentsa gunea
 translationKey: press
+header_image: images/edizioa-2026.jpg
 eyebrow: Komunikabideak
 description: Prentsa oharrak, logotipoak eta komunikabideentzako harremana.
 menus:

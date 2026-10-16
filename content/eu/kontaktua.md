@@ -1,6 +1,7 @@
 ---
 title: Kontaktua
 translationKey: contact
+header_image: images/edizioa-2025.jpg
 eyebrow: Harremanetarako
 description: Jarri harremanetan CyberLehiaren antolakuntzarekin.
 menus:

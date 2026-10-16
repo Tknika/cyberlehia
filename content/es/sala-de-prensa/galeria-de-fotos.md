@@ -1,6 +1,7 @@
 ---
 title: Galería de fotos
 translationKey: press-photos
+header_image: images/edizioa-2026.jpg
 description: Fotografías de las ediciones de CyberLehia.
 weight: 10
 image: images/edizioa-2026.jpg
