@@ -30,6 +30,7 @@
       {{ with and (not .Params.header_image) .Params.image }}
         <img src="{{ . | relURL }}" alt="" class="mb-10 aspect-[16/9] w-full rounded-xl border border-ink-700 object-cover">
       {{ end }}
+      {{ with .Params.stats }}<div class="mb-12">{{ partial "stats.html" . }}</div>{{ end }}
       {{ with .Params.phases }}<div class="mb-12">{{ partial "timeline.html" (dict "phases" . "details" true) }}</div>{{ end }}
       <div class="prose-cyber">{{ .Content }}</div>
       {{ with .Date }}{{ if $.Params.show_date }}<p class="mt-12 font-mono text-xs text-ink-400">{{ . | time.Format ":date_long" }}</p>{{ end }}{{ end }}

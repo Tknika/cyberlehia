@@ -1,0 +1,29 @@
+{{- /* Figures with icons ("edition in numbers"). Context: dict
+     title  small label above the figures (optional)
+     items  list of {icon, value, label}; icon: user | team | school | teacher | map | trophy
+   Only aggregate figures from the organisers' data: never names or other personal data. */ -}}
+{{- $icons := dict
+  "user" `<circle cx="12" cy="8" r="4"/><path d="M4.5 21v-.5a7.5 7.5 0 0 1 15 0v.5"/>`
+  "team" `<circle cx="9" cy="8" r="3.5"/><path d="M2.5 20.5V20a6.5 6.5 0 0 1 13 0v.5"/><path d="M15.5 4.6a3.5 3.5 0 0 1 0 6.8"/><path d="M18 13.8a6.5 6.5 0 0 1 3.5 5.7v1"/>`
+  "school" `<path d="M3 21h18"/><path d="M5 21V10l7-5 7 5v11"/><path d="M10 21v-5h4v5"/><path d="M12 10.5h.01"/>`
+  "teacher" `<rect x="10" y="3" width="11" height="8" rx="1"/><path d="M14 11l1.5 3"/><circle cx="6" cy="9.5" r="2.5"/><path d="M2 21v-1.5a4 4 0 0 1 8 0V21"/>`
+  "map" `<path d="M9 4 3 6.5v13.5l6-2.5 6 2.5 6-2.5V4l-6 2.5L9 4z"/><path d="M9 4v13.5"/><path d="M15 6.5V20"/>`
+  "trophy" `<path d="M8 21h8"/><path d="M12 16v5"/><path d="M7 4h10v5a5 5 0 0 1-10 0V4z"/><path d="M17 5.5h3V7a3.5 3.5 0 0 1-3.5 3.5"/><path d="M7 5.5H4V7a3.5 3.5 0 0 0 3.5 3.5"/>`
+-}}
+{{- $n := len .items -}}
+<div class="not-prose">
+  {{ with .title }}<p class="eyebrow">{{ . }}</p>{{ end }}
+  <dl class="mt-6 grid grid-cols-2 gap-x-6 gap-y-8 {{ if eq $n 4 }}lg:grid-cols-4{{ else }}lg:grid-cols-3{{ end }}">
+    {{ range .items }}
+      <div class="flex items-center gap-4">
+        <span class="grid size-12 shrink-0 place-items-center rounded-full border border-cyan/30 bg-cyan/10 text-cyan" aria-hidden="true">
+          <svg class="size-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">{{ index $icons .icon | safeHTML }}</svg>
+        </span>
+        <div class="flex min-w-0 flex-col-reverse">
+          <dt class="mt-1 text-sm leading-snug text-ink-300">{{ .label }}</dt>
+          <dd class="font-display text-3xl font-bold leading-none text-white sm:text-4xl">{{ .value }}</dd>
+        </div>
+      </div>
+    {{ end }}
+  </dl>
+</div>

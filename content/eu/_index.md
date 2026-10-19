@@ -7,6 +7,22 @@ video:
   poster: images/edizioa-2026.jpg
 about:
   title: Zer da CyberLehia?
+# Aggregate figures from the organisers' 2026 participant data (no personal data).
+stats:
+  title: 2026ko edizioa zenbakitan
+  items:
+    - icon: user
+      value: "346"
+      label: parte-hartzaile
+    - icon: team
+      value: "143"
+      label: talde
+    - icon: school
+      value: "35"
+      label: ikastetxe
+    - icon: teacher
+      value: "60"
+      label: irakasle laguntzaile
 benefits:
   title: Parte hartzearen abantailak
   text: CyberLehia lehiaketa bat baino gehiago da.

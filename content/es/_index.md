@@ -7,6 +7,22 @@ video:
   poster: images/edizioa-2026.jpg
 about:
   title: ¿Qué es CyberLehia?
+# Aggregate figures from the organisers' 2026 participant data (no personal data).
+stats:
+  title: La edición 2026 en cifras
+  items:
+    - icon: user
+      value: "346"
+      label: participantes
+    - icon: team
+      value: "143"
+      label: equipos
+    - icon: school
+      value: "35"
+      label: centros
+    - icon: teacher
+      value: "60"
+      label: docentes colaboradores
 benefits:
   title: Ventajas de participar
   text: CyberLehia es mucho más que una competición.
