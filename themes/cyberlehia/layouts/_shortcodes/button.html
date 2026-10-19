@@ -1,5 +1,11 @@
-{{- /* Usage: {{< button href="/kontaktua/" >}}Label{{< /button >}}  (style="ghost" for the secondary style) */ -}}
+{{- /* Usage: {{< button href="/kontaktua/" >}}Label{{< /button >}}  (style="ghost" for the secondary style)
+       A file path (with an extension, e.g. /docs/x.pdf) gets no language prefix and is offered as a download. */ -}}
 {{ $href := .Get "href" }}
-{{/* Internal path: drop the leading slash so relLangURL keeps the baseURL subpath (e.g. /cyberlehia/) */}}
-{{ if hasPrefix $href "/" }}{{ $href = strings.TrimPrefix "/" $href | relLangURL }}{{ end }}
-<a href="{{ $href }}" class="{{ if eq (.Get "style") "ghost" }}btn-ghost{{ else }}btn-primary{{ end }}">{{/* Strip auto-linked URLs/emails: a link inside a link breaks the button */}}{{ .Inner | .Page.RenderString | replaceRE `</?a\b[^>]*>` "" | safeHTML }}</a>
+{{ $file := false }}
+{{/* Internal path: drop the leading slash so relLangURL/relURL keep the baseURL subpath (e.g. /cyberlehia/) */}}
+{{ if hasPrefix $href "/" }}
+  {{ $file = ne (path.Ext $href) "" }}
+  {{ $href = strings.TrimPrefix "/" $href }}
+  {{ $href = cond $file ($href | relURL) ($href | relLangURL) }}
+{{ end }}
+<a href="{{ $href }}" class="{{ if eq (.Get "style") "ghost" }}btn-ghost{{ else }}btn-primary{{ end }}"{{ if $file }} download{{ end }}>{{/* Strip auto-linked URLs/emails: a link inside a link breaks the button */}}{{ .Inner | .Page.RenderString | replaceRE `</?a\b[^>]*>` "" | safeHTML }}</a>

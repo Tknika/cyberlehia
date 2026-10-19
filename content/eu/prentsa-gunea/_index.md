@@ -9,6 +9,12 @@ menus:
     weight: 40
 ---
 
+## Prentsa-txostena
+
+CyberLehiari buruzko informazio nagusia dokumentu bakarrean: zer den, nola funtzionatzen duen, 2026ko edizioa zenbakitan, ibilbidea eta harremanetarako datuak.
+
+{{< button href="/docs/cyberlehia-prentsa-txostena.pdf" >}}Deskargatu prentsa-txostena (PDF, 4 orri) ↓{{< /button >}}
+
 ## Komunikabideentzako harremana
 
 Elkarrizketak, argazkiak edo informazio gehiago eskatzeko, idatzi [cyberlehia@tknika.eus](mailto:cyberlehia@tknika.eus) helbidera.

@@ -149,6 +149,8 @@ results:                     # standings, shown where {{< results >}} is in the 
 Typical order through an edition: registration open (phase `active`, registration button) → each online phase ends (move `status`, add the results `url`) → final announced (fill the final date, venue and programme) → winners (add the last result, update `facts`).
 **New edition.** Move the current edition page into `aurreko-edizioak/` as `YYYY.md` (with `weight: YYYY` and every phase `status: done`), create the new edition section with `current_edition: true`, update its menu entry, and repeat in `es/`.
 
+**Press dossier (PDF).** `static/docs/cyberlehia-prentsa-txostena.pdf` (eu) and `cyberlehia-dossier-prensa.pdf` (es), linked from Prentsa gunea / Sala de prensa. They are generated from `scripts/press-kit/build.js` (texts in both languages + aggregate figures at the top of the file) with headless Edge/Chrome: `node scripts/press-kit/build.js`. Update the figures and texts each edition, regenerate and commit the PDFs. Only aggregate figures, never personal data from the participant workbook.
+
 **Press release.** Copy `prentsa-gunea/adibidea.md` (and `sala-de-prensa/ejemplo.md`), give it `weight` ≥ 100 so it appears after the three fixed cards, and remove `draft: true`.
 
 **Footer logos.** Edit `[[params.organizers]]` in `hugo.toml` (`name`, optional `logo`, `url`). Without `logo`, the name is shown as text.

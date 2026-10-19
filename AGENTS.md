@@ -74,4 +74,5 @@ There is no test suite. **A change is verified when:**
 - Testimonials page is a placeholder.
 - The cookie policy (copied from WordPress) still lists `_pk_*` analytics cookies that the static site doesn't set; it needs a legal review.
 - `registrationURL` points to last edition's (expired) LimeSurvey form; update it with the new survey ID.
+- Press dossier PDFs (`static/docs/`, built by `scripts/press-kit/build.js`) are published with two placeholders marked with a pink dashed border: the increase in women (`%XX`, set `womenPrev` with an earlier edition's figures) and the 2027 text (lorem ipsum). Fill both and rebuild.
 - Replace the YouTube background with a short self-hosted loop (`video.src`): needs the original video file from the organisers (see `scripts/encode-hero-video.sh`).
