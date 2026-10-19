@@ -4,7 +4,8 @@
        {{< videos >}}
        KJSr3SliPnM | Iniciación al Reversing (Joxean Koret)
        {{< /videos >}}
-       main.js swaps the tile for a youtube-nocookie player on click; without JS the tile links to YouTube. */ -}}
+       main.js swaps the tile for a youtube-nocookie player on click; without JS the tile links to YouTube.
+       New video? Run scripts/fetch-video-thumbs.sh to add its preview image. */ -}}
 <ul class="not-prose my-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
   {{ range split (trim .Inner "\n ") "\n" }}
     {{ $parts := split . "|" }}
@@ -14,7 +15,14 @@
       <li class="overflow-hidden rounded-xl border border-ink-700 bg-ink-900">
         <a href="https://www.youtube.com/watch?v={{ . }}" rel="noopener" target="_blank" data-yt="{{ . }}" data-yt-title="{{ $title }}"
            class="group relative grid aspect-video place-items-center overflow-hidden bg-ink-950">
-          <span class="absolute inset-0 bg-gradient-to-br from-brand/25 via-ink-950 to-pink/15" aria-hidden="true"></span>
+          {{/* Preview image, self-hosted by scripts/fetch-video-thumbs.sh (no request to YouTube before the click) */}}
+          {{ $thumb := printf "images/videos/%s.jpg" . }}
+          {{ if fileExists (printf "static/%s" $thumb) }}
+            <img src="{{ $thumb | relURL }}" alt="" loading="lazy" class="absolute inset-0 size-full object-cover transition duration-500 group-hover:scale-105">
+            <span class="absolute inset-0 bg-gradient-to-t from-ink-950/70 via-ink-950/10 to-ink-950/20" aria-hidden="true"></span>
+          {{ else }}
+            <span class="absolute inset-0 bg-gradient-to-br from-brand/25 via-ink-950 to-pink/15" aria-hidden="true"></span>
+          {{ end }}
           <span class="relative grid size-14 place-items-center rounded-full bg-pink-600 text-white shadow-lg shadow-pink/20 transition group-hover:scale-110 group-hover:bg-pink-700" aria-hidden="true">
             <svg class="ml-1 size-6" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.5v13l11-6.5z"/></svg>
           </span>
