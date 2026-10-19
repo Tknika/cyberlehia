@@ -170,7 +170,7 @@ Typical order through an edition: registration open (phase `active`, registratio
 | `results` | `{{< results >}}`: the page's `results` list ("Laster" until each one has a `url`) |
 | `gallery` | one `path \| caption` per line between `{{< gallery >}}` and `{{< /gallery >}}` |
 | `youtube` | `{{< youtube id="VIDEO_ID" title="…" >}}`: privacy-enhanced (youtube-nocookie) embed |
-| `videos` | `{{< videos >}}` with one `VIDEO_ID | Title` per line: tiles with a self-hosted preview that load the YouTube player only on click (run `scripts/fetch-video-thumbs.sh` after adding videos) |
+| `videos` | `{{< videos >}}` with one `VIDEO_ID | Title` (or `VIDEO_ID | Title | Year`, shown as a badge) per line: tiles with a self-hosted preview that load the YouTube player only on click (run `scripts/fetch-video-thumbs.sh` after adding videos) |
 
 ---
 

@@ -5,9 +5,11 @@ header_image: images/edizioa-2024.jpg
 description: Entrevistas a profesorado y organización.
 weight: 20
 image: images/edizioa-2024.jpg
+menus:
+  main:
+    parent: press
+    weight: 20
 ---
-
-## Entrevistas a profesorado y organización
 
 Entrevistas grabadas en la edición 2024 de CyberLehia. Todos los vídeos de ponencias, talleres y actos están en [ediciones anteriores](/ediciones-previas/).
 

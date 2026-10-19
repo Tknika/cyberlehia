@@ -6,6 +6,7 @@ eyebrow: Medios
 description: Notas de prensa, logotipos y contacto para medios de comunicación.
 menus:
   main:
+    identifier: press
     weight: 40
 ---
 

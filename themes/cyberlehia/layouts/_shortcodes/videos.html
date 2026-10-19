@@ -1,5 +1,5 @@
 {{- /* List of YouTube videos that load nothing from YouTube until clicked (light page, no third-party
-       requests on load). One video per line: `VIDEO_ID | Title`.
+       requests on load). One video per line: `VIDEO_ID | Title` or `VIDEO_ID | Title | Tag` (e.g. the edition year).
        Usage:
        {{< videos >}}
        KJSr3SliPnM | Iniciación al Reversing (Joxean Koret)
@@ -11,6 +11,7 @@
     {{ $parts := split . "|" }}
     {{ $id := trim (index $parts 0) " " }}
     {{ $title := "" }}{{ if gt (len $parts) 1 }}{{ $title = trim (index $parts 1) " " }}{{ end }}
+    {{ $tag := "" }}{{ if gt (len $parts) 2 }}{{ $tag = trim (index $parts 2) " " }}{{ end }}
     {{ with $id }}
       <li class="overflow-hidden rounded-xl border border-ink-700 bg-ink-900">
         <a href="https://www.youtube.com/watch?v={{ . }}" rel="noopener" target="_blank" data-yt="{{ . }}" data-yt-title="{{ $title }}"
@@ -28,7 +29,10 @@
           </span>
           <span class="sr-only">{{ i18n "playVideo" }}: {{ $title }}</span>
         </a>
-        <p class="px-4 py-3 text-sm leading-snug text-ink-100">{{ $title }}</p>
+        <div class="flex items-start gap-3 px-4 py-3">
+          {{ with $tag }}<span class="mt-px shrink-0 rounded border border-cyan/40 bg-cyan/10 px-1.5 py-0.5 font-mono text-[11px] font-semibold leading-none text-cyan">{{ . }}</span>{{ end }}
+          <p class="text-sm leading-snug text-ink-100">{{ $title }}</p>
+        </div>
       </li>
     {{ end }}
   {{ end }}

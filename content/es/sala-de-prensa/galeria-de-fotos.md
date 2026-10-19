@@ -5,6 +5,10 @@ header_image: images/edizioa-2026.jpg
 description: Fotografías de las ediciones de CyberLehia.
 weight: 10
 image: images/edizioa-2026.jpg
+menus:
+  main:
+    parent: press
+    weight: 10
 ---
 
 Las fotografías pueden utilizarse en medios de comunicación citando la fuente (*CyberLehia · Tknika*).

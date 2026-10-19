@@ -5,9 +5,11 @@ header_image: images/edizioa-2024.jpg
 description: Irakasle eta antolatzaileen elkarrizketak.
 weight: 20
 image: images/edizioa-2024.jpg
+menus:
+  main:
+    parent: press
+    weight: 20
 ---
-
-## Irakasle eta antolatzaileen elkarrizketak
 
 CyberLehiaren 2024ko edizioan grabatutako elkarrizketak. Hitzaldien, tailerren eta ekitaldien bideo guztiak [aurreko edizioetan](/aurreko-edizioak/) daude.
 

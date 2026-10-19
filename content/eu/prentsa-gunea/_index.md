@@ -6,6 +6,7 @@ eyebrow: Komunikabideak
 description: Prentsa oharrak, logotipoak eta komunikabideentzako harremana.
 menus:
   main:
+    identifier: press
     weight: 40
 ---
 

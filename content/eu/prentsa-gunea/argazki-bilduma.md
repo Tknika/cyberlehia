@@ -5,6 +5,10 @@ header_image: images/edizioa-2026.jpg
 description: CyberLehiaren edizioetako argazkiak.
 weight: 10
 image: images/edizioa-2026.jpg
+menus:
+  main:
+    parent: press
+    weight: 10
 ---
 
 Argazkiak komunikabideetan erabil daitezke, iturria aipatuz (*CyberLehia · Tknika*).
