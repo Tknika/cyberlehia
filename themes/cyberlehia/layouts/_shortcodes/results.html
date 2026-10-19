@@ -1,0 +1,19 @@
+{{- /* Results published as the edition goes on. Reads the page's `results` front matter: list of {title, url}.
+       A result without url shows "Laster" / "Próximamente"; with a url (content path or full URL) it links to it.
+       Usage: {{< results >}} */ -}}
+{{- with .Page.Params.results -}}
+<ul class="not-prose my-8 divide-y divide-ink-800 overflow-hidden rounded-xl border border-ink-700 bg-ink-900">
+  {{ range . }}
+    <li class="flex items-center justify-between gap-4 px-5 py-4">
+      <span class="font-medium text-ink-100">{{ .title }}</span>
+      {{ with .url }}
+        {{ $href := . }}
+        {{ if hasPrefix $href "/" }}{{ $href = strings.TrimPrefix "/" $href | relLangURL }}{{ end }}
+        <a href="{{ $href }}" class="shrink-0 font-mono text-sm font-semibold text-cyan hover:underline">{{ i18n "seeMore" }} <span aria-hidden="true">→</span></a>
+      {{ else }}
+        <span class="shrink-0 rounded-full border border-ink-600 px-2.5 py-0.5 font-mono text-[11px] uppercase tracking-wider text-ink-400">{{ i18n "soon" }}</span>
+      {{ end }}
+    </li>
+  {{ end }}
+</ul>
+{{- end -}}

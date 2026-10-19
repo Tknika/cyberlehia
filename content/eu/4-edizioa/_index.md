@@ -27,12 +27,48 @@ phases:
     items:
       - Ariketa teorikoa (txostena, %50)
       - Eraso/Defentsa proba aurrez aurre (%50)
+
+# Key facts at the top of the page. Leave value empty ("") until the organisers confirm it: it shows "Laster".
+facts:
+  - label: Izen-ematea
+    value: ""
+  - label: Final handia
+    value: ""
+  - label: Kokapena
+    value: ""
+# Standings, published as each phase ends ({{< results >}} in the text). Add the url when one is published.
+results:
+  - title: Lehen sailkatze fasearen emaitzak
+    url: ""
+  - title: Finalerako sailkatuak
+    url: ""
+  - title: Irabazleak
+    url: ""
 ---
 
-CyberLehiaren **laugarren edizioa** prestatzen ari gara. Datak, oinarriak eta finalaren kokapena laster argitaratuko ditugu orri honetan.
+CyberLehiaren **laugarren edizioa** prestatzen ari gara. Lehiaketak aurrera egin ahala, orri honetan argitaratuko ditugu datak, emaitzak eta final handiari buruzko informazioa.
 
 {{< note >}}
 Izen-ematea irekitzen denean, hemen eta hasierako orrian aurkituko duzu esteka. Zalantzarik baduzu, idatzi [cyberlehia@tknika.eus](mailto:cyberlehia@tknika.eus) helbidera.
 {{< /note >}}
 
-Bitartean, ezagutu [nork har dezakeen parte](/ezagutu-cyberlehia/parte-hartu/) eta irakurri [aurreko edizioko oinarriak](/ezagutu-cyberlehia/faseak-eta-oinarriak/).
+## Final handia
+
+Lehiaketa final handi batekin amaitzen da: talde finalistak aurrez aurre lehiatzen dira Eraso/Defentsa proban, ikasleak, ikastetxeak eta zibersegurtasun arloko enpresak biltzen dituen jardunaldi batean. 2025eko edizioan, CTFaren finalaz gain, zibersegurtasuneko adituen hitzaldiak, tailer teknikoak eta enpresen erakustokiak izan ziren.
+
+4\. edizioaren data, kokapena eta egitaraua laster argitaratuko ditugu.
+
+## Emaitzak
+
+Fase bakoitza amaitzean, sailkapenak hemen argitaratuko ditugu.
+
+{{< results >}}
+
+## Sariak
+
+Talde finalista guztiek izango dute saria, eta zozketak egingo dira parte-hartzaile guztien artean.
+
+{{< next-links >}}
+{{< next "/ezagutu-cyberlehia/faseak-eta-oinarriak" >}}Nola antolatzen da lehiaketa? Fase bakoitzaren funtzionamendua, taldeak eta arauak.{{< /next >}}
+{{< next "/aurreko-edizioak" >}}Ikusi nola joan ziren aurreko hiru edizioak: datak, kokapenak eta argazkiak.{{< /next >}}
+{{< /next-links >}}

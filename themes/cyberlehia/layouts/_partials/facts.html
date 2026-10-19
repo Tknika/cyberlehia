@@ -1,0 +1,12 @@
+{{- /* Key facts at the top of a page (used by the current edition). Context: list of {label, value}.
+   An empty value shows "Laster" / "Próximamente", so the organisers fill them in as they are confirmed.
+   Two columns on phones (an odd last item takes the full row); on desktop one row of 3 or 4. */ -}}
+{{- $n := len . -}}
+<dl class="grid grid-cols-2 gap-3 sm:gap-4 {{ if eq $n 3 }}lg:grid-cols-3{{ else }}lg:grid-cols-4{{ end }}">
+  {{ range $i, $f := . }}
+    <div class="rounded-xl border border-ink-700 bg-ink-900 p-4 sm:p-5 {{ if $f.value }}border-t-2 border-t-cyan{{ end }} {{ if and (eq (mod $n 2) 1) (eq $i (sub $n 1)) }}col-span-2 lg:col-span-1{{ end }}">
+      <dt class="font-mono text-xs uppercase tracking-wider text-ink-400">{{ $f.label }}</dt>
+      <dd class="mt-2 font-display text-base font-semibold leading-snug sm:text-lg {{ if $f.value }}text-white{{ else }}text-ink-300{{ end }}">{{ with $f.value }}{{ . | markdownify }}{{ else }}{{ i18n "soon" }}{{ end }}</dd>
+    </div>
+  {{ end }}
+</dl>

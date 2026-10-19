@@ -2,6 +2,9 @@
 {{ partial "page-header.html" . }}
 
 <div class="container-site py-16">
+  {{ with .Params.facts }}
+    <div class="mb-12">{{ partial "facts.html" . }}</div>
+  {{ end }}
   {{ with .Params.phases }}
     <div class="mb-16">{{ partial "timeline.html" (dict "phases" . "details" true) }}</div>
   {{ end }}

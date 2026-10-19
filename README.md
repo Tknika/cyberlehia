@@ -135,6 +135,18 @@ phases:
     items: [Optional, bullet list]
 ```
 
+**Updating the current edition as it goes.** Besides `phases`, the current edition page has two lists the organisers fill in over time (an empty value shows "Laster" / "Próximamente"):
+
+```yaml
+facts:                       # key facts row at the top of the page
+  - label: Final handia
+    value: "<data>"            # "" until confirmed
+results:                     # standings, shown where {{< results >}} is in the text
+  - title: Finalerako sailkatuak
+    url: "<url>"              # content path (/…/) or full URL; "" until published
+```
+
+Typical order through an edition: registration open (phase `active`, registration button) → each online phase ends (move `status`, add the results `url`) → final announced (fill the final date, venue and programme) → winners (add the last result, update `facts`).
 **New edition.** Move the current edition page into `aurreko-edizioak/` as `YYYY.md` (with `weight: YYYY` and every phase `status: done`), create the new edition section with `current_edition: true`, update its menu entry, and repeat in `es/`.
 
 **Press release.** Copy `prentsa-gunea/adibidea.md` (and `sala-de-prensa/ejemplo.md`), give it `weight` ≥ 100 so it appears after the three fixed cards, and remove `draft: true`.
@@ -153,6 +165,7 @@ phases:
 | `button` | `{{< button href="/4-edizioa/" >}}Label{{< /button >}}`: `style="ghost"` for the secondary style; `mailto:` and external URLs also work |
 | `faq` | `{{< faq "Question?" >}}Markdown answer{{< /faq >}}`: collapsible; wrap a group in `{{< stack >}}…{{< /stack >}}` |
 | `timeline` | `{{< timeline >}}`: phases of the current edition |
+| `results` | `{{< results >}}`: the page's `results` list ("Laster" until each one has a `url`) |
 | `gallery` | one `path \| caption` per line between `{{< gallery >}}` and `{{< /gallery >}}` |
 | `youtube` | `{{< youtube id="VIDEO_ID" title="…" >}}`: privacy-enhanced (youtube-nocookie) embed |
 
