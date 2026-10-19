@@ -1,0 +1,27 @@
+{{- /* List of YouTube videos that load nothing from YouTube until clicked (light page, no third-party
+       requests on load). One video per line: `VIDEO_ID | Title`.
+       Usage:
+       {{< videos >}}
+       KJSr3SliPnM | Iniciación al Reversing (Joxean Koret)
+       {{< /videos >}}
+       main.js swaps the tile for a youtube-nocookie player on click; without JS the tile links to YouTube. */ -}}
+<ul class="not-prose my-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+  {{ range split (trim .Inner "\n ") "\n" }}
+    {{ $parts := split . "|" }}
+    {{ $id := trim (index $parts 0) " " }}
+    {{ $title := "" }}{{ if gt (len $parts) 1 }}{{ $title = trim (index $parts 1) " " }}{{ end }}
+    {{ with $id }}
+      <li class="overflow-hidden rounded-xl border border-ink-700 bg-ink-900">
+        <a href="https://www.youtube.com/watch?v={{ . }}" rel="noopener" target="_blank" data-yt="{{ . }}" data-yt-title="{{ $title }}"
+           class="group relative grid aspect-video place-items-center overflow-hidden bg-ink-950">
+          <span class="absolute inset-0 bg-gradient-to-br from-brand/25 via-ink-950 to-pink/15" aria-hidden="true"></span>
+          <span class="relative grid size-14 place-items-center rounded-full bg-pink-600 text-white shadow-lg shadow-pink/20 transition group-hover:scale-110 group-hover:bg-pink-700" aria-hidden="true">
+            <svg class="ml-1 size-6" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.5v13l11-6.5z"/></svg>
+          </span>
+          <span class="sr-only">{{ i18n "playVideo" }}: {{ $title }}</span>
+        </a>
+        <p class="px-4 py-3 text-sm leading-snug text-ink-100">{{ $title }}</p>
+      </li>
+    {{ end }}
+  {{ end }}
+</ul>

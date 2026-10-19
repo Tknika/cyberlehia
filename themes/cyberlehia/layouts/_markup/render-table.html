@@ -1,0 +1,21 @@
+{{- /* Markdown tables: wrapped in their own horizontal scroller so a wide table (e.g. 6-column results)
+       never makes the whole page scroll sideways on phones. Prose table styles still apply. */ -}}
+<div class="-mx-4 overflow-x-auto px-4 sm:mx-0 sm:px-0">
+  <table class="whitespace-nowrap sm:whitespace-normal"
+    {{- range $k, $v := .Attributes }}{{ if $v }} {{ printf "%s=%q" $k $v | safeHTMLAttr }}{{ end }}{{ end }}>
+    <thead>
+      {{- range .THead }}
+        <tr>
+          {{- range . }}<th{{ with .Alignment }} style="text-align: {{ . }}"{{ end }}>{{ .Text }}</th>{{- end }}
+        </tr>
+      {{- end }}
+    </thead>
+    <tbody>
+      {{- range .TBody }}
+        <tr>
+          {{- range . }}<td{{ with .Alignment }} style="text-align: {{ . }}"{{ end }}>{{ .Text }}</td>{{- end }}
+        </tr>
+      {{- end }}
+    </tbody>
+  </table>
+</div>

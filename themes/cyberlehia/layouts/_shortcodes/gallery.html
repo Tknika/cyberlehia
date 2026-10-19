@@ -4,7 +4,7 @@ Usage:
 images/photo.jpg | Caption
 {{< /gallery >}}
 */ -}}
-<div class="not-prose grid gap-4 sm:grid-cols-2">
+<div class="not-prose grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
   {{ range split (trim .Inner "\n ") "\n" }}
     {{ $parts := split . "|" }}
     {{ $src := trim (index $parts 0) " " }}
