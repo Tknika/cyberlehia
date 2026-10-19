@@ -7,5 +7,6 @@ description: Ediciones anteriores de CyberLehia.
 sort: desc
 menus:
   main:
+    identifier: editions
     weight: 30
 ---

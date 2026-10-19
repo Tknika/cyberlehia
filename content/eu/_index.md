@@ -4,7 +4,7 @@ description: XXX-an final handia Bilboko Alhondigan!
 video:
   youtube: 5rsiuSXlulo
   title: CyberLehia 2026 laburpena
-  poster: images/edizioa-2026.jpg
+  poster: images/edizioa-2025.jpg
 about:
   title: Zer da CyberLehia?
 # Aggregate figures from the organisers' 2026 participant data (no personal data).

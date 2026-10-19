@@ -29,11 +29,11 @@ phases:
 
 # Key facts at the top of the page. Leave value empty ("") until the organisers confirm it: it shows "Próximamente".
 facts:
-  - label: Inscripción
+  - label: Fecha de la final
+    icon: calendar
     value: ""
-  - label: Gran final
-    value: ""
-  - label: Lugar
+  - label: Lugar de la final
+    icon: pin
     value: ""
 # Standings, published as each phase ends ({{< results >}} in the text). Add the url when one is published.
 results:

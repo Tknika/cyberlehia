@@ -7,5 +7,6 @@ description: CyberLehiaren aurreko edizioak.
 sort: desc
 menus:
   main:
+    identifier: editions
     weight: 30
 ---

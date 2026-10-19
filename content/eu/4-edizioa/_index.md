@@ -30,11 +30,11 @@ phases:
 
 # Key facts at the top of the page. Leave value empty ("") until the organisers confirm it: it shows "Laster".
 facts:
-  - label: Izen-ematea
+  - label: Finalaren data
+    icon: calendar
     value: ""
-  - label: Final handia
-    value: ""
-  - label: Kokapena
+  - label: Finalaren kokapena
+    icon: pin
     value: ""
 # Standings, published as each phase ends ({{< results >}} in the text). Add the url when one is published.
 results:

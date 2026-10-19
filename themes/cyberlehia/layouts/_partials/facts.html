@@ -1,12 +1,26 @@
-{{- /* Key facts at the top of a page (used by the current edition). Context: list of {label, value}.
+{{- /* Key facts at the top of a page (used by the current edition). Context: list of {label, value, icon}.
    An empty value shows "Laster" / "Próximamente", so the organisers fill them in as they are confirmed.
-   Two columns on phones (an odd last item takes the full row); on desktop one row of 3 or 4. */ -}}
+   icon (optional): calendar | pin.
+   With 1–2 items they are shown large (e.g. the final's date and venue); with 3–4, a compact row
+   (two columns on phones, an odd last item takes the full row). */ -}}
+{{- $icons := dict
+  "calendar" `<rect x="3.5" y="5" width="17" height="15.5" rx="2"/><path d="M3.5 10h17"/><path d="M8 3v4"/><path d="M16 3v4"/>`
+  "pin" `<path d="M12 21s-6.5-5.6-6.5-11a6.5 6.5 0 0 1 13 0c0 5.4-6.5 11-6.5 11z"/><circle cx="12" cy="10" r="2.5"/>`
+-}}
 {{- $n := len . -}}
-<dl class="grid grid-cols-2 gap-3 sm:gap-4 {{ if eq $n 3 }}lg:grid-cols-3{{ else }}lg:grid-cols-4{{ end }}">
+{{- $big := le $n 2 -}}
+<dl class="grid gap-3 sm:gap-4 {{ if $big }}sm:grid-cols-2{{ else }}grid-cols-2 {{ if eq $n 3 }}lg:grid-cols-3{{ else }}lg:grid-cols-4{{ end }}{{ end }}">
   {{ range $i, $f := . }}
-    <div class="rounded-xl border border-ink-700 bg-ink-900 p-4 sm:p-5 {{ if $f.value }}border-t-2 border-t-cyan{{ end }} {{ if and (eq (mod $n 2) 1) (eq $i (sub $n 1)) }}col-span-2 lg:col-span-1{{ end }}">
-      <dt class="font-mono text-xs uppercase tracking-wider text-ink-400">{{ $f.label }}</dt>
-      <dd class="mt-2 font-display text-base font-semibold leading-snug sm:text-lg {{ if $f.value }}text-white{{ else }}text-ink-300{{ end }}">{{ with $f.value }}{{ . | markdownify }}{{ else }}{{ i18n "soon" }}{{ end }}</dd>
+    <div class="flex items-center gap-4 rounded-xl border border-ink-700 bg-ink-900 {{ if $big }}p-5 sm:p-6{{ else }}p-4 sm:p-5{{ end }} {{ if $f.value }}border-t-2 border-t-cyan{{ end }} {{ if and (not $big) (eq (mod $n 2) 1) (eq $i (sub $n 1)) }}col-span-2 lg:col-span-1{{ end }}">
+      {{ with index $icons ($f.icon | default "") }}
+        <span class="grid size-12 shrink-0 place-items-center rounded-full border border-cyan/30 bg-cyan/10 text-cyan" aria-hidden="true">
+          <svg class="size-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">{{ . | safeHTML }}</svg>
+        </span>
+      {{ end }}
+      <div class="min-w-0">
+        <dt class="font-mono text-xs uppercase tracking-wider text-ink-400">{{ $f.label }}</dt>
+        <dd class="mt-1.5 font-display font-semibold leading-snug {{ if $big }}text-xl sm:text-2xl{{ else }}text-base sm:text-lg{{ end }} {{ if $f.value }}text-white{{ else }}text-ink-300{{ end }}">{{ with $f.value }}{{ . | markdownify }}{{ else }}{{ i18n "soon" }}{{ end }}</dd>
+      </div>
     </div>
   {{ end }}
 </dl>

@@ -2,6 +2,7 @@
 title: Ezagutu CyberLehia
 translationKey: about
 eyebrow: Lehiaketa
+description: Euskadiko Lanbide Heziketako zibersegurtasun lehiaketa eta ikasleen topaketa.
 header_image: images/final.jpg
 menus:
   main:

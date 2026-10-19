@@ -2,6 +2,7 @@
 title: Conoce CyberLehia
 translationKey: about
 eyebrow: La competición
+description: La competición de ciberseguridad y el encuentro del alumnado de Formación Profesional de Euskadi.
 header_image: images/final.jpg
 menus:
   main:
