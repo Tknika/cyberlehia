@@ -6,6 +6,7 @@ linkTitle: Faseak eta oinarriak
 eyebrow: Oinarriak
 description: Lehiaketaren egitura, faseak, parte-hartze baldintzak eta arauak.
 weight: 20
+anchors: true
 menus:
   main:
     parent: ezagutu

@@ -5,6 +5,7 @@ header_image: images/edizioa-2026.jpg
 eyebrow: Participación
 description: Quién puede participar, cómo se forman los equipos y cómo inscribirse.
 weight: 10
+anchors: true
 menus:
   main:
     parent: ezagutu
