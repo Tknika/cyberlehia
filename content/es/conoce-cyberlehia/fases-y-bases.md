@@ -88,10 +88,6 @@ Las personas participantes deberán cumplir estas reglas:
 
 > **Nota:** la organización se reserva el derecho a expulsar a participantes si se aprecian indicios de infracción.
 
-## Comunicación y contacto
-
-La comunicación relacionada con el campeonato se hará por correo electrónico. Para contactar con la organización: [cyberlehia@tknika.eus](mailto:cyberlehia@tknika.eus).
-
 {{< next-links >}}
 {{< next "/conoce-cyberlehia/premios" >}}Ya conoces las reglas: descubre qué premios reciben los equipos finalistas y qué se sortea entre todas las personas participantes.{{< /next >}}
 {{< next "/contacto" >}}Si tienes dudas sobre las bases, escribe a la organización.{{< /next >}}
