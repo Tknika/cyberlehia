@@ -130,7 +130,7 @@
 
     & > * + * { @apply mt-5; }
     & :where(h2):not(:where(.not-prose, .not-prose *)) {
-      @apply mt-12 mb-4 flex items-center gap-3 text-2xl font-semibold text-white sm:text-3xl;
+      @apply mt-12 mb-4 flex scroll-mt-28 items-center gap-3 text-2xl font-semibold text-white sm:text-3xl;
     }
     & :where(h2):not(:where(.not-prose, .not-prose *))::before {
       content: "#";

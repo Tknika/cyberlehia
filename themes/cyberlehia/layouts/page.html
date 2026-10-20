@@ -3,7 +3,10 @@
 
 {{ $section := .Parent }}
 {{ $siblings := slice }}
-{{ if and $section (not $section.IsHome) }}{{ $siblings = $section.Pages.ByWeight }}{{ end }}
+{{ if and $section (not $section.IsHome) }}
+  {{ $siblings = $section.Pages.ByWeight }}
+  {{ if eq $section.Params.sort "desc" }}{{ $siblings = $siblings.Reverse }}{{ end }}
+{{ end }}
 
 <div class="container-site py-16">
   <div class="grid gap-12 {{ if gt (len $siblings) 1 }}lg:grid-cols-12{{ end }}">
@@ -31,6 +34,7 @@
       {{ with and (not .Params.header_image) .Params.image }}
         <img src="{{ . | relURL }}" alt="" class="mb-10 aspect-[16/9] w-full rounded-xl border border-ink-700 object-cover">
       {{ end }}
+      {{ if .Params.anchors }}{{ partial "page-anchors.html" . }}{{ end }}
       {{ with .Params.stats }}<div class="mb-12">{{ partial "stats.html" . }}</div>{{ end }}
       {{ with .Params.phases }}<div class="mb-12">{{ partial "timeline.html" (dict "phases" . "details" true) }}</div>{{ end }}
       <div class="prose-cyber">{{ .Content }}</div>
