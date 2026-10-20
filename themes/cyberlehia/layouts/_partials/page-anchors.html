@@ -1,0 +1,16 @@
+{{- /* Jump links to the page's own h2 sections (not a submenu). Enabled per page with `anchors: true`. */ -}}
+{{ $headings := slice }}
+{{ range .Fragments.Headings }}
+  {{ if eq .Level 2 }}{{ $headings = $headings | append . }}{{ end }}
+  {{ range .Headings }}{{ if eq .Level 2 }}{{ $headings = $headings | append . }}{{ end }}{{ end }}
+{{ end }}
+{{ with $headings }}
+  <nav class="mb-12 border-b border-ink-700 pb-6" aria-label="{{ i18n "onThisPage" }}">
+    <p class="eyebrow">{{ i18n "onThisPage" }}</p>
+    <ul class="mt-3 flex flex-wrap gap-2">
+      {{ range . }}
+        <li><a href="#{{ .ID }}" class="inline-block rounded-full border border-ink-600 bg-ink-900 px-4 py-1.5 font-mono text-sm text-ink-100 transition hover:border-pink hover:text-white">{{ .Title | safeHTML }}</a></li>
+      {{ end }}
+    </ul>
+  </nav>
+{{ end }}
