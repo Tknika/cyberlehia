@@ -88,10 +88,6 @@ Parte-hartzaileek arau hauek bete beharko dituzte:
 
 > **Oharra:** antolakuntzak arau-hauste baten zantzurik sumatuz gero, partaideak kanporatzeko eskubidea du.
 
-## Komunikazioa eta harremana
-
-Txapelketari buruzko komunikazioa posta elektronikoz egingo da. Antolakuntzarekin harremanetan jartzeko: [cyberlehia@tknika.eus](mailto:cyberlehia@tknika.eus).
-
 {{< next-links >}}
 {{< next "/ezagutu-cyberlehia/sariak" >}}Arauak ezagututa, ikusi zer sari jasoko dituzten talde finalistek eta zer zozketatuko den partaide guztien artean.{{< /next >}}
 {{< next "/kontaktua" >}}Oinarriei buruzko zalantzarik baduzu, idatzi antolakuntzari.{{< /next >}}
