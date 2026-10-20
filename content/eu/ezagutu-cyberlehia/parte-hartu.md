@@ -5,6 +5,7 @@ header_image: images/edizioa-2026.jpg
 eyebrow: Parte-hartzea
 description: Nork har dezake parte, nola osatzen dira taldeak eta nola eman izena.
 weight: 10
+anchors: true
 menus:
   main:
     parent: ezagutu

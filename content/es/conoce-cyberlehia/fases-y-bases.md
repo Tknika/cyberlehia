@@ -6,6 +6,7 @@ header_image: images/final.jpg
 eyebrow: Bases
 description: Estructura de la competición, fases, condiciones de participación y reglas.
 weight: 20
+anchors: true
 menus:
   main:
     parent: ezagutu
