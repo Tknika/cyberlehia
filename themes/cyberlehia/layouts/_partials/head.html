@@ -4,6 +4,7 @@
 {{ $desc := .Description | default .Summary | default site.Params.description | plainify | truncate 160 }}
 <meta name="description" content="{{ $desc }}">
 <meta name="theme-color" content="#07080f">
+{{ with .Params.robots }}<meta name="robots" content="{{ . }}">{{ end }}
 <link rel="canonical" href="{{ .Permalink }}">
 {{ range .AllTranslations }}
   <link rel="alternate" hreflang="{{ .Language.Lang }}" href="{{ .Permalink }}">
