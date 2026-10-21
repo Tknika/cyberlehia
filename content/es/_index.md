@@ -1,13 +1,9 @@
 ---
 title: CyberLehia
 description: Campeonato de ciberseguridad (CTF) y encuentro del alumnado de Formación Profesional de Euskadi.
-# Call to action over the video. Change it for each moment of the championship; remove (or comment out) the whole block when there is nothing to announce.
-cta:
-  eyebrow: CyberLehia 2027
-  title: ¿Te atreves con el reto?
-  text: Si estudias Formación Profesional en Euskadi, forma tu equipo e inscríbete en la 4ª edición de CyberLehia.
-  button: Inscríbete
-  # url: (empty = the registration form, registrationURL in hugo.toml)
+# Button under the active phase of the timeline (without url: registrationURL in hugo.toml). Remove it when there is nothing to do.
+timeline_button:
+  label: Participa
 video:
   youtube: 5rsiuSXlulo
   title: Resumen CyberLehia 2026

@@ -1,13 +1,9 @@
 ---
 title: CyberLehia
 description: XXX-an final handia Bilboko Alhondigan!
-# Call to action over the video. Change it for each moment of the championship; remove (or comment out) the whole block when there is nothing to announce.
-cta:
-  eyebrow: CyberLehia 2027
-  title: Prest zaude erronkarako?
-  text: Euskadiko Lanbide Heziketako ikaslea bazara, osatu zure taldea eta eman izena CyberLehiaren 4. edizioan.
-  button: Eman izena
-  # url: (empty = the registration form, registrationURL in hugo.toml)
+# Button under the active phase of the timeline (without url: registrationURL in hugo.toml). Remove it when there is nothing to do.
+timeline_button:
+  label: Parte hartu
 video:
   youtube: 5rsiuSXlulo
   title: CyberLehia 2026 laburpena
