@@ -1,19 +1,42 @@
 {{ $page := . }}
+{{- /* Drafts with `header_logo` in their front matter show the Basque Government logo, in white, in the header area.
+       Default (home4): inside the header, as on euskadi.eus sites, right of the CyberLehia logo on wide screens with
+       the menu on a second row. `position: topbar` (home2): in the top bar, on the left (instead of the tagline), with the language switcher.
+       On smaller screens, both use a slim bar above the header. */ -}}
+{{ $gv := $page.Params.header_logo }}
+{{ $gvOrg := dict }}{{ with $gv }}{{ $gvOrg = index (where site.Params.organizers "logo" .logo) 0 }}{{ end }}
+{{ $gvURL := "" }}{{ with $gv }}{{ $gvURL = .url | default $gvOrg.url }}{{ end }}
+{{ $inBar := and $gv (eq $gv.position "topbar") }}
+{{ $inHeader := and $gv (not $inBar) }}
 <div class="hidden border-b border-ink-800 bg-ink-950 lg:block">
-  <div class="container-site flex h-10 items-center justify-between gap-6">
+  <div class="{{ if $inBar }}container-site flex h-16 items-center justify-between gap-6{{ else }}container-site flex h-10 items-center justify-between gap-6{{ end }}">
+    {{ if $inBar }}
+      <a href="{{ $gvURL }}" rel="noopener" class="opacity-90 transition hover:opacity-100"><img src="{{ $gv.white | default $gv.logo | relURL }}" alt="{{ $gvOrg.name }}" class="h-11 w-auto"></a>
+    {{ else }}
     <p class="truncate font-mono text-xs text-ink-400"><span class="text-pink">//</span> {{ site.Params.description }}</p>
+    {{ end }}
     {{ partial "lang-switcher.html" $page }}
   </div>
 </div>
+{{ with $gv }}
+<div class="border-b border-ink-800 bg-ink-950 lg:hidden">
+  <div class="container-site flex h-12 items-center">
+    <a href="{{ $gvURL }}" rel="noopener" class="block opacity-90 transition hover:opacity-100"><img src="{{ .white | default .logo | relURL }}" alt="{{ $gvOrg.name }}" class="h-8 w-auto"></a>
+  </div>
+</div>
+{{ end }}
 <header class="sticky top-0 z-40 border-b border-ink-700 bg-ink-850/85 shadow-lg shadow-black/40 backdrop-blur-md">
   <div class="pointer-events-none absolute inset-x-0 -bottom-px h-px bg-gradient-to-r from-transparent via-cyan/60 to-transparent" aria-hidden="true"></div>
-  <div class="container-site flex h-20 items-center justify-between gap-6 lg:h-24">
+  <div class="{{ if $inHeader }}container-site flex h-20 flex-wrap items-center justify-between gap-x-6 lg:h-auto lg:pt-4{{ else }}container-site flex h-20 items-center justify-between gap-6 lg:h-24{{ end }}">
     <a href="{{ site.Home.RelPermalink }}" class="flex shrink-0 items-center" aria-label="{{ site.Title }} · {{ i18n "home" }}">
       <img src="{{ "images/logo-cyberlehia.png" | relURL }}" alt="{{ site.Title }}" width="283" height="128" class="h-11 w-auto lg:h-14">
     </a>
+    {{ if $inHeader }}{{ with $gv }}
+      <a href="{{ $gvURL }}" rel="noopener" class="ml-auto hidden opacity-90 transition hover:opacity-100 lg:block"><img src="{{ .white | default .logo | relURL }}" alt="{{ $gvOrg.name }}" class="h-12 w-auto xl:h-14"></a>
+    {{ end }}{{ end }}
 
     {{/* Desktop navigation */}}
-    <nav class="hidden lg:block" aria-label="{{ i18n "menu" }}">
+    <nav class="{{ if $inHeader }}hidden lg:order-last lg:mt-3 lg:block lg:w-full lg:border-t lg:border-ink-700/60 lg:py-1.5{{ else }}hidden lg:block{{ end }}" aria-label="{{ i18n "menu" }}">
       <ul class="flex items-center gap-0.5 xl:gap-2">
         {{ range site.Menus.main }}
           {{ $active := or ($page.IsMenuCurrent "main" .) ($page.HasMenuCurrent "main" .) }}

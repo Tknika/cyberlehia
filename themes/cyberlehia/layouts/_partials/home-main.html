@@ -13,6 +13,8 @@
            Nothing video-related is downloaded from the HTML: main.js attaches the source after the page has
            loaded, and only without reduced motion, Save-Data or a slow connection (see bgVideo in main.js). */}}
       {{ with .poster }}<img src="{{ . | relURL }}" alt="" fetchpriority="high" class="absolute inset-0 size-full object-cover">{{ end }}
+      {{/* Drafts can keep the still image only, with `hide_video: true`. */}}
+      {{ if not page.Params.hide_video }}
       {{ with .src }}
         {{/* Self-hosted loop (preferred): small, no third-party requests or player UI. */}}
         <video class="absolute inset-0 size-full object-cover opacity-0 transition-opacity duration-1000" data-bg-video="file"
@@ -24,10 +26,44 @@
         {{/* Fallback: YouTube background player, created by main.js on wide screens only. youtube-nocookie avoids tracking cookies. */}}
         <div data-bg-video="youtube" data-youtube-id="{{ . }}" data-title="{{ $.Params.video.title | default site.Title }}"></div>
       {{ end }}
+      {{ end }}
       {{/* Tint + fade into the page background */}}
       <div class="absolute inset-0 bg-ink-950/25"></div>
       <div class="absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-t from-ink-950 via-ink-950/60 to-transparent"></div>
       <div class="absolute inset-x-0 top-0 h-16 bg-gradient-to-b from-ink-950/50 to-transparent"></div>
+    </div>
+  {{ end }}
+
+  {{/* Call to action over the video, for the moments when there is something to announce (registration
+       open, final, results…). Optional: remove or comment out `cta` in the home's front matter to hide it (drafts can hide it with `hide_cta: true`).
+       Fields: eyebrow, title, text, button + url (content path like /kontaktua, or a full URL; without url,
+       the button goes to site.Params.registrationURL), and an optional secondary link: link + link_url. */}}
+  {{ with and (not page.Params.hide_cta) .Params.cta }}
+    {{ $url := .url | default site.Params.registrationURL }}
+    {{ if hasPrefix $url "/" }}{{ with site.GetPage $url }}{{ $url = .RelPermalink }}{{ end }}{{ end }}
+    {{ $link := "" }}{{ with .link_url }}{{ $link = . }}{{ if hasPrefix . "/" }}{{ with site.GetPage . }}{{ $link = .RelPermalink }}{{ end }}{{ end }}{{ end }}
+    {{/* A small glass card at the bottom left of the video, just above the phases panel. */}}
+    <div class="absolute inset-x-0 top-0 flex h-[62vh] min-h-[360px] max-h-[860px] items-end pb-32 sm:pb-28 lg:h-[78vh] lg:pb-32">
+      <div class="container-site">
+        <div class="max-w-sm rounded-xl border border-ink-700/80 border-l-2 border-l-pink bg-ink-950/65 px-5 py-4 shadow-xl shadow-black/40 backdrop-blur-md">
+          {{ with .eyebrow }}
+            <p class="flex items-center gap-2 font-mono text-[0.7rem] font-semibold uppercase tracking-[0.2em] text-cyan">
+              <span class="relative flex size-2" aria-hidden="true"><span class="absolute inline-flex size-full animate-ping rounded-full bg-pink opacity-60 motion-reduce:animate-none"></span><span class="relative inline-flex size-2 rounded-full bg-pink"></span></span>
+              {{ . }}
+            </p>
+          {{ end }}
+          <h2 class="mt-1.5 font-display text-lg font-bold leading-snug text-white sm:text-xl">{{ .title }}</h2>
+          {{ with .text }}<p class="mt-1 hidden text-sm leading-relaxed text-ink-300 sm:block">{{ . | markdownify }}</p>{{ end }}
+          <div class="mt-3 flex flex-wrap items-center gap-x-4 gap-y-2">
+            {{ with $url }}
+              <a href="{{ . }}"{{ if not (hasPrefix . "/") }} rel="noopener"{{ end }} class="inline-flex items-center gap-1.5 rounded-md bg-pink-600 px-3.5 py-2 font-mono text-xs font-semibold text-white transition hover:bg-pink-700">{{ $.Params.cta.button | default (i18n "register") }} <span aria-hidden="true">→</span></a>
+            {{ end }}
+            {{ with $link }}
+              <a href="{{ . }}" class="font-mono text-xs font-semibold text-ink-300 transition hover:text-cyan">{{ $.Params.cta.link }}</a>
+            {{ end }}
+          </div>
+        </div>
+      </div>
     </div>
   {{ end }}
 
@@ -40,7 +76,7 @@
     {{ with .Params.phases }}
       <div class="container-site relative z-10 {{ if $partners }}-mt-44 lg:-mt-48{{ else }}-mt-28 sm:-mt-24{{ end }}">
         {{ with $partners }}
-          <div class="mb-5 flex justify-end lg:mb-6">
+          <div class="mb-5 flex {{ if eq page.Params.partners_align "center" }}justify-center{{ else }}justify-end{{ end }} lg:mb-6">
             <ul class="flex items-center gap-5 sm:gap-7">
               {{ range $i, $p := . }}
                 {{ $org := index (where site.Params.organizers "logo" $p.logo) 0 }}
@@ -53,7 +89,10 @@
             </ul>
           </div>
         {{ end }}
-        {{ partial "timeline.html" (dict "phases" . "eyebrow" ($edition.Params.eyebrow | default $edition.Title) "class" "shadow-2xl shadow-black/60 backdrop-blur-md") }}
+        {{/* Drafts can add a button under the active phase: `timeline_button: {label, url}` (without url: registrationURL). */}}
+        {{ $action := dict }}
+        {{ with page.Params.timeline_button }}{{ $action = dict "label" (.label | default (i18n "register")) "url" (.url | default site.Params.registrationURL) }}{{ end }}
+        {{ partial "timeline.html" (dict "phases" . "eyebrow" ($edition.Params.eyebrow | default $edition.Title) "class" "shadow-2xl shadow-black/60 backdrop-blur-md" "action" $action) }}
       </div>
     {{ end }}
   {{ end }}
