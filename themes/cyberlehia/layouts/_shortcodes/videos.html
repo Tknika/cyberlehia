@@ -7,11 +7,12 @@
        main.js swaps the tile for a youtube-nocookie player on click; without JS the tile links to YouTube.
        New video? Run scripts/fetch-video-thumbs.sh to add its preview image. */ -}}
 <ul class="not-prose my-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-  {{ range split (trim .Inner "\n ") "\n" }}
+  {{/* "\r" too: on Windows checkouts (autocrlf) the lines end in CRLF */}}
+  {{ range split (trim .Inner "\r\n ") "\n" }}
     {{ $parts := split . "|" }}
-    {{ $id := trim (index $parts 0) " " }}
-    {{ $title := "" }}{{ if gt (len $parts) 1 }}{{ $title = trim (index $parts 1) " " }}{{ end }}
-    {{ $tag := "" }}{{ if gt (len $parts) 2 }}{{ $tag = trim (index $parts 2) " " }}{{ end }}
+    {{ $id := trim (index $parts 0) " \r" }}
+    {{ $title := "" }}{{ if gt (len $parts) 1 }}{{ $title = trim (index $parts 1) " \r" }}{{ end }}
+    {{ $tag := "" }}{{ if gt (len $parts) 2 }}{{ $tag = trim (index $parts 2) " \r" }}{{ end }}
     {{ with $id }}
       <li class="overflow-hidden rounded-xl border border-ink-700 bg-ink-900">
         <a href="https://www.youtube.com/watch?v={{ . }}" rel="noopener" target="_blank" data-yt="{{ . }}" data-yt-title="{{ $title }}"
