@@ -25,18 +25,26 @@ images/edizioak/2026/06.jpg
 images/edizioak/2026/07.jpg
 images/edizioak/2026/08.jpg
 images/edizioak/2026/09.jpg
+images/edizioak/2026/10.jpg
+images/edizioak/2026/11.jpg
+images/edizioak/2026/12.jpg
 {{< /gallery >}}
 
 ## 2025 · Bilbao, La Terminal
 
 {{< gallery >}}
-images/edizioak/2025/01.jpg
-images/edizioak/2025/02.jpg
-images/edizioak/2025/03.jpg
-images/edizioak/2025/04.jpg
-images/edizioak/2025/05.jpg
+images/edizioak/2025/01.jpg | Finalistas
+images/edizioak/2025/02.jpg | 2.º premio
+images/edizioak/2025/03.jpg | 3.er premio
+images/edizioak/2025/04.jpg | 4.º premio
+images/edizioak/2025/05.jpg | 5.º premio
 images/edizioak/2025/06.jpg
 images/edizioak/2025/07.jpg
+images/edizioak/2025/08.jpg
+images/edizioak/2025/09.jpg
+images/edizioak/2025/10.jpg
+images/edizioak/2025/11.jpg
+images/edizioak/2025/12.jpg
 {{< /gallery >}}
 
 ## 2024 · Bilbao, La Terminal
@@ -48,4 +56,10 @@ images/edizioak/2024/03.jpg
 images/edizioak/2024/04.jpg
 images/edizioak/2024/05.jpg
 images/edizioak/2024/06.jpg
+images/edizioak/2024/07.jpg
+images/edizioak/2024/08.jpg
+images/edizioak/2024/09.jpg
+images/edizioak/2024/10.jpg
+images/edizioak/2024/11.jpg
+images/edizioak/2024/12.jpg
 {{< /gallery >}}

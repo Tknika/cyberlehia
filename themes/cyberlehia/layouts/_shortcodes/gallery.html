@@ -5,10 +5,11 @@ images/photo.jpg | Caption
 {{< /gallery >}}
 */ -}}
 <div class="not-prose grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-  {{ range split (trim .Inner "\n ") "\n" }}
+  {{/* "\r" too: on Windows checkouts (autocrlf) the lines end in CRLF */}}
+  {{ range split (trim .Inner "\r\n ") "\n" }}
     {{ $parts := split . "|" }}
-    {{ $src := trim (index $parts 0) " " }}
-    {{ $caption := "" }}{{ if gt (len $parts) 1 }}{{ $caption = trim (index $parts 1) " " }}{{ end }}
+    {{ $src := trim (index $parts 0) " \r" }}
+    {{ $caption := "" }}{{ if gt (len $parts) 1 }}{{ $caption = trim (index $parts 1) " \r" }}{{ end }}
     {{ with $src }}
       <figure class="group overflow-hidden rounded-xl border border-ink-700 bg-ink-900">
         <a href="{{ . | relURL }}" class="block aspect-[4/3] overflow-hidden">
