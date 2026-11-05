@@ -9,9 +9,9 @@
 {{ $inBar := and $gv (eq $gv.position "topbar") }}
 {{ $inHeader := and $gv (not $inBar) }}
 <div class="hidden border-b border-ink-800 bg-ink-950 lg:block">
-  <div class="{{ if $inBar }}container-site flex h-24 items-center justify-between gap-6{{ else }}container-site flex h-10 items-center justify-between gap-6{{ end }}">
+  <div class="{{ if $inBar }}container-site flex h-20 items-center justify-between gap-6{{ else }}container-site flex h-10 items-center justify-between gap-6{{ end }}">
     {{ if $inBar }}
-      <a href="{{ $gvURL }}" rel="noopener" class="opacity-90 transition hover:opacity-100"><img src="{{ $gv.white | default $gv.logo | relURL }}" alt="{{ $gvOrg.name }}" class="h-17 w-auto"></a>
+      <a href="{{ $gvURL }}" rel="noopener" class="opacity-90 transition hover:opacity-100"><img src="{{ $gv.white | default $gv.logo | relURL }}" alt="{{ $gvOrg.name }}" class="h-15 w-auto"></a>
     {{ else }}
     <p class="truncate font-mono text-xs text-ink-400"><span class="text-pink">//</span> {{ site.Params.description }}</p>
     {{ end }}
@@ -20,8 +20,8 @@
 </div>
 {{ with $gv }}
 <div class="border-b border-ink-800 bg-ink-950 lg:hidden">
-  <div class="container-site flex {{ if $inBar }}h-16{{ else }}h-12{{ end }} items-center">
-    <a href="{{ $gvURL }}" rel="noopener" class="block opacity-90 transition hover:opacity-100"><img src="{{ .white | default .logo | relURL }}" alt="{{ $gvOrg.name }}" class="{{ if $inBar }}h-11{{ else }}h-8{{ end }} w-auto"></a>
+  <div class="container-site flex {{ if $inBar }}h-15{{ else }}h-12{{ end }} items-center">
+    <a href="{{ $gvURL }}" rel="noopener" class="block opacity-90 transition hover:opacity-100"><img src="{{ .white | default .logo | relURL }}" alt="{{ $gvOrg.name }}" class="{{ if $inBar }}h-10{{ else }}h-8{{ end }} w-auto"></a>
   </div>
 </div>
 {{ end }}
