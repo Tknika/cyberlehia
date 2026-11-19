@@ -27,7 +27,7 @@ phases:
       - Dakizunaz harro!
   - title: Finala
     dates: Martxoak 17
-    description: Laister
+    description: Laster
 
 # Key facts at the top of the page. Leave value empty ("") until the organisers confirm it: it shows "Laster".
 facts:
