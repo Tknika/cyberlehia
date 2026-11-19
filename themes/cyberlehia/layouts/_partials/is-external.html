@@ -1,0 +1,7 @@
+{{- /* True when a URL leaves the site (http or https to another host): the buttons that go there, like the registration
+       form, open in a new tab (asked in November 2026), with target="_blank" rel="noopener" and a screen-reader note
+       (i18n "newTab"). Internal paths, mailto: and files of this site stay in the same tab.
+       Usage: {{ $ext := partial "is-external.html" $url }} */ -}}
+{{- $u := urls.Parse . -}}
+{{- $ext := and (in (slice "http" "https") $u.Scheme) (ne $u.Host (urls.Parse site.BaseURL).Host) -}}
+{{- return $ext -}}

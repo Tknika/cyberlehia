@@ -96,7 +96,8 @@
         </li>
       {{ end }}
       {{ range site.Menus.utility }}
-        <li class="pt-3"><a href="{{ .URL }}" class="btn-ghost w-full justify-center">{{ .Name }}</a></li>
+        {{ $ext := partial "is-external.html" .URL }}
+        <li class="pt-3"><a href="{{ .URL }}"{{ if $ext }} target="_blank" rel="noopener"{{ end }} class="btn-ghost w-full justify-center">{{ .Name }}{{ if $ext }}<span class="sr-only"> ({{ i18n "newTab" }})</span>{{ end }}</a></li>
       {{ end }}
     </ul>
   </nav>

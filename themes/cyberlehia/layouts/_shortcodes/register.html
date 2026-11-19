@@ -1,7 +1,8 @@
 {{- /* Call-to-action button to the registration form (site param `registrationURL`, per language in hugo.toml).
-       Usage: {{< register >}}. Hidden when registrationURL is empty. */ -}}
+       Usage: {{< register >}}. Hidden when registrationURL is empty. The form is on another site: it opens in a new tab. */ -}}
 {{- with site.Params.registrationURL -}}
 <div class="not-prose my-8">
-  <a href="{{ . }}" rel="noopener" class="btn-primary text-base">{{ i18n "register" }} <span aria-hidden="true">→</span></a>
+  {{- $ext := partial "is-external.html" . }}
+  <a href="{{ . }}"{{ if $ext }} target="_blank" rel="noopener"{{ end }} class="btn-primary text-base">{{ i18n "register" }}{{ if $ext }}<span class="sr-only"> ({{ i18n "newTab" }})</span>{{ end }} <span aria-hidden="true">→</span></a>
 </div>
 {{- end -}}
