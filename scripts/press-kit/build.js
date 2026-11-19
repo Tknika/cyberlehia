@@ -108,7 +108,6 @@ const t = {
     resources: [
       ["Argazkiak", "cyberlehia.fpeuskadi.eus/prentsa-gunea/argazki-bilduma/"],
       ["Bideoak", "cyberlehia.fpeuskadi.eus/prentsa-gunea/bideoak/"],
-      ["Logotipoak", "cyberlehia.fpeuskadi.eus/prentsa-gunea/"],
     ],
     contactTitle: "Harremanetarako",
     contact: "Elkarrizketak, argazkiak edo informazio gehiago eskatzeko:",
@@ -175,7 +174,6 @@ const t = {
     resources: [
       ["Fotografías", "cyberlehia.fpeuskadi.eus/es/sala-de-prensa/galeria-de-fotos/"],
       ["Vídeos", "cyberlehia.fpeuskadi.eus/es/sala-de-prensa/videos/"],
-      ["Logotipos", "cyberlehia.fpeuskadi.eus/es/sala-de-prensa/"],
     ],
     contactTitle: "Contacto",
     contact: "Para entrevistas, fotografías o más información:",

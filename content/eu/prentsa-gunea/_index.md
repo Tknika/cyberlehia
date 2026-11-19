@@ -3,7 +3,7 @@ title: Prentsa gunea
 translationKey: press
 header_image: images/edizioa-2026.jpg
 eyebrow: Komunikabideak
-description: Prentsa oharrak, logotipoak eta komunikabideentzako harremana.
+description: Prentsa oharrak eta komunikabideentzako harremana.
 menus:
   main:
     identifier: press
@@ -19,8 +19,3 @@ CyberLehiari buruzko informazio nagusia dokumentu bakarrean: zer den, nola funtz
 ## Komunikabideentzako harremana
 
 Elkarrizketak, argazkiak edo informazio gehiago eskatzeko, idatzi [cyberlehia@tknika.eus](mailto:cyberlehia@tknika.eus) helbidera.
-
-## Logotipoak
-
-- [CyberLehia logotipoa (PNG, atzealde ilunerako)](/images/logo-cyberlehia.png)
-- [Eusko Jaurlaritza · Hezkuntza Saila (PNG)](/images/logo-eusko-jaurlaritza.png)
