@@ -49,6 +49,7 @@ There is no test suite. **A change is verified when:**
 - Reusable component classes live in `@layer components` in `main.css`: `container-site`, `btn-primary`, `btn-ghost`, `card`, `eyebrow`, `text-gradient`, `bg-grid`, `prose-cyber`, `video-bg`.
 - In Tailwind v4 you **can't `@apply` a custom component class** (e.g. `@apply btn`). Repeat the utilities instead.
 - **Links between pages.** The big cards (`_partials/card.html`) are only for a parent page linking to its subpages (section listings). To send the reader on from a page, end it with two compact blocks side by side: `{{< next-links >}}` wrapping two `{{< next "/path" >}}One sentence tying this page to that one{{< /next >}}` (content path without the language). Pick the two pages the reader should logically read next and write the sentences in both languages. Inline links inside a sentence are fine.
+- **Buttons to other sites open in a new tab** (asked in November 2026, mainly for the registration form): the registration buttons (`{{< register >}}`, the home `cta`, `benefits` and `timeline_button`), `{{< button >}}` with a full URL and the header's `utility` menu get `target="_blank" rel="noopener"` plus a screen-reader note (i18n `newTab`) when `_partials/is-external.html` says the URL is http(s) to another host. Internal paths, `mailto:` and downloads stay in the same tab. Use that partial for any new button that can point outside the site.
 - Markdown output is wrapped in `.prose-cyber`. Inside it, add `not-prose` to any custom HTML block (shortcodes like `timeline`, `gallery` and `youtube` do this) so the prose styles don't leak into it. Prose link styles only apply to `<a>` without a `class`.
 - Tailwind only sees classes that appear in `hugo_stats.json` (rendered HTML) or literally in the CSS. Classes built dynamically in templates (e.g. `printf "text-%s" $color`) are not detected, so write full class names.
 - Respect `prefers-reduced-motion` (animations use `motion-reduce:`; the background video is never loaded, see below).
@@ -71,7 +72,7 @@ There is no test suite. **A change is verified when:**
 
 ## Open items (as of 2026-10)
 
-- 4th edition dates, rules, venue and prizes: unknown, shown as "Laster" / "Próximamente".
+- 4th edition: the organisers' first, provisional version (PR #3, November 2026) gives approximate phase dates, the final on 17 March in Bilbao, the new phase 2 tests and points, and the new rules (`4-edizioa/_index.md` and `faseak-eta-oinarriak.md`, Spanish translated from the Basque). Still pending: the final's details ("Laster" / "Próximamente"), the programme and prizes; the warning note on "Faseak eta oinarriak" still says the rules are 2026's. The registration phase text has a visible placeholder, **ESTEKA GEHITU** / **AÑADIR ENLACE**, to be replaced with the new form link (published like that on purpose).
 - FP Euskadi logo is a small 111×109 PNG from the old site; replace it with an SVG or larger PNG if available.
 - The cookie policy (copied from WordPress) still lists `_pk_*` analytics cookies that the static site doesn't set; it needs a legal review.
 - `registrationURL` points to last edition's (expired) LimeSurvey form; update it with the new survey ID.

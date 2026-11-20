@@ -27,3 +27,5 @@ seeMore: Ikusi
 nextRead: Jarraitu irakurtzen
 soon: Laster
 playVideo: Ikusi bideoa
+# Screen-reader note on buttons that open another site in a new tab (_partials/is-external.html)
+newTab: leiho berrian irekitzen da
