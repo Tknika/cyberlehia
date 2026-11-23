@@ -6,3 +6,6 @@ hugo_stats.json
 
 # Original photos (full size); the web uses the reduced copies in static/images/edizioak/
 _originals/
+
+# Claude Code local settings
+.claude/
