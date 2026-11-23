@@ -205,6 +205,26 @@ Tailwind scans the generated `hugo_stats.json` (enabled by `build.buildStats`), 
 
 ---
 
+## Built with
+
+The site has no runtime dependencies: it is plain HTML, CSS and a small JS file. These are the components used to build, run and maintain it:
+
+| Component | Used for | Link |
+| --- | --- | --- |
+| **Hugo** (extended, ≥ 0.146; CI 0.168.0) | Static site generator: templates, multilingual content (eu/es), menus, shortcodes, asset pipeline (`js.Build`, `css.TailwindCSS`) | [gohugo.io](https://gohugo.io/) |
+| **Goldmark** | Hugo's Markdown renderer (raw HTML and block attributes enabled in `hugo.toml`) | [github.com/yuin/goldmark](https://github.com/yuin/goldmark) |
+| **Tailwind CSS v4** + `@tailwindcss/cli` | Styling; configured in CSS (`@theme` in `themes/cyberlehia/assets/css/main.css`), run by Hugo from `node_modules` | [tailwindcss.com](https://tailwindcss.com/) |
+| **Node.js** (≥ 20; CI 24) + npm | Runs the Tailwind CLI and the press-kit PDF script | [nodejs.org](https://nodejs.org/) |
+| **`cyberlehia` theme** | Custom theme in this repo (`themes/cyberlehia`): layouts, partials, shortcodes, i18n | — |
+| **Space Grotesk** and **JetBrains Mono** | Self-hosted web fonts (SIL Open Font License) | [Space Grotesk](https://github.com/floriankarsten/space-grotesk), [JetBrains Mono](https://www.jetbrains.com/lp/mono/) |
+| **GitHub Actions** + **GitHub Pages** | CI build and hosting (`actions/checkout`, `actions/setup-node`, `actions/configure-pages`, `actions/upload-pages-artifact`, `actions/deploy-pages`) | [docs.github.com/pages](https://docs.github.com/en/pages) |
+| **YouTube** (youtube-nocookie + IFrame API) | Video embeds and the home background video when no self-hosted `video.src` is set; the only third-party request | [developers.google.com/youtube](https://developers.google.com/youtube/iframe_api_reference) |
+| **LimeSurvey** (Tknika's `galdetegiak.tknika.eus`) | Registration form linked by the "Parte hartu" button | [limesurvey.org](https://www.limesurvey.org/) |
+| **FFmpeg** | `scripts/encode-hero-video.sh` (home video loop) and `scripts/fetch-video-thumbs.sh` (video previews) | [ffmpeg.org](https://ffmpeg.org/) |
+| **Headless Microsoft Edge / Google Chrome** | Prints the press dossier PDFs from `scripts/press-kit/build.js` | — |
+
+---
+
 ## License
 
 Content: [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) (see the legal notice). Fonts: SIL Open Font License. Logos belong to their respective owners.
