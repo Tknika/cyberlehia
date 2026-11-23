@@ -14,17 +14,13 @@ phases:
   - title: Izen-ematea
     dates: Abenduaren 1etik aurrera
     status: active
-    description: Gehienez 1000 partaide. 1, 2 edo 3 pertsonako taldeak. Eman izena hemen **ESTEKA GEHITU**
+    description: ESTEKA GEHITU
   - title: Lehen sailkatze fasea
-    dates: Urtarrilaren erdian
-    description: Online CTFa lau egunetan, gai eta zailtasun ezberdinetako erronkekin. Talde onenak 2. fasera.
+    dates: Urtarrilaren 14tik 18ra
+    description: 100 partaiderik oneak sailkatuko dira
   - title: Bigarren sailkatze fasea
-    dates: Otsailean zehar
-    description: "Hiru froga ezberdin:"
-    items:
-      - Adimen Artifizialari eraso
-      - Bug Bounty
-      - Dakizunaz harro!
+    dates: Otsailaren 1etik 19ra
+    description: 5 talderik oneak sailkatuko dira
   - title: Finala
     dates: Martxoak 17
     description: Laster
