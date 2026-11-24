@@ -14,7 +14,7 @@ phases:
   - title: Izen-ematea
     dates: Abenduaren 1etik aurrera
     status: active
-    description: Gehienez 1000 partaide. 1, 2 edo 3 pertsonako taldeak. Eman izena hemen **ESTEKA GEHITU**
+    description: Gehienez 1000 partaide. 1, 2 edo 3 pertsonako taldeak. [Eman izena hemen.](https://galdetegiak.tknika.eus/index.php/693791?lang=eu "Eman izena hemen")
   - title: Lehen sailkatze fasea
     dates: Urtarrilaren erdian
     description: Online CTFa lau egunetan, gai eta zailtasun ezberdinetako erronkekin. Talde onenak 2. fasera.

@@ -72,9 +72,8 @@ There is no test suite. **A change is verified when:**
 
 ## Open items (as of 2026-10)
 
-- 4th edition: the organisers' first, provisional version (PR #3, November 2026) gives approximate phase dates, the final on 17 March in Bilbao, the new phase 2 tests and points, and the new rules (`4-edizioa/_index.md` and `faseak-eta-oinarriak.md`, Spanish translated from the Basque). Still pending: the final's details ("Laster" / "Próximamente"), the programme and prizes; the warning note on "Faseak eta oinarriak" still says the rules are 2026's. The registration phase text has a visible placeholder, **ESTEKA GEHITU** / **AÑADIR ENLACE**, to be replaced with the new form link (published like that on purpose).
+- 4th edition: the organisers' first, provisional version (PR #3, November 2026) gives approximate phase dates, the final on 17 March in Bilbao, the new phase 2 tests and points, and the new rules (`4-edizioa/_index.md` and `faseak-eta-oinarriak.md`, Spanish translated from the Basque). Still pending: the final's details ("Laster" / "Próximamente"), the programme and prizes; the warning note on "Faseak eta oinarriak" still says the rules are 2026's.
 - FP Euskadi logo is a small 111×109 PNG from the old site; replace it with an SVG or larger PNG if available.
 - The cookie policy (copied from WordPress) still lists `_pk_*` analytics cookies that the static site doesn't set; it needs a legal review.
-- `registrationURL` points to last edition's (expired) LimeSurvey form; update it with the new survey ID.
 - Press dossier PDFs (`static/docs/`, built by `scripts/press-kit/build.js`) are published with two placeholders marked with a pink dashed border: the increase in women (`%XX`, set `womenPrev` with an earlier edition's figures) and the 2027 text (lorem ipsum). Fill both and rebuild.
 - Replace the YouTube background with a short self-hosted loop (`video.src`): needs the original video file from the organisers (see `scripts/encode-hero-video.sh`).

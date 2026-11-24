@@ -37,14 +37,14 @@ disableKinds = ["taxonomy", "term"]
     [languages.eu.params]
       description = "Euskadiko Lanbide Heziketako zibersegurtasun lehiaketa (CTF)"
       # Registration form ("Parte hartu" button). Leave empty to hide the button.
-      registrationURL = "https://galdetegiak.tknika.eus/index.php/496418?lang=eu"
+      registrationURL = "https://galdetegiak.tknika.eus/index.php/693791?lang=eu"
   [languages.es]
     label = "Español"
     weight = 2
     contentDir = "content/es"
     [languages.es.params]
       description = "Competición de ciberseguridad (CTF) de la Formación Profesional de Euskadi"
-      registrationURL = "https://galdetegiak.tknika.eus/index.php/496418?lang=es"
+      registrationURL = "https://galdetegiak.tknika.eus/index.php/693791?lang=es"
 
 [markup.goldmark.renderer]
   unsafe = true

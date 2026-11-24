@@ -13,7 +13,7 @@ phases:
   - title: Inscripción
     dates: A partir del 1 de diciembre
     status: active
-    description: Máximo 1000 participantes. Equipos de 1, 2 o 3 personas. Inscríbete aquí **AÑADIR ENLACE**
+    description: Máximo 1000 participantes. Equipos de 1, 2 o 3 personas. [Inscríbete aquí.](https://galdetegiak.tknika.eus/index.php/693791?lang=es "Inscríbete aquí")
   - title: Primera fase clasificatoria
     dates: A mediados de enero
     description: CTF online durante cuatro días, con retos de distinta temática y dificultad. Los mejores equipos pasan a la 2ª fase.
