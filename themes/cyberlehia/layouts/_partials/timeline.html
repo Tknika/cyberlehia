@@ -48,7 +48,7 @@
               <span class="rounded bg-pink-600 px-1.5 py-0.5 font-semibold uppercase tracking-wider text-white">{{ i18n "now" }}</span>
               <span class="text-pink">{{ $p.dates }}</span>
             {{ else }}
-              <span class="text-ink-400">0{{ add $i 1 }} · {{ $p.dates }}</span>
+              <span class="text-ink-400">0{{ add $i 1 }} · {{ $p.dates }}</span>{{ if eq $status "done" }}<span class="sr-only"> ({{ i18n "phaseDone" }})</span>{{ end }}
             {{ end }}
           </div>
           <p class="mt-1.5 font-display leading-snug {{ if eq $status "active" }}text-lg font-bold text-white sm:text-xl{{ else if eq $status "done" }}text-base font-medium text-ink-400 line-through decoration-ink-600{{ else }}text-base font-medium text-ink-300{{ end }}">{{ $p.title }}</p>

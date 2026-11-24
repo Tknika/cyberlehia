@@ -32,6 +32,16 @@
       <div class="absolute inset-x-0 bottom-0 h-2/3 bg-gradient-to-t from-ink-950 via-ink-950/60 to-transparent"></div>
       <div class="absolute inset-x-0 top-0 h-16 bg-gradient-to-b from-ink-950/50 to-transparent"></div>
     </div>
+    {{/* Pause/play for the moving background (WCAG 2.2.2). Hidden until main.js has the video playing. */}}
+    {{ if and (not page.Params.hide_video) (or .src .youtube) }}
+      <button type="button" data-bg-video-toggle hidden
+              data-label-pause="{{ i18n "pauseVideo" }}" data-label-play="{{ i18n "playBgVideo" }}"
+              class="absolute right-4 top-4 z-20 grid size-10 place-items-center rounded-full border border-ink-600 bg-ink-950/70 text-ink-100 backdrop-blur transition hover:border-cyan hover:text-cyan sm:right-6 lg:right-8">
+        <svg class="size-4" data-icon-pause viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M4 3h3v10H4zM9 3h3v10H9z"/></svg>
+        <svg class="hidden size-4" data-icon-play viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M5 3l8 5-8 5z"/></svg>
+        <span class="sr-only" data-label>{{ i18n "pauseVideo" }}</span>
+      </button>
+    {{ end }}
   {{ end }}
 
   {{/* Call to action over the video, for the moments when there is something to announce (registration

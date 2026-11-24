@@ -9,18 +9,18 @@
 -}}
 {{- $n := len . -}}
 {{- $big := le $n 2 -}}
-<dl class="grid gap-3 sm:gap-4 {{ if $big }}sm:grid-cols-2{{ else }}grid-cols-2 {{ if eq $n 3 }}lg:grid-cols-3{{ else }}lg:grid-cols-4{{ end }}{{ end }}">
+<ul role="list" class="grid gap-3 sm:gap-4 {{ if $big }}sm:grid-cols-2{{ else }}grid-cols-2 {{ if eq $n 3 }}lg:grid-cols-3{{ else }}lg:grid-cols-4{{ end }}{{ end }}">
   {{ range $i, $f := . }}
-    <div class="flex items-center gap-4 rounded-xl border border-ink-700 bg-ink-900 {{ if $big }}p-5 sm:p-6{{ else }}p-4 sm:p-5{{ end }} {{ if $f.value }}border-t-2 border-t-cyan{{ end }} {{ if and (not $big) (eq (mod $n 2) 1) (eq $i (sub $n 1)) }}col-span-2 lg:col-span-1{{ end }}">
+    <li class="flex items-center gap-4 rounded-xl border border-ink-700 bg-ink-900 {{ if $big }}p-5 sm:p-6{{ else }}p-4 sm:p-5{{ end }} {{ if $f.value }}border-t-2 border-t-cyan{{ end }} {{ if and (not $big) (eq (mod $n 2) 1) (eq $i (sub $n 1)) }}col-span-2 lg:col-span-1{{ end }}">
       {{ with index $icons ($f.icon | default "") }}
         <span class="grid size-12 shrink-0 place-items-center rounded-full border border-cyan/30 bg-cyan/10 text-cyan" aria-hidden="true">
           <svg class="size-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">{{ . | safeHTML }}</svg>
         </span>
       {{ end }}
       <div class="min-w-0">
-        <dt class="font-mono text-xs uppercase tracking-wider text-ink-400">{{ $f.label }}</dt>
-        <dd class="mt-1.5 font-display font-semibold leading-snug {{ if $big }}text-xl sm:text-2xl{{ else }}text-base sm:text-lg{{ end }} {{ if $f.value }}text-white{{ else }}text-ink-300{{ end }}">{{ with $f.value }}{{ . | markdownify }}{{ else }}{{ i18n "soon" }}{{ end }}</dd>
+        <p class="font-mono text-xs uppercase tracking-wider text-ink-400">{{ $f.label }}</p>
+        <p class="mt-1.5 font-display font-semibold leading-snug {{ if $big }}text-xl sm:text-2xl{{ else }}text-base sm:text-lg{{ end }} {{ if $f.value }}text-white{{ else }}text-ink-300{{ end }}">{{ with $f.value }}{{ . | markdownify }}{{ else }}{{ i18n "soon" }}{{ end }}</p>
       </div>
-    </div>
+    </li>
   {{ end }}
-</dl>
+</ul>

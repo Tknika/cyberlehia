@@ -46,6 +46,7 @@
   html {
     font-size: 106.25%; /* 17px base: scales every rem-based size */
     scroll-behavior: smooth;
+    scroll-padding-top: 7rem; /* sticky header: keep anchors and focused elements visible below it */
     color-scheme: dark;
   }
   body {

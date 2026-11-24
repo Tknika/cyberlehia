@@ -12,6 +12,28 @@ if (toggle && menu) {
   });
 }
 
+// Desktop submenus open on hover and focus (CSS). Escape closes the open one (WCAG 1.4.13) until the
+// pointer or focus leaves it, and puts the focus back on its parent link.
+document.querySelectorAll("[data-submenu]").forEach((submenu) => {
+  const item = submenu.parentElement;
+  const reset = () => (submenu.style.visibility = "");
+  item.addEventListener("keydown", (e) => {
+    if (e.key !== "Escape") return;
+    submenu.style.visibility = "hidden";
+    item.querySelector("a").focus();
+  });
+  item.addEventListener("mouseleave", reset);
+  item.addEventListener("focusout", (e) => {
+    if (!item.contains(e.relatedTarget)) reset();
+  });
+});
+document.addEventListener("keydown", (e) => {
+  if (e.key !== "Escape") return;
+  document.querySelectorAll("[data-submenu]").forEach((s) => {
+    if (s.parentElement.matches(":hover")) s.style.visibility = "hidden";
+  });
+});
+
 // Background video. The poster image is the hero and is always shown first. The video is created only
 // once the page has finished loading (and the browser is idle), while the hero is on screen, on screens
 // >= 768px, and never with reduced motion, Save-Data or a slow (2G) connection. It fades in once it is
@@ -48,60 +70,57 @@ const fileVideo = (video) => {
   };
 };
 
-// YouTube fallback. start() creates the iframe and loads the IFrame API the first time only.
+// YouTube fallback. start() creates the youtube-nocookie iframe the first time only. The player is driven
+// with postMessage instead of YouTube's IFrame API script: that script comes from www.youtube.com and sets
+// YouTube cookies, while the bare youtube-nocookie player sets none.
 const youTubeVideo = (holder) => {
-  let player = null;
+  const ytOrigin = "https://www.youtube-nocookie.com";
+  let iframe = null;
+  let ready = false;
   let wantPlay = false;
 
-  const createPlayer = (iframe) => {
-    new window.YT.Player(iframe, {
-      events: {
-        onReady: (e) => {
-          player = e.target;
-          player.mute();
-          if (wantPlay) player.playVideo();
-          else player.pauseVideo(); // narrowed or scrolled away while the player was loading
-        },
-        onStateChange: (e) => {
-          iframe.classList.toggle("opacity-0", e.data !== window.YT.PlayerState.PLAYING);
-        },
-      },
-    });
+  const command = (func) => {
+    if (iframe && ready) iframe.contentWindow.postMessage(JSON.stringify({ event: "command", func, args: [] }), ytOrigin);
   };
+
+  window.addEventListener("message", (e) => {
+    if (!iframe || e.origin !== ytOrigin || e.source !== iframe.contentWindow) return;
+    let data;
+    try {
+      data = JSON.parse(e.data);
+    } catch {
+      return;
+    }
+    if (data.event === "onReady" || (data.event === "infoDelivery" && !ready)) {
+      ready = true;
+      command(wantPlay ? "playVideo" : "pauseVideo"); // narrowed or scrolled away while the player was loading
+    }
+    const state = data.event === "onStateChange" ? data.info : data.info && data.info.playerState;
+    if (typeof state === "number") iframe.classList.toggle("opacity-0", state !== 1); // 1 = playing
+  });
 
   return {
     start() {
-      if (!holder.isConnected) return; // already started
+      if (iframe) return; // already started
       const id = holder.dataset.youtubeId;
-      const iframe = document.createElement("iframe");
+      iframe = document.createElement("iframe");
       iframe.className = "opacity-0 transition-opacity duration-1000";
-      iframe.src = `https://www.youtube-nocookie.com/embed/${id}?autoplay=1&mute=1&loop=1&playlist=${id}&controls=0&modestbranding=1&rel=0&playsinline=1&disablekb=1&iv_load_policy=3&enablejsapi=1`;
+      iframe.src = `${ytOrigin}/embed/${id}?autoplay=1&mute=1&loop=1&playlist=${id}&controls=0&modestbranding=1&rel=0&playsinline=1&disablekb=1&iv_load_policy=3&enablejsapi=1&origin=${encodeURIComponent(location.origin)}`;
       iframe.title = holder.dataset.title;
       iframe.allow = "autoplay; encrypted-media";
       iframe.referrerPolicy = "strict-origin-when-cross-origin";
       iframe.tabIndex = -1;
+      // Ask the player to report its events (onReady, state changes) to this page.
+      iframe.addEventListener("load", () => iframe.contentWindow.postMessage(JSON.stringify({ event: "listening", id: 1, channel: "widget" }), ytOrigin));
       holder.replaceWith(iframe);
-
-      if (window.YT && window.YT.Player) {
-        createPlayer(iframe);
-      } else {
-        const previous = window.onYouTubeIframeAPIReady;
-        window.onYouTubeIframeAPIReady = () => {
-          if (previous) previous();
-          createPlayer(iframe);
-        };
-        const tag = document.createElement("script");
-        tag.src = "https://www.youtube.com/iframe_api";
-        document.head.appendChild(tag);
-      }
     },
     play() {
       wantPlay = true;
-      if (player) player.playVideo();
+      command("playVideo");
     },
     pause() {
       wantPlay = false;
-      if (player) player.pauseVideo();
+      command("pauseVideo");
     },
   };
 };
@@ -109,17 +128,33 @@ const youTubeVideo = (holder) => {
 if (bgVideo && canPlayBgVideo) {
   const video = bgVideo.dataset.bgVideo === "file" ? fileVideo(bgVideo) : youTubeVideo(bgVideo);
   const hero = bgVideo.closest(".video-bg") || bgVideo;
+  const toggleBtn = document.querySelector("[data-bg-video-toggle]");
   let pageReady = false;
   let inView = false;
+  let userPaused = false;
 
   const update = () => {
-    if (pageReady && inView && wideScreen.matches && !document.hidden) {
+    const active = pageReady && wideScreen.matches;
+    // The pause button is offered wherever the video can play (WCAG 2.2.2: moving content can be paused).
+    if (toggleBtn) toggleBtn.hidden = !active;
+    if (active && inView && !document.hidden && !userPaused) {
       video.start();
       video.play();
     } else {
       video.pause();
     }
   };
+
+  if (toggleBtn) {
+    toggleBtn.addEventListener("click", () => {
+      userPaused = !userPaused;
+      const label = userPaused ? toggleBtn.dataset.labelPlay : toggleBtn.dataset.labelPause;
+      toggleBtn.querySelector("[data-label]").textContent = label;
+      toggleBtn.querySelector("[data-icon-pause]").classList.toggle("hidden", userPaused);
+      toggleBtn.querySelector("[data-icon-play]").classList.toggle("hidden", !userPaused);
+      update();
+    });
+  }
 
   new IntersectionObserver(([entry]) => {
     inView = entry.isIntersecting;

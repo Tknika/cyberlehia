@@ -1,6 +1,6 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>{{ if .IsHome }}{{ site.Title }} · {{ site.Params.description }}{{ else }}{{ .Title }} · {{ site.Title }}{{ end }}</title>
+<title>{{ if eq .Kind "404" }}{{ i18n "notFound" }} · {{ site.Title }}{{ else if .IsHome }}{{ site.Title }} · {{ site.Params.description }}{{ else }}{{ .Title }} · {{ site.Title }}{{ end }}</title>
 {{ $desc := .Description | default .Summary | default site.Params.description | plainify | truncate 160 }}
 <meta name="description" content="{{ $desc }}">
 <meta name="theme-color" content="#07080f">

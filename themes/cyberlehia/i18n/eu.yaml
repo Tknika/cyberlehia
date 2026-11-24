@@ -29,3 +29,12 @@ soon: Laster
 playVideo: Ikusi bideoa
 # Screen-reader note on buttons that open another site in a new tab (_partials/is-external.html)
 newTab: leiho berrian irekitzen da
+# Accessibility
+breadcrumb: Ogi-apurrak
+notFound: Ez da orria aurkitu
+pauseVideo: Gelditu atzeko bideoa
+playBgVideo: Erreproduzitu atzeko bideoa
+phaseDone: amaituta
+openPhoto: Ikusi argazkia handiago
+photo: Argazkia
+table: Taula

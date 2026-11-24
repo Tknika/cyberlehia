@@ -5,6 +5,8 @@ description: Campeonato de ciberseguridad (CTF) y encuentro del alumnado de Form
 timeline_button:
   label: Participa
 video:
+  # YouTube background (youtube-nocookie, without YouTube's IFrame API script: no cookies). When it plays,
+  # the player stores technical data in the browser; the cookie policy says so.
   youtube: 5rsiuSXlulo
   title: Resumen CyberLehia 2026
   poster: images/edizioa-2025.jpg

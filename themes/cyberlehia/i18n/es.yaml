@@ -29,3 +29,12 @@ soon: Próximamente
 playVideo: Ver vídeo
 # Screen-reader note on buttons that open another site in a new tab (_partials/is-external.html)
 newTab: se abre en una ventana nueva
+# Accessibility
+breadcrumb: Ruta de navegación
+notFound: Página no encontrada
+pauseVideo: Pausar el vídeo de fondo
+playBgVideo: Reproducir el vídeo de fondo
+phaseDone: finalizada
+openPhoto: Ver la foto ampliada
+photo: Foto
+table: Tabla

@@ -5,6 +5,8 @@ description: XXX-an final handia Bilboko Alhondigan!
 timeline_button:
   label: Parte hartu
 video:
+  # YouTube background (youtube-nocookie, without YouTube's IFrame API script: no cookies). When it plays,
+  # the player stores technical data in the browser; the cookie policy says so.
   youtube: 5rsiuSXlulo
   title: CyberLehia 2026 laburpena
   poster: images/edizioa-2025.jpg

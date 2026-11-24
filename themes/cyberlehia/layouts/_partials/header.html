@@ -13,9 +13,9 @@
     {{ if $inBar }}
       <a href="{{ $gvURL }}" rel="noopener" class="opacity-70 transition hover:opacity-100"><img src="{{ $gv.white | default $gv.logo | relURL }}" alt="{{ $gvOrg.name }}" class="h-15 w-auto"></a>
     {{ else }}
-    <p class="truncate font-mono text-xs text-ink-400"><span class="text-pink">//</span> {{ site.Params.description }}</p>
+    <p class="truncate font-mono text-xs text-ink-400" aria-hidden="true"><span class="text-pink">//</span> {{ site.Params.description }}</p>
     {{ end }}
-    {{ partial "lang-switcher.html" $page }}
+    <nav aria-label="{{ i18n "language" }}">{{ partial "lang-switcher.html" $page }}</nav>
   </div>
 </div>
 {{ with $gv }}
@@ -51,7 +51,7 @@
             </a>
             {{ if $active }}<span class="absolute inset-x-2 bottom-0 h-0.5 bg-gradient-to-r from-cyan to-pink xl:inset-x-3"></span>{{ end }}
             {{ if .HasChildren }}
-              <div class="invisible absolute left-0 top-full pt-2 opacity-0 transition group-focus-within:visible group-focus-within:opacity-100 group-hover:visible group-hover:opacity-100">
+              <div data-submenu class="invisible absolute left-0 top-full pt-2 opacity-0 transition group-focus-within:visible group-focus-within:opacity-100 group-hover:visible group-hover:opacity-100">
                 <ul class="w-80 rounded-xl border border-ink-700 bg-ink-900 p-2 shadow-2xl shadow-black/50">
                   {{ range .Children }}
                     <li>

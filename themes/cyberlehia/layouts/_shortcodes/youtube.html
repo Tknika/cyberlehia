@@ -1,8 +1,22 @@
-{{- /* Privacy-enhanced YouTube embed. Usage: {{< youtube id="VIDEO_ID" title="Title" >}} */ -}}
+{{- /* Single YouTube video. Usage: {{< youtube id="VIDEO_ID" title="Title" >}}
+       Like {{< videos >}}, nothing is loaded from YouTube until the visitor clicks (main.js swaps the tile for a
+       youtube-nocookie player; without JS it links to YouTube). This keeps the cookie policy true: no YouTube
+       request, and so no data stored by its player, before the click. */ -}}
 {{ $id := .Get "id" | default (.Get 0) }}
-<div class="not-prose aspect-video overflow-hidden rounded-xl border border-ink-700 bg-ink-900">
-  <iframe class="size-full" src="https://www.youtube-nocookie.com/embed/{{ $id }}?rel=0"
-          title="{{ .Get "title" | default "YouTube" }}" loading="lazy"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+{{ $title := .Get "title" | default "YouTube" }}
+<div class="not-prose overflow-hidden rounded-xl border border-ink-700 bg-ink-900">
+  <a href="https://www.youtube.com/watch?v={{ $id }}" rel="noopener" target="_blank" data-yt="{{ $id }}" data-yt-title="{{ $title }}"
+     class="group relative grid aspect-video place-items-center overflow-hidden bg-ink-950 focus-visible:-outline-offset-4">
+    {{ $thumb := printf "images/videos/%s.jpg" $id }}
+    {{ if fileExists (printf "static/%s" $thumb) }}
+      <img src="{{ $thumb | relURL }}" alt="" loading="lazy" class="absolute inset-0 size-full object-cover transition duration-500 group-hover:scale-105">
+      <span class="absolute inset-0 bg-gradient-to-t from-ink-950/70 via-ink-950/10 to-ink-950/20" aria-hidden="true"></span>
+    {{ else }}
+      <span class="absolute inset-0 bg-gradient-to-br from-brand/25 via-ink-950 to-pink/15" aria-hidden="true"></span>
+    {{ end }}
+    <span class="relative grid size-16 place-items-center rounded-full bg-pink-600 text-white shadow-lg shadow-pink/20 transition group-hover:scale-110 group-hover:bg-pink-700" aria-hidden="true">
+      <svg class="ml-1 size-7" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.5v13l11-6.5z"/></svg>
+    </span>
+    <span class="sr-only">{{ i18n "playVideo" }}: {{ $title }}</span>
+  </a>
 </div>

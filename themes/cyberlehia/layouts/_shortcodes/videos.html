@@ -16,7 +16,7 @@
     {{ with $id }}
       <li class="overflow-hidden rounded-xl border border-ink-700 bg-ink-900">
         <a href="https://www.youtube.com/watch?v={{ . }}" rel="noopener" target="_blank" data-yt="{{ . }}" data-yt-title="{{ $title }}"
-           class="group relative grid aspect-video place-items-center overflow-hidden bg-ink-950">
+           class="group relative grid aspect-video place-items-center overflow-hidden bg-ink-950 focus-visible:-outline-offset-4">
           {{/* Preview image, self-hosted by scripts/fetch-video-thumbs.sh (no request to YouTube before the click) */}}
           {{ $thumb := printf "images/videos/%s.jpg" . }}
           {{ if fileExists (printf "static/%s" $thumb) }}

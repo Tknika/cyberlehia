@@ -170,7 +170,7 @@ Typical order through an edition: registration open (phase `active`, registratio
 | `timeline` | `{{< timeline >}}`: phases of the current edition |
 | `results` | `{{< results >}}`: the page's `results` list ("Laster" until each one has a `url`) |
 | `gallery` | one `path \| caption` per line between `{{< gallery >}}` and `{{< /gallery >}}` |
-| `youtube` | `{{< youtube id="VIDEO_ID" title="…" >}}`: privacy-enhanced (youtube-nocookie) embed |
+| `youtube` | `{{< youtube id="VIDEO_ID" title="…" >}}`: one video as a tile that loads the youtube-nocookie player only on click |
 | `videos` | `{{< videos >}}` with one `VIDEO_ID | Title` (or `VIDEO_ID | Title | Year`, shown as a badge) per line: tiles with a self-hosted preview that load the YouTube player only on click (run `scripts/fetch-video-thumbs.sh` after adding videos) |
 
 ---
@@ -218,7 +218,7 @@ The site has no runtime dependencies: it is plain HTML, CSS and a small JS file.
 | **`cyberlehia` theme** | Custom theme in this repo (`themes/cyberlehia`): layouts, partials, shortcodes, i18n | — |
 | **Space Grotesk** and **JetBrains Mono** | Self-hosted web fonts (SIL Open Font License) | [Space Grotesk](https://github.com/floriankarsten/space-grotesk), [JetBrains Mono](https://www.jetbrains.com/lp/mono/) |
 | **GitHub Actions** + **GitHub Pages** | CI build and hosting (`actions/checkout`, `actions/setup-node`, `actions/configure-pages`, `actions/upload-pages-artifact`, `actions/deploy-pages`) | [docs.github.com/pages](https://docs.github.com/en/pages) |
-| **YouTube** (youtube-nocookie + IFrame API) | Video embeds and the home background video when no self-hosted `video.src` is set; the only third-party request | [developers.google.com/youtube](https://developers.google.com/youtube/iframe_api_reference) |
+| **YouTube** (youtube-nocookie player, controlled by `postMessage`) | Video embeds and the home background video when no self-hosted `video.src` is set; the only third-party request. YouTube's IFrame API script (`www.youtube.com/iframe_api`) is not used because it sets YouTube cookies | [developers.google.com/youtube](https://developers.google.com/youtube/iframe_api_reference) |
 | **LimeSurvey** (Tknika's `galdetegiak.tknika.eus`) | Registration form linked by the "Parte hartu" button | [limesurvey.org](https://www.limesurvey.org/) |
 | **FFmpeg** | `scripts/encode-hero-video.sh` (home video loop) and `scripts/fetch-video-thumbs.sh` (video previews) | [ffmpeg.org](https://ffmpeg.org/) |
 | **Headless Microsoft Edge / Google Chrome** | Prints the press dossier PDFs from `scripts/press-kit/build.js` | — |

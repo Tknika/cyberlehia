@@ -1,6 +1,6 @@
 {{- /* Markdown tables: wrapped in their own horizontal scroller so a wide table (e.g. 6-column results)
        never makes the whole page scroll sideways on phones. Prose table styles still apply. */ -}}
-<div class="-mx-4 overflow-x-auto px-4 sm:mx-0 sm:px-0">
+<div class="-mx-4 overflow-x-auto px-4 sm:mx-0 sm:px-0" tabindex="0" role="region" aria-label="{{ i18n "table" }}">
   <table class="whitespace-nowrap sm:whitespace-normal"
     {{- range $k, $v := .Attributes }}{{ if $v }} {{ printf "%s=%q" $k $v | safeHTMLAttr }}{{ end }}{{ end }}>
     <thead>

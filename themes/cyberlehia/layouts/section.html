@@ -16,7 +16,7 @@
   {{ $pages := .Pages.ByWeight }}
   {{ if eq .Params.sort "desc" }}{{ $pages = $pages.Reverse }}{{ end }}
   {{ if $pages }}
-    {{ with .Params.list_title }}<h2 class="mt-20 text-2xl font-bold text-white sm:text-3xl">{{ . }}</h2>{{ end }}
+    {{ with .Params.list_title }}<h2 class="mt-20 text-2xl font-bold text-white sm:text-3xl">{{ . }}</h2>{{ else }}<h2 class="sr-only">{{ i18n "inThisSection" }}</h2>{{ end }}
     <div class="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
       {{ range $pages }}{{ partial "card.html" . }}{{ end }}
     </div>
