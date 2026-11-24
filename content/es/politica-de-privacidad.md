@@ -10,7 +10,7 @@ La presente política de privacidad tiene por objeto informar sobre los tratamie
 
 ## **¿Quién es el responsable del tratamiento de sus datos personales?**
 
-* NOMBRE DE LA ENTIDAD:Dirección de Tecnología y Aprendizajes Avanzados, Viceconsejería de Formación Profesional (Gobierno Vasco)
+* NOMBRE DE LA ENTIDAD:Dirección de Tecnología y Aprendizajes Avanzados, {{< lanbide-heziketa >}}Viceconsejería de Formación Profesional{{< /lanbide-heziketa >}} (Gobierno Vasco)
 * NIF: S4833001C
 * Dirección: Donostia-San Sebastián, 1 ; 01010 Vitoria-Gasteiz ; Álava
 * Teléfono: 945 01 55 28

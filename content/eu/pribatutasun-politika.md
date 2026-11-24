@@ -10,7 +10,7 @@ Pribatutasun politika honek webgune honetako datu pertsonalen tratamenduen ingur
 
 ## **Nor da zure datu pertsonalen tratamenduaren Arduraduna?**
 
-* ERAKUNDEAREN IZENA: Teknologiaren eta Ikaskuntza Aurreratuen Zuzendaritza, Lanbide Heziketako Sailburuordetza (Eusko Jaurlaritza)
+* ERAKUNDEAREN IZENA: Teknologiaren eta Ikaskuntza Aurreratuen Zuzendaritza, {{< lanbide-heziketa >}}Lanbide Heziketako Sailburuordetza{{< /lanbide-heziketa >}} (Eusko Jaurlaritza)
 * IFZ: S4833001C
 * Helbidea: Donostia-San Sebastián, 1 ; 01010 Vitoria-Gasteiz ; Álava
 * Telefonoa: 945 01 55 28

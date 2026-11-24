@@ -7,7 +7,7 @@ menus:
     weight: 40
 ---
 
-Teknologiaren eta Ikaskuntza Aurreratuen Zuzendaritzak (Lanbide Heziketako Sailburuordetza, Eusko Jaurlaritza) bere webgunea irisgarria izan dadin konpromisoa hartu du, sektore publikoko webguneen eta gailu mugikorretarako aplikazioen irisgarritasunari buruzko irailaren 7ko 1112/2018 Errege Dekretuarekin bat.
+Teknologiaren eta Ikaskuntza Aurreratuen Zuzendaritzak ({{< lanbide-heziketa >}}Lanbide Heziketako Sailburuordetza{{< /lanbide-heziketa >}}, Eusko Jaurlaritza) bere webgunea irisgarria izan dadin konpromisoa hartu du, sektore publikoko webguneen eta gailu mugikorretarako aplikazioen irisgarritasunari buruzko irailaren 7ko 1112/2018 Errege Dekretuarekin bat.
 
 Irisgarritasun-adierazpen hau [cyberlehia.fpeuskadi.eus](https://cyberlehia.fpeuskadi.eus/) webguneari aplikatzen zaio.
 

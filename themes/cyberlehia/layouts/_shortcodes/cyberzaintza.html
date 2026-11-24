@@ -1,0 +1,7 @@
+{{- /* Link to Cyberzaintza (Basque Cybersecurity Agency), opening in a new tab. Every mention of Cyberzaintza in the
+       text goes through it (asked in November 2026). The URL is `cyberzaintzaURL` in each language's params in
+       hugo.toml (Basque site on Basque pages, Spanish site on Spanish and English pages).
+       Usage: {{< cyberzaintza />}}  or, for an inflected Basque form, {{< cyberzaintza >}}Cyberzaintzak{{< /cyberzaintza >}} */ -}}
+{{- $text := .Inner | default "Cyberzaintza" | strings.TrimSpace -}}
+<a href="{{ site.Params.cyberzaintzaURL }}" target="_blank" rel="noopener">{{ $text }}<span class="sr-only"> ({{ i18n "newTab" }})</span></a>
+{{- /**/ -}}

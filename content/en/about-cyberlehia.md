@@ -13,7 +13,7 @@ menus:
     weight: 10
 ---
 
-CyberLehia is the cybersecurity competition for **Vocational Training (VET) students in the Basque Country**. It is promoted by the Basque Government's Deputy Ministry for Vocational Training (Lanbide Heziketako Sailburuordetza) and CyberZaintza, the Basque Cybersecurity Agency. It is organised together with Tknika (the Basque Centre for Research and Applied Innovation in VET), the Basque Government's Department of Education and FP Euskadi.
+CyberLehia is the cybersecurity competition for **Vocational Training (VET) students in the Basque Country**. It is promoted by the Basque Government's {{< lanbide-heziketa >}}Deputy Ministry for Vocational Training{{< /lanbide-heziketa >}} (Lanbide Heziketako Sailburuordetza) and {{< cyberzaintza />}}, the Basque Cybersecurity Agency. It is organised together with Tknika (the Basque Centre for Research and Applied Innovation in VET), the Basque Government's Department of Education and FP Euskadi.
 
 It is at the same time a **CTF** (*Capture The Flag*) championship and a meeting point for students, schools and cybersecurity companies. Its goals are to foster a cybersecurity culture in Vocational Training, to showcase the work done in the schools and to motivate students.
 

@@ -21,7 +21,7 @@ Behean dauden oinarriak **2026ko edizioarenak** dira. 4. edizioko oinarriak eta 
 
 ## Antolaketa
 
-CyberLehia Euskadiko Lanbide Heziketako Sailburuordetzak eta CyberZaintzak (Zibersegurtasunaren Euskal Agentziak) sustatutako zibersegurtasun lehiaketa bat da. Lanbide Heziketan zibersegurtasunaren kultura sustatzea, ikastetxeetan egiten den lanaren berri ematea eta ikasleen motibazioa sustatzea dira helburu nagusiak.
+CyberLehia Euskadiko {{< lanbide-heziketa >}}Lanbide Heziketako Sailburuordetzak{{< /lanbide-heziketa >}} eta {{< cyberzaintza >}}Cyberzaintzak{{< /cyberzaintza >}} (Zibersegurtasunaren Euskal Agentziak) sustatutako zibersegurtasun lehiaketa bat da. Lanbide Heziketan zibersegurtasunaren kultura sustatzea, ikastetxeetan egiten den lanaren berri ematea eta ikasleen motibazioa sustatzea dira helburu nagusiak.
 
 ## Parte-hartze baldintzak
 

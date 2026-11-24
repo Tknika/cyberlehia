@@ -58,7 +58,7 @@ const t = {
     subtitle: "Euskadiko Lanbide Heziketako zibersegurtasun lehiaketa",
     web: "cyberlehia.fpeuskadi.eus",
     whatTitle: "Zer da CyberLehia?",
-    what: "CyberLehia Euskadiko Lanbide Heziketako Sailburuordetzak eta CyberZaintzak, Zibersegurtasunaren Euskal Agentziak, sustatutako zibersegurtasun lehiaketa bat da: <strong>CTF</strong> (<em>Capture The Flag</em>) txapelketa bat eta, aldi berean, Lanbide Heziketako ikasleen topaketa.",
+    what: "CyberLehia Euskadiko <a href=\"https://www.euskadi.eus/eusko-jaurlaritza/hezkuntza-lh/\" style=\"color:inherit\">Lanbide Heziketako Sailburuordetzak</a> eta <a href=\"https://ciberseguridad.euskadi.eus/hasiera/\" style=\"color:inherit\">Cyberzaintzak</a>, Zibersegurtasunaren Euskal Agentziak, sustatutako zibersegurtasun lehiaketa bat da: <strong>CTF</strong> (<em>Capture The Flag</em>) txapelketa bat eta, aldi berean, Lanbide Heziketako ikasleen topaketa.",
     goalsTitle: "Helburuak",
     goals: ["Lanbide Heziketan zibersegurtasunaren kultura sustatzea.", "Ikastetxeetan egiten den lanaren berri ematea.", "Ikasleen motibazioa sustatzea."],
     companiesTitle: "Finalean, enpresekin harremanetan",
@@ -124,7 +124,7 @@ const t = {
     subtitle: "Competición de ciberseguridad de la Formación Profesional de Euskadi",
     web: "cyberlehia.fpeuskadi.eus/es/",
     whatTitle: "¿Qué es CyberLehia?",
-    what: "CyberLehia es un concurso de ciberseguridad promovido por la Viceconsejería de Formación Profesional de Euskadi y CyberZaintza, la Agencia Vasca de Ciberseguridad: un campeonato <strong>CTF</strong> (<em>Capture The Flag</em>) y, al mismo tiempo, un encuentro del alumnado de Formación Profesional.",
+    what: "CyberLehia es un concurso de ciberseguridad promovido por la <a href=\"https://www.euskadi.eus/gobierno-vasco/fp-educacion/\" style=\"color:inherit\">Viceconsejería de Formación Profesional</a> de Euskadi y <a href=\"https://ciberseguridad.euskadi.eus/inicio/\" style=\"color:inherit\">Cyberzaintza</a>, la Agencia Vasca de Ciberseguridad: un campeonato <strong>CTF</strong> (<em>Capture The Flag</em>) y, al mismo tiempo, un encuentro del alumnado de Formación Profesional.",
     goalsTitle: "Objetivos",
     goals: ["Fomentar la cultura de la ciberseguridad en la Formación Profesional.", "Dar a conocer el trabajo que se realiza en los centros.", "Motivar al alumnado."],
     companiesTitle: "En la final, en contacto con las empresas",
@@ -190,7 +190,7 @@ const t = {
     subtitle: "Cybersecurity competition for Vocational Training students in the Basque Country",
     web: "cyberlehia.fpeuskadi.eus/en/",
     whatTitle: "What is CyberLehia?",
-    what: "CyberLehia is a cybersecurity competition promoted by the Basque Government's Deputy Ministry for Vocational Training and CyberZaintza, the Basque Cybersecurity Agency: a <strong>CTF</strong> (<em>Capture The Flag</em>) championship and, at the same time, a meeting point for Vocational Training (VET) students.",
+    what: "CyberLehia is a cybersecurity competition promoted by the Basque Government's <a href=\"https://www.euskadi.eus/gobierno-vasco/fp-educacion/\" style=\"color:inherit\">Deputy Ministry for Vocational Training</a> and <a href=\"https://ciberseguridad.euskadi.eus/inicio/\" style=\"color:inherit\">Cyberzaintza</a>, the Basque Cybersecurity Agency: a <strong>CTF</strong> (<em>Capture The Flag</em>) championship and, at the same time, a meeting point for Vocational Training (VET) students.",
     goalsTitle: "Goals",
     goals: ["To foster a cybersecurity culture in Vocational Training.", "To showcase the work done in the schools.", "To motivate students."],
     companiesTitle: "At the final, meeting the companies",
@@ -354,7 +354,7 @@ const html = (x) => `<!doctype html>
   </div>
   <div class="foot"><div class="org">
     <img class="wide" src="${asset("static/images/logo-eusko-jaurlaritza.png")}" alt="Eusko Jaurlaritza">
-    <img src="${asset("static/images/logo-cyberzaintza.png")}" alt="CyberZaintza">
+    <img src="${asset("static/images/logo-cyberzaintza.png")}" alt="Cyberzaintza">
     <img src="${asset("static/images/logo-tknika.png")}" alt="Tknika">
     <img src="${asset("static/images/logo-fp-euskadi.png")}" alt="FP Euskadi">
   </div><span>${x.web}</span></div>
@@ -378,7 +378,7 @@ const html = (x) => `<!doctype html>
   </div>
   <div class="foot"><div class="org">
     <img class="wide" src="${asset("static/images/logo-eusko-jaurlaritza.png")}" alt="Eusko Jaurlaritza">
-    <img src="${asset("static/images/logo-cyberzaintza.png")}" alt="CyberZaintza">
+    <img src="${asset("static/images/logo-cyberzaintza.png")}" alt="Cyberzaintza">
     <img src="${asset("static/images/logo-tknika.png")}" alt="Tknika">
     <img src="${asset("static/images/logo-fp-euskadi.png")}" alt="FP Euskadi">
   </div><span>${x.docTitle.split(" · ")[1]} · 2</span></div>
@@ -403,7 +403,7 @@ const html = (x) => `<!doctype html>
   <p class="note">${x.source}</p>
   <div class="foot"><div class="org">
     <img class="wide" src="${asset("static/images/logo-eusko-jaurlaritza.png")}" alt="Eusko Jaurlaritza">
-    <img src="${asset("static/images/logo-cyberzaintza.png")}" alt="CyberZaintza">
+    <img src="${asset("static/images/logo-cyberzaintza.png")}" alt="Cyberzaintza">
     <img src="${asset("static/images/logo-tknika.png")}" alt="Tknika">
     <img src="${asset("static/images/logo-fp-euskadi.png")}" alt="FP Euskadi">
   </div><span>${x.docTitle.split(" · ")[1]} · 3</span></div>
@@ -422,7 +422,7 @@ const html = (x) => `<!doctype html>
   </div>
   <div class="foot"><div class="org">
     <img class="wide" src="${asset("static/images/logo-eusko-jaurlaritza.png")}" alt="Eusko Jaurlaritza">
-    <img src="${asset("static/images/logo-cyberzaintza.png")}" alt="CyberZaintza">
+    <img src="${asset("static/images/logo-cyberzaintza.png")}" alt="Cyberzaintza">
     <img src="${asset("static/images/logo-tknika.png")}" alt="Tknika">
     <img src="${asset("static/images/logo-fp-euskadi.png")}" alt="FP Euskadi">
   </div><span>${x.docTitle.split(" · ")[1]} · 4</span></div>

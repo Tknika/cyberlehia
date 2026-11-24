@@ -10,7 +10,7 @@ menus:
 
 In compliance with Spanish Law 34/2002, of 11 July, on Information Society Services and Electronic Commerce, we inform you that the owner of the website [cyberlehia.fpeuskadi.eus](/) is:
 
-* NAME OF THE ENTITY: Directorate of Technology and Advanced Learning, Deputy Ministry of Vocational Training (Basque Government) (Dirección de Tecnología y Aprendizajes Avanzados, Viceconsejería de Formación Profesional, Gobierno Vasco)
+* NAME OF THE ENTITY: Directorate of Technology and Advanced Learning, {{< lanbide-heziketa >}}Deputy Ministry of Vocational Training{{< /lanbide-heziketa >}} (Basque Government) (Dirección de Tecnología y Aprendizajes Avanzados, Viceconsejería de Formación Profesional, Gobierno Vasco)
 * Tax ID (NIF): S4833001C
 * Address: Donostia-San Sebastián, 1 ; 01010 Vitoria-Gasteiz ; Álava
 * Telephone: 945 01 55 28

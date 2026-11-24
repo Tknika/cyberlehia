@@ -1,6 +1,6 @@
 # CyberLehia webgunea
 
-Static website for **[CyberLehia](https://cyberlehia.fpeuskadi.eus/)**, the cybersecurity CTF championship and student event of Basque Vocational Training (Lanbide Heziketa / Formación Profesional). It is promoted by the Basque Government's Deputy Ministry of Vocational Training and CyberZaintza, with Tknika.
+Static website for **[CyberLehia](https://cyberlehia.fpeuskadi.eus/)**, the cybersecurity CTF championship and student event of Basque Vocational Training (Lanbide Heziketa / Formación Profesional). It is promoted by the Basque Government's Deputy Ministry of Vocational Training and Cyberzaintza, with Tknika.
 
 Built with **[Hugo](https://gohugo.io/)** and **[Tailwind CSS v4](https://tailwindcss.com/)**. All content is Markdown, in three languages: **Euskara** (default, served at `/`), **Castellano** (served at `/es/`) and **English** (served at `/en/`).
 

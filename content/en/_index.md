@@ -40,4 +40,4 @@ benefits:
   button: Take part
 ---
 
-CyberLehia is a cybersecurity competition promoted by the Basque Government's Deputy Ministry for Vocational Training (Lanbide Heziketako Sailburuordetza) and CyberZaintza, the Basque Cybersecurity Agency. Its main goals are to foster a cybersecurity culture in Vocational Training (VET), to showcase the work done in the schools and to motivate students.
+CyberLehia is a cybersecurity competition promoted by the Basque Government's {{< lanbide-heziketa >}}Deputy Ministry for Vocational Training{{< /lanbide-heziketa >}} (Lanbide Heziketako Sailburuordetza) and {{< cyberzaintza />}}, the Basque Cybersecurity Agency. Its main goals are to foster a cybersecurity culture in Vocational Training (VET), to showcase the work done in the schools and to motivate students.

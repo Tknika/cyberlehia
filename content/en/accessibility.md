@@ -9,7 +9,7 @@ menus:
 
 {{< note >}}This is an English translation provided for information only. The Basque and Spanish versions are the legally binding ones.{{< /note >}}
 
-The Directorate of Technology and Advanced Learning (Dirección de Tecnología y Aprendizajes Avanzados), part of the Deputy Ministry of Vocational Training of the Basque Government, is committed to making its website accessible, in accordance with Spanish Royal Decree 1112/2018, of 7 September, on the accessibility of public sector websites and mobile applications.
+The Directorate of Technology and Advanced Learning (Dirección de Tecnología y Aprendizajes Avanzados), part of the {{< lanbide-heziketa >}}Deputy Ministry of Vocational Training{{< /lanbide-heziketa >}} of the Basque Government, is committed to making its website accessible, in accordance with Spanish Royal Decree 1112/2018, of 7 September, on the accessibility of public sector websites and mobile applications.
 
 This accessibility statement applies to the website [cyberlehia.fpeuskadi.eus](https://cyberlehia.fpeuskadi.eus/en/).
 

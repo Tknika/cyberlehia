@@ -1,0 +1,7 @@
+{{- /* Link to the Basque Government's Vocational Training website (Lanbide Heziketako Sailburuordetza), opening in a
+       new tab. Mentions of the Deputy Ministry go through it (asked in November 2026); on the legal pages, only the
+       first mention. The URL is `lanbideHeziketaURL` in each language's params in hugo.toml (Basque site on Basque
+       pages, Spanish site on Spanish and English pages).
+       Usage: {{< lanbide-heziketa >}}Lanbide Heziketako Sailburuordetzak{{< /lanbide-heziketa >}} */ -}}
+<a href="{{ site.Params.lanbideHeziketaURL }}" target="_blank" rel="noopener">{{ .Inner | strings.TrimSpace }}<span class="sr-only"> ({{ i18n "newTab" }})</span></a>
+{{- /**/ -}}

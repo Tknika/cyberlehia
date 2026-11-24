@@ -7,7 +7,7 @@ menus:
     weight: 40
 ---
 
-La Dirección de Tecnología y Aprendizajes Avanzados (Viceconsejería de Formación Profesional, Gobierno Vasco) se ha comprometido a hacer accesible su sitio web, de conformidad con el Real Decreto 1112/2018, de 7 de septiembre, sobre accesibilidad de los sitios web y aplicaciones para dispositivos móviles del sector público.
+La Dirección de Tecnología y Aprendizajes Avanzados ({{< lanbide-heziketa >}}Viceconsejería de Formación Profesional{{< /lanbide-heziketa >}}, Gobierno Vasco) se ha comprometido a hacer accesible su sitio web, de conformidad con el Real Decreto 1112/2018, de 7 de septiembre, sobre accesibilidad de los sitios web y aplicaciones para dispositivos móviles del sector público.
 
 La presente declaración de accesibilidad se aplica al sitio web [cyberlehia.fpeuskadi.eus](https://cyberlehia.fpeuskadi.eus/es/).
 

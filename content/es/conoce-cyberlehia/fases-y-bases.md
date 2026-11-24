@@ -21,7 +21,7 @@ Las bases que aparecen a continuación corresponden a la **edición 2026**. Las 
 
 ## Organización
 
-CyberLehia es un concurso de ciberseguridad promovido por la Viceconsejería de Formación Profesional de Euskadi y CyberZaintza (la Agencia Vasca de Ciberseguridad). Los objetivos principales son promover la cultura de la ciberseguridad en la Formación Profesional, dar a conocer el trabajo que se realiza en los centros de Formación Profesional y motivar al alumnado.
+CyberLehia es un concurso de ciberseguridad promovido por la {{< lanbide-heziketa >}}Viceconsejería de Formación Profesional{{< /lanbide-heziketa >}} de Euskadi y {{< cyberzaintza />}} (la Agencia Vasca de Ciberseguridad). Los objetivos principales son promover la cultura de la ciberseguridad en la Formación Profesional, dar a conocer el trabajo que se realiza en los centros de Formación Profesional y motivar al alumnado.
 
 ## Condiciones de participación
 

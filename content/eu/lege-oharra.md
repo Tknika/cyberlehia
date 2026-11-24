@@ -8,7 +8,7 @@ menus:
 
 Informazioaren eta Merkataritza Elektronikoaren Gizartearen Zerbitzuei buruzko uztailaren 11ko 34/2002 Legea betez, jakinarazi nahi dizugu [cyberlehia.fpeuskadi.eus](https://cyberlehia.fpeuskadi.eus) webgunearen titularra honako hau dela:
 
-* ERAKUNDEAREN IZENA:Teknologiaren eta Ikaskuntza Aurreratuen Zuzendaritza, Lanbide Heziketako Sailburuordetza (Eusko Jaurlaritza)
+* ERAKUNDEAREN IZENA:Teknologiaren eta Ikaskuntza Aurreratuen Zuzendaritza, {{< lanbide-heziketa >}}Lanbide Heziketako Sailburuordetza{{< /lanbide-heziketa >}} (Eusko Jaurlaritza)
 * IFZ: S4833001C
 * Helbidea: Donostia-San Sebastián, 1 ; 01010 Vitoria-Gasteiz ; Álava
 * Telefonoa: 945 01 55 28

@@ -12,7 +12,7 @@ The purpose of this privacy policy is to inform you about the processing of pers
 
 ## **Who is the controller of your personal data?**
 
-* NAME OF THE ENTITY: Directorate of Technology and Advanced Learning, Deputy Ministry of Vocational Training (Basque Government) (Dirección de Tecnología y Aprendizajes Avanzados, Viceconsejería de Formación Profesional, Gobierno Vasco)
+* NAME OF THE ENTITY: Directorate of Technology and Advanced Learning, {{< lanbide-heziketa >}}Deputy Ministry of Vocational Training{{< /lanbide-heziketa >}} (Basque Government) (Dirección de Tecnología y Aprendizajes Avanzados, Viceconsejería de Formación Profesional, Gobierno Vasco)
 * Tax ID (NIF): S4833001C
 * Address: Donostia-San Sebastián, 1 ; 01010 Vitoria-Gasteiz ; Álava
 * Telephone: 945 01 55 28

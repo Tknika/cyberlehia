@@ -10,4 +10,4 @@ menus:
     weight: 10
 ---
 
-CyberLehia Euskadiko Lanbide Heziketako Sailburuordetzak eta CyberZaintza, Zibersegurtasunaren Euskal Agentziak sustatutako Zibersegurtasun lehiaketa bat da. Lanbide Heziketan zibersegurtasunaren kultura sustatzea, ikastetxeetan egiten den lanaren berri ematea eta ikasleen motibazioa sustatzea dira helburu nagusiak.
+CyberLehia Euskadiko {{< lanbide-heziketa >}}Lanbide Heziketako Sailburuordetzak{{< /lanbide-heziketa >}} eta {{< cyberzaintza />}}, Zibersegurtasunaren Euskal Agentziak sustatutako Zibersegurtasun lehiaketa bat da. Lanbide Heziketan zibersegurtasunaren kultura sustatzea, ikastetxeetan egiten den lanaren berri ematea eta ikasleen motibazioa sustatzea dira helburu nagusiak.

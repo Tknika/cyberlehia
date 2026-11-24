@@ -8,7 +8,7 @@ menus:
 
 En cumplimiento de la Ley 34/2002, de 11 de julio, de Servicios de la Sociedad de la Información y de Comercio Electrónico, le informamos que el titular del sitio web [cyberlehia.fpeuskadi.eus](/) es:
 
-* NOMBRE DE LA ENTIDAD:Dirección de Tecnología y Aprendizajes Avanzados, Viceconsejería de Formación Profesional (Gobierno Vasco)
+* NOMBRE DE LA ENTIDAD:Dirección de Tecnología y Aprendizajes Avanzados, {{< lanbide-heziketa >}}Viceconsejería de Formación Profesional{{< /lanbide-heziketa >}} (Gobierno Vasco)
   Zuzendaritza
 * NIF: S4833001C
 * Dirección: Donostia-San Sebastián, 1 ; 01010 Vitoria-Gasteiz ; Álava

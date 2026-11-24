@@ -1,5 +1,5 @@
 ---
-# Draft of the home page with the Education and CyberZaintza logos over the video (proposal, not linked from anywhere).
+# Draft of the home page with the Education and Cyberzaintza logos over the video (proposal, not linked from anywhere).
 title: CyberLehia (home3)
 translationKey: home3
 layout: home-variant

@@ -11,15 +11,17 @@ disableKinds = ["taxonomy", "term"]
   description = "Euskadiko Lanbide Heziketako zibersegurtasun lehiaketa"
   email = "cyberlehia@tknika.eus"
 
-  # Logos shown in the footer, in this order. Without `logo`, the name is shown as text.
+  # Logos shown in the footer, in this order. Without `logo`, the name is shown as text. `url_param` takes the link
+  # from that language param instead of `url`, so it can change with the page language.
   [[params.organizers]]
     name = "Tknika"
     logo = "images/logo-tknika.png"
     url = "https://tknika.eus/"
   [[params.organizers]]
-    name = "CyberZaintza"
+    name = "Cyberzaintza"
     logo = "images/logo-cyberzaintza.png"
-    url = "https://www.ciberseguridad.eus/"
+    # The link depends on the page language: cyberzaintzaURL in each language's params
+    url_param = "cyberzaintzaURL"
   [[params.organizers]]
     name = "Eusko Jaurlaritza · Gobierno Vasco — Hezkuntza Saila"
     logo = "images/logo-eusko-jaurlaritza.png"
@@ -35,6 +37,9 @@ disableKinds = ["taxonomy", "term"]
     weight = 1
     contentDir = "content/eu"
     [languages.eu.params]
+      # Websites linked from the text ({{< cyberzaintza >}}, {{< lanbide-heziketa >}}) and the footer logo, in this language.
+      cyberzaintzaURL = "https://ciberseguridad.euskadi.eus/hasiera/"
+      lanbideHeziketaURL = "https://www.euskadi.eus/eusko-jaurlaritza/hezkuntza-lh/"
       description = "Euskadiko Lanbide Heziketako zibersegurtasun lehiaketa"
       # Registration form ("Parte hartu" button). Leave empty to hide the button.
       registrationURL = "https://galdetegiak.tknika.eus/index.php/496418?lang=eu"
@@ -43,6 +48,8 @@ disableKinds = ["taxonomy", "term"]
     weight = 2
     contentDir = "content/es"
     [languages.es.params]
+      cyberzaintzaURL = "https://ciberseguridad.euskadi.eus/inicio/"
+      lanbideHeziketaURL = "https://www.euskadi.eus/gobierno-vasco/fp-educacion/"
       description = "Competición de ciberseguridad de la Formación Profesional de Euskadi"
       registrationURL = "https://galdetegiak.tknika.eus/index.php/496418?lang=es"
   [languages.en]
@@ -50,6 +57,9 @@ disableKinds = ["taxonomy", "term"]
     weight = 3
     contentDir = "content/en"
     [languages.en.params]
+      # English pages link the Spanish versions of both sites (asked in November 2026).
+      cyberzaintzaURL = "https://ciberseguridad.euskadi.eus/inicio/"
+      lanbideHeziketaURL = "https://www.euskadi.eus/gobierno-vasco/fp-educacion/"
       description = "Cybersecurity competition for Vocational Training students in the Basque Country"
       # The registration form has no known English version: English visitors get the Spanish one.
       # Switch to lang=en if the survey gets an English translation.
