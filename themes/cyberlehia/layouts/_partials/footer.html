@@ -19,13 +19,10 @@
     </ul>
   </div>
 
-  {{/* Contact + legal */}}
+  {{/* Legal links */}}
   <div class="border-t border-ink-700">
     <div class="container-site py-10 text-center">
-      {{ with site.Params.email }}
-        <p class="text-ink-100">{{ i18n "contactUs" }}: <a href="mailto:{{ . }}" class="text-cyan transition hover:underline">{{ . }}</a></p>
-      {{ end }}
-      <ul class="mt-3 flex flex-wrap items-center justify-center gap-x-2 gap-y-1 text-sm uppercase tracking-wide">
+      <ul class="flex flex-wrap items-center justify-center gap-x-2 gap-y-1 text-sm uppercase tracking-wide">
         {{ range $i, $m := site.Menus.footer }}
           {{ if $i }}<li class="text-ink-400" aria-hidden="true">·</li>{{ end }}
           <li><a href="{{ $m.URL }}" class="text-cyan transition hover:text-white">{{ $m.Name }}</a></li>
