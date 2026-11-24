@@ -1,10 +1,17 @@
-{{- /* Links to the translation of the current page, or to the other language's home page if there is none. */ -}}
+{{- /* Links to the translation of the current page. Without one (the English version is shorter: e.g. eu
+       "Parte hartu" has no English page), it links to the translation of the closest ancestor that has one
+       ("Ezagutu CyberLehia" → /en/about-cyberlehia/), and finally to the other language's home page. */ -}}
 {{ $page := . }}
 <div class="flex items-center rounded-md border border-ink-700 p-0.5 font-mono text-xs font-semibold" role="group" aria-label="{{ i18n "language" }}">
   {{ range site.Home.AllTranslations }}
     {{ $lang := .Language.Lang }}
     {{ $target := . }}
-    {{ range $page.AllTranslations }}{{ if eq .Language.Lang $lang }}{{ $target = . }}{{ end }}{{ end }}
+    {{ $found := false }}
+    {{ range $p := (slice $page) | append $page.Ancestors }}
+      {{ if not $found }}
+        {{ range $p.AllTranslations }}{{ if eq .Language.Lang $lang }}{{ $target = . }}{{ $found = true }}{{ end }}{{ end }}
+      {{ end }}
+    {{ end }}
     {{ if eq $lang site.Language.Lang }}
       <span class="rounded bg-ink-700 px-2 py-1 text-white" aria-current="true" title="{{ .Language.Label }}">{{ upper $lang }}</span>
     {{ else }}

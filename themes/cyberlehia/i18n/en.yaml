@@ -1,0 +1,40 @@
+contact: Contact
+language: Language
+menu: Menu
+closeMenu: Close menu
+skipToContent: Skip to content
+home: Home
+readMore: Read more
+phases: Competition phases
+register: Sign up
+registrationClosed: Registration is closed
+contactUs: Contact
+legal: Legal notice
+privacy: Privacy policy
+cookies: Cookie policy
+organizers: Organisers
+inThisSection: In this section
+onThisPage: On this page
+previousEditions: Previous editions
+seeAll: See all
+noPressReleases: There are no press releases yet.
+pressReleases: Press releases
+venue: Venue
+edition: Edition
+backToTop: Back to top
+now: Now
+seeMore: See more
+nextRead: Keep reading
+soon: Coming soon
+playVideo: Watch video
+# Screen-reader note on buttons that open another site in a new tab (_partials/is-external.html)
+newTab: opens in a new window
+# Accessibility
+breadcrumb: Breadcrumb
+notFound: Page not found
+pauseVideo: Pause the background video
+playBgVideo: Play the background video
+phaseDone: finished
+openPhoto: View the photo full size
+photo: Photo
+table: Table

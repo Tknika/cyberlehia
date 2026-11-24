@@ -41,7 +41,7 @@ Adierazpen hau **2026ko azaroaren 24an** prestatu zen.
 
 Adierazpena egiteko erabilitako metodoa erakundeak berak egindako **autoebaluazioa** izan da:
 
-- Webgune osoaren berrikuspen automatikoa, bi hizkuntzetan, axe-core tresnarekin (WCAG 2.1, A eta AA mailak), mahaigaineko eta telefonoko pantaila-zabaleretan.
+- Webgune osoaren berrikuspen automatikoa, hiru hizkuntzetan, axe-core tresnarekin (WCAG 2.1, A eta AA mailak), mahaigaineko eta telefonoko pantaila-zabaleretan.
 - Eskuzko berrikuspena: teklatu bidezko nabigazioa eta fokua, izenburuen eta eremuen egitura, kolore-kontrastea, testuaren handitzea eta 320 pixeleko zabalerara egokitzea, eta mugimendua duten edukiak.
 
 Adierazpena azkenekoz **2026ko azaroaren 24an** berrikusi zen.
@@ -86,5 +86,5 @@ Webgune honek ezaugarri hauek ditu irisgarritasuna hobetzeko:
 - Orri guztiak teklatuarekin erabil daitezke, eta fokua beti ikusten da. Menu nagusiko azpimenuak Esc teklarekin itxi daitezke.
 - Diseinua edozein pantaila-tamainatara egokitzen da, eta testua % 200 handitu daiteke edukia galdu gabe.
 - Hasierako orriko atzeko bideoak ez du soinurik, eta botoi batekin gelditu daiteke. Gailuan mugimendua murrizteko aukera aktibatuta badago, ez da bideoa kargatzen eta animazioak itzalita daude; datuak aurrezteko moduan eta konexio motelekin ere ez da bideoa kargatzen.
-- Webgunea euskaraz eta gaztelaniaz dago, eta orri bakoitzak bere hizkuntza adierazten du.
+- Webgunea euskaraz, gaztelaniaz eta ingelesez dago, eta orri bakoitzak bere hizkuntza adierazten du.
 - Beste webgune batean leiho berrian irekitzen diren estekek hala adierazten dute pantaila-irakurgailuentzat.

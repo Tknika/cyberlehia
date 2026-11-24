@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-// Builds the press dossier PDFs (eu + es) into static/docs/ with headless Edge or Chrome.
+// Builds the press dossier PDFs (eu + es + en) into static/docs/ with headless Edge or Chrome.
 //
 //   node scripts/press-kit/build.js
 //
@@ -55,7 +55,7 @@ const t = {
     docType: "Prentsa-txostena",
     date: "2026ko urria",
     dateLabel: "Data",
-    subtitle: "Euskadiko Lanbide Heziketako zibersegurtasun lehiaketa (CTF)",
+    subtitle: "Euskadiko Lanbide Heziketako zibersegurtasun lehiaketa",
     web: "cyberlehia.fpeuskadi.eus",
     whatTitle: "Zer da CyberLehia?",
     what: "CyberLehia Euskadiko Lanbide Heziketako Sailburuordetzak eta CyberZaintzak, Zibersegurtasunaren Euskal Agentziak, sustatutako zibersegurtasun lehiaketa bat da: <strong>CTF</strong> (<em>Capture The Flag</em>) txapelketa bat eta, aldi berean, Lanbide Heziketako ikasleen topaketa.",
@@ -121,7 +121,7 @@ const t = {
     docType: "Dossier de prensa",
     date: "Octubre de 2026",
     dateLabel: "Fecha",
-    subtitle: "Competición de ciberseguridad (CTF) de la Formación Profesional de Euskadi",
+    subtitle: "Competición de ciberseguridad de la Formación Profesional de Euskadi",
     web: "cyberlehia.fpeuskadi.eus/es/",
     whatTitle: "¿Qué es CyberLehia?",
     what: "CyberLehia es un concurso de ciberseguridad promovido por la Viceconsejería de Formación Profesional de Euskadi y CyberZaintza, la Agencia Vasca de Ciberseguridad: un campeonato <strong>CTF</strong> (<em>Capture The Flag</em>) y, al mismo tiempo, un encuentro del alumnado de Formación Profesional.",
@@ -179,6 +179,72 @@ const t = {
     contact: "Para entrevistas, fotografías o más información:",
     source: "Fuente de los datos: inscripciones de CyberLehia 2026 (organización). Datos agregados.",
     page: "página",
+  },
+  en: {
+    file: "cyberlehia-press-kit.pdf",
+    lang: "en",
+    docTitle: "CyberLehia · Press kit",
+    docType: "Press kit",
+    date: "October 2026",
+    dateLabel: "Date",
+    subtitle: "Cybersecurity competition for Vocational Training students in the Basque Country",
+    web: "cyberlehia.fpeuskadi.eus/en/",
+    whatTitle: "What is CyberLehia?",
+    what: "CyberLehia is a cybersecurity competition promoted by the Basque Government's Deputy Ministry for Vocational Training and CyberZaintza, the Basque Cybersecurity Agency: a <strong>CTF</strong> (<em>Capture The Flag</em>) championship and, at the same time, a meeting point for Vocational Training (VET) students.",
+    goalsTitle: "Goals",
+    goals: ["To foster a cybersecurity culture in Vocational Training.", "To showcase the work done in the schools.", "To motivate students."],
+    companiesTitle: "At the final, meeting the companies",
+    companies: "Cybersecurity companies take part in the final with their own stands, so students can get in touch with them directly.",
+    whoTitle: "Who takes part?",
+    who: "Students from the Basque Country's Integrated Vocational Training Schools and from schools offering the official Cybersecurity Specialisation, in teams of 1 to 3.",
+    howTitle: "How does it work?",
+    how: [
+      ["Registration", "Up to 1000 participants, in teams of 1, 2 or 3."],
+      ["1st qualifying phase", "Online CTF: challenges on different topics and of varying difficulty."],
+      ["2nd qualifying phase", "Online CTF, in teams of 3."],
+      ["Final", "The best 5 teams: theoretical report (50%) and in-person Attack/Defence challenge (50%)."],
+    ],
+    orgTitle: "Organisers",
+    numbersTitle: "The 2026 edition in numbers",
+    big: [[data.participants, "participants"], [data.teams, "teams"], [data.centres, "schools"], [data.teachers, "collaborating teachers"]],
+    territoryTitle: "Participants by province",
+    ageTitle: "Participants by age",
+    ageNote: `Median age: ${data.medianAge}.`,
+    studiesTitle: "Studies",
+    studies: [["Computing and communications", data.families.ict], ["Electricity and electronics", data.families.elec], ["Other", data.families.other]],
+    highlights: [
+      `<strong>${pct(data.cyberCourse)}%</strong> are on the cybersecurity specialisation course (${data.cyberCourse}).`,
+      `<strong>${pct(data.returning)}%</strong> had already taken part in an earlier edition (${data.returning}).`,
+      `<strong>${data.teamsOfThree}</strong> teams had 3 members.`,
+      womenGrowth
+        ? `The presence of women grew by <strong>${womenGrowth.rel}%</strong> compared with ${womenGrowth.year} (from ${womenGrowth.prevShare}% to ${womenGrowth.share}%).`
+        : `<span class="todo">The presence of women grew by <strong>XX%</strong> compared with ${data.womenPrev.year}.</span>`,
+    ],
+    topTitle: "Schools with the most participants",
+    phasesTitle: "2026 calendar",
+    phases: [
+      ["Registration", "15/12/2025 – 20/01/2026"],
+      ["1st qualifying phase", "29/01 – 02/02/2026 · the best 33 teams go through to phase 2"],
+      ["2nd qualifying phase", "05/02 – 09/02/2026 · the best 5 teams go through to the final"],
+      ["Theoretical exercise", "12/02 – 26/02/2026"],
+      ["Grand final", "05/03/2026 · Donostia / San Sebastián, Tabakalera"],
+    ],
+    historyTitle: "Track record",
+    history: [
+      ["2024", "1st edition", "Final in Bilbao, at La Terminal."],
+      ["2025", "2nd edition", "Final in Bilbao, at La Terminal. Besides the CTF, the grand final included talks, technical workshops and company stands."],
+      ["2026", "3rd edition", `Final in Donostia / San Sebastián, at Tabakalera, on 5 March. ${data.participants} participants and ${data.teams} teams.`],
+      ["2027", "4th edition", "<span class=\"todo\">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.</span>"], // TODO: real text before publishing
+    ],
+    resourcesTitle: "Resources for the media",
+    resources: [
+      ["Photos and videos", "cyberlehia.fpeuskadi.eus/en/press-room/"],
+      ["Previous editions", "cyberlehia.fpeuskadi.eus/en/previous-editions/"],
+    ],
+    contactTitle: "Contact",
+    contact: "For interviews, photos or more information:",
+    source: "Data source: CyberLehia 2026 registrations (organisers). Aggregate data.",
+    page: "page",
   },
 };
 

@@ -41,7 +41,7 @@ La presente declaración fue preparada el **24 de noviembre de 2026**.
 
 El método empleado para preparar la declaración ha sido una **autoevaluación** llevada a cabo por la propia entidad:
 
-- Revisión automática de todo el sitio web, en los dos idiomas, con la herramienta axe-core (WCAG 2.1, niveles A y AA), con anchos de pantalla de escritorio y de móvil.
+- Revisión automática de todo el sitio web, en sus tres idiomas, con la herramienta axe-core (WCAG 2.1, niveles A y AA), con anchos de pantalla de escritorio y de móvil.
 - Revisión manual: navegación con teclado y foco, estructura de encabezados y regiones, contraste de color, ampliación del texto y adaptación a 320 píxeles de ancho, y contenidos con movimiento.
 
 Última revisión de la declaración: **24 de noviembre de 2026**.
@@ -86,5 +86,5 @@ Este sitio web incluye las siguientes ayudas a la accesibilidad:
 - Todas las páginas se pueden usar con teclado y el foco siempre es visible. Los submenús del menú principal se cierran con la tecla Esc.
 - El diseño se adapta a cualquier tamaño de pantalla y el texto se puede ampliar al 200 % sin perder contenido.
 - El vídeo de fondo de la página de inicio no tiene sonido y se puede pausar con un botón. Si el dispositivo tiene activada la opción de reducir el movimiento, el vídeo no se carga y las animaciones se desactivan; tampoco se carga en modo de ahorro de datos ni con conexiones lentas.
-- El sitio está en euskera y en castellano, y cada página indica su idioma.
+- El sitio está en euskera, castellano e inglés, y cada página indica su idioma.
 - Los enlaces que abren otro sitio web en una ventana nueva lo indican a los lectores de pantalla.

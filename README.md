@@ -2,7 +2,7 @@
 
 Static website for **[CyberLehia](https://cyberlehia.fpeuskadi.eus/)**, the cybersecurity CTF championship and student event of Basque Vocational Training (Lanbide Heziketa / Formación Profesional). It is promoted by the Basque Government's Deputy Ministry of Vocational Training and CyberZaintza, with Tknika.
 
-Built with **[Hugo](https://gohugo.io/)** and **[Tailwind CSS v4](https://tailwindcss.com/)**. All content is Markdown, in two languages: **Euskara** (default, served at `/`) and **Castellano** (served at `/es/`).
+Built with **[Hugo](https://gohugo.io/)** and **[Tailwind CSS v4](https://tailwindcss.com/)**. All content is Markdown, in three languages: **Euskara** (default, served at `/`), **Castellano** (served at `/es/`) and **English** (served at `/en/`).
 
 > Working on this repo with an AI agent? See [AGENTS.md](AGENTS.md).
 
@@ -58,26 +58,29 @@ Every push to `main` runs [`.github/workflows/pages.yml`](.github/workflows/page
 └── .github/workflows/         # GitHub Pages CI
 ```
 
-### Site map (same in both languages)
+### Site map (same in all languages)
 
-| Euskara (`content/eu/`) | Castellano (`content/es/`) | `translationKey` |
-| --- | --- | --- |
-| `_index.md` (home) | `_index.md` | (automatic) |
-| `ezagutu-cyberlehia/_index.md` | `conoce-cyberlehia/_index.md` | `about` |
-| ├ `parte-hartu.md` | ├ `participa.md` | `participate` |
-| ├ `faseak-eta-oinarriak.md` | ├ `fases-y-bases.md` | `rules` |
-| └ `sariak.md` | └ `premios.md` | `prizes` |
-| `4-edizioa/_index.md` | `4-edicion/_index.md` | `edition-4` |
-| `aurreko-edizioak/` (`2024.md`, `2025.md`, `2026.md`) | `ediciones-previas/` | `editions`, `edition-YYYY` |
-| `prentsa-gunea/_index.md` | `sala-de-prensa/_index.md` | `press` |
-| ├ `argazki-bilduma.md` | ├ `galeria-de-fotos.md` | `press-photos` |
-| ├ `testigantzak.md` | ├ `testimonios.md` | `press-testimonials` |
-| ├ `bideoak.md` | ├ `videos.md` | `press-videos` |
-| └ `adibidea.md` (draft template) | └ `ejemplo.md` (draft template) | `press-example` |
-| `kontaktua.md` | `contacto.md` | `contact` |
-| `lege-oharra.md` | `aviso-legal.md` | `legal` |
-| `pribatutasun-politika.md` | `politica-de-privacidad.md` | `privacy` |
-| `cookie-politika.md` | `politica-de-cookies.md` | `cookies` |
+| Euskara (`content/eu/`) | Castellano (`content/es/`) | English (`content/en/`) | `translationKey` |
+| --- | --- | --- | --- |
+| `_index.md` (home) | `_index.md` | `_index.md` | (automatic) |
+| `ezagutu-cyberlehia/_index.md` | `conoce-cyberlehia/_index.md` | `about-cyberlehia.md` (one page, see below) | `about` |
+| ├ `parte-hartu.md` | ├ `participa.md` | — | `participate` |
+| ├ `faseak-eta-oinarriak.md` | ├ `fases-y-bases.md` | — | `rules` |
+| └ `sariak.md` | └ `premios.md` | — | `prizes` |
+| `4-edizioa/_index.md` | `4-edicion/_index.md` | `4th-edition/_index.md` | `edition-4` |
+| `aurreko-edizioak/` (`2024.md`, `2025.md`, `2026.md`) | `ediciones-previas/` | `previous-editions/` | `editions`, `edition-YYYY` |
+| `prentsa-gunea/_index.md` | `sala-de-prensa/_index.md` | `press-room.md` (one page, see below) | `press` |
+| ├ `argazki-bilduma.md` | ├ `galeria-de-fotos.md` | — | `press-photos` |
+| ├ `testigantzak.md` | ├ `testimonios.md` | — | `press-testimonials` |
+| ├ `bideoak.md` | ├ `videos.md` | — | `press-videos` |
+| └ `adibidea.md` (draft template) | └ `ejemplo.md` (draft template) | — | `press-example` |
+| `kontaktua.md` | `contacto.md` | `contact.md` | `contact` |
+| `lege-oharra.md` | `aviso-legal.md` | `legal-notice.md` | `legal` |
+| `pribatutasun-politika.md` | `politica-de-privacidad.md` | `privacy-policy.md` | `privacy` |
+| `cookie-politika.md` | `politica-de-cookies.md` | `cookie-policy.md` | `cookies` |
+| `irisgarritasuna.md` | `accesibilidad.md` | `accessibility.md` | `accessibility` |
+
+**The English version is shorter on purpose:** it is for readers outside the Basque Country, who cannot take part. *About CyberLehia* is a single page (what it is, the phases, the format, the schools, the editions) instead of the participate/rules/prizes subpages, and the *Press room* is a single page with the English press kit, a few photos and the highlights videos (no testimonials: they are interviews in Basque and Spanish). On a page with no English version, the language switcher goes to the closest English page (the section), otherwise to the English home.
 
 ---
 
@@ -89,7 +92,7 @@ Each page is a Markdown file with YAML front matter. Common fields:
 ---
 title: Sariak                   # page title (H1)
 linkTitle: Sariak               # optional shorter title for menus and breadcrumbs
-translationKey: prizes          # SAME value in eu and es: links the two translations
+translationKey: prizes          # SAME value in eu, es and en: links the translations
 eyebrow: Sariak                 # small label above the title
 description: One sentence.      # subtitle, meta description and card text
 weight: 30                      # order inside its section (lower first)
@@ -150,7 +153,7 @@ results:                     # standings, shown where {{< results >}} is in the 
 Typical order through an edition: registration open (phase `active`, registration button) → each online phase ends (move `status`, add the results `url`) → final announced (fill the final date, venue and programme) → winners (add the last result, update `facts`).
 **New edition.** Move the current edition page into `aurreko-edizioak/` as `YYYY.md` (with `weight: YYYY` and every phase `status: done`), create the new edition section with `current_edition: true`, update its menu entry, and repeat in `es/`.
 
-**Press dossier (PDF).** `static/docs/cyberlehia-prentsa-txostena.pdf` (eu) and `cyberlehia-dossier-prensa.pdf` (es), linked from Prentsa gunea / Sala de prensa. They are generated from `scripts/press-kit/build.js` (texts in both languages + aggregate figures at the top of the file) with headless Edge/Chrome: `node scripts/press-kit/build.js`. Update the figures and texts each edition, regenerate and commit the PDFs. Only aggregate figures, never personal data from the participant workbook.
+**Press dossier (PDF).** `static/docs/cyberlehia-prentsa-txostena.pdf` (eu), `cyberlehia-dossier-prensa.pdf` (es) and `cyberlehia-press-kit.pdf` (en), linked from Prentsa gunea / Sala de prensa. They are generated from `scripts/press-kit/build.js` (texts in both languages + aggregate figures at the top of the file) with headless Edge/Chrome: `node scripts/press-kit/build.js`. Update the figures and texts each edition, regenerate and commit the PDFs. Only aggregate figures, never personal data from the participant workbook.
 
 **Press release.** Copy `prentsa-gunea/adibidea.md` (and `sala-de-prensa/ejemplo.md`), give it `weight` ≥ 100 so it appears after the three fixed cards, and remove `draft: true`.
 

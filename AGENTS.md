@@ -4,7 +4,7 @@ Instructions for AI coding agents (and humans) working on this repository. Read 
 
 ## Project in one paragraph
 
-Bilingual (Basque `eu` = default at `/`, Spanish `es` at `/es/`) static site for the CyberLehia cybersecurity CTF championship, built with **Hugo ≥ 0.146 (extended)** and **Tailwind CSS v4 via npm**, using a custom theme in `themes/cyberlehia`. It deploys to GitHub Pages through `.github/workflows/pages.yml` on every push to `main`. The production domain is `cyberlehia.fpeuskadi.eus`.
+Trilingual (Basque `eu` = default at `/`, Spanish `es` at `/es/`, English `en` at `/en/`) static site for the CyberLehia cybersecurity CTF championship, built with **Hugo ≥ 0.146 (extended)** and **Tailwind CSS v4 via npm**, using a custom theme in `themes/cyberlehia`. It deploys to GitHub Pages through `.github/workflows/pages.yml` on every push to `main`. The production domain is `cyberlehia.fpeuskadi.eus`.
 
 ## Commands
 
@@ -23,8 +23,8 @@ There is no test suite. **A change is verified when:**
 
 ## Hard rules
 
-1. **Both languages, always.** Every content change in `content/eu/` needs the matching change in `content/es/` (and vice versa), with the same `translationKey`. Every new UI string goes in both `themes/cyberlehia/i18n/eu.yaml` and `es.yaml`. Use `{{ i18n "key" }}` in templates and never hardcode Basque or Spanish text in layouts.
-2. **Basque is the source language.** The Spanish slugs and texts are translations; keep the URLs of the legal pages (`lege-oharra`, `pribatutasun-politika`, `cookie-politika`, `es/aviso-legal`, `es/politica-de-privacidad`, `es/politica-de-cookies`) and of `aurreko-edizioak` / `es/ediciones-previas` stable, because they match the old WordPress site.
+1. **All three languages, always.** Every content change in `content/eu/` needs the matching change in `content/es/` and `content/en/` (and vice versa), with the same `translationKey`. Every new UI string goes in `themes/cyberlehia/i18n/eu.yaml`, `es.yaml` and `en.yaml`. Use `{{ i18n "key" }}` in templates and never hardcode Basque, Spanish or English text in layouts. The English legal pages start with a note saying the Basque and Spanish versions are the binding ones. Exception: the English version is deliberately shorter (it is for readers who cannot take part): *About CyberLehia* and *Press room* are single pages, and participate/rules/prizes, the photo gallery, videos and testimonials have no English page. Keep that when updating; the language switcher falls back to the closest translated ancestor. (The `home2`–`home4` drafts exist only in eu/es.)
+2. **Basque is the source language.** The Spanish and English slugs and texts are translations; keep the URLs of the legal pages (`lege-oharra`, `pribatutasun-politika`, `cookie-politika`, `es/aviso-legal`, `es/politica-de-privacidad`, `es/politica-de-cookies`) and of `aurreko-edizioak` / `es/ediciones-previas` stable, because they match the old WordPress site.
 3. **Never hardcode URLs** in templates. Use `.RelPermalink`, `relURL`, `relLangURL` or `absURL`. Asset paths passed to `relURL` must **not** start with `/` (use `images/x.jpg`, not `/images/x.jpg`), or the GitHub Pages subpath is lost. In CSS, reference `static/` files with relative URLs (`../fonts/…`). In Markdown, write internal links as `/path/` without the language prefix (`/kontaktua/`, `/images/x.png`): `_markup/render-link.html` turns pages into `relLangURL` and files (anything with an extension) into `relURL`.
 4. **Don't invent facts.** Dates, venues, prizes, results, testimonials and press coverage come from the organisers. If a fact is unknown, use the existing placeholders ("Laster" / "Próximamente", or a `{{< note >}}`) and say so in your summary.
 5. **Tailwind: npm only.** Hugo 0.16x refuses the standalone `tailwindcss` binary ("not a Node.js script"). Don't add PostCSS, a `tailwind.config.js` or extra npm packages unless asked; Tailwind v4 is configured in CSS (`@theme` in `assets/css/main.css`).
@@ -35,7 +35,7 @@ There is no test suite. **A change is verified when:**
 
 - **Template layout (Hugo ≥ 0.146):** `layouts/baseof.html`, `home.html`, `section.html`, `page.html`, `404.html`, with `layouts/_partials/`, `layouts/_shortcodes/` and `layouts/_markup/`. Don't create the old `layouts/_default/` or `layouts/partials/` folders.
 - **Content dirs per language:** `languages.<lang>.contentDir` in `hugo.toml`. Translations are matched by `translationKey`, not by file name.
-- **Menus come from front matter** (`menus: main` / `footer`). The submenu parent is `identifier: ezagutu` (used in both languages).
+- **Menus come from front matter** (`menus: main` / `footer`). The submenu parent is `identifier: ezagutu` (used in all languages).
 - **Current edition:** `partial "current-edition.html"` returns the page with `current_edition: true`. Exactly one per language.
 - **Section listing:** `section.html` renders the `_index.md` body, then cards of the child pages ordered by `weight` (`sort: desc` reverses the order, as used for previous editions).
 - **Deprecated APIs to avoid** (Hugo 0.158+): `languageName` (use `label`), `.Language.LanguageName` (use `.Language.Label`), `.Language.LanguageCode` (use `.Language.Lang` / `.Language.Locale`).
@@ -77,5 +77,5 @@ There is no test suite. **A change is verified when:**
 - FP Euskadi logo is a small 111×109 PNG from the old site; replace it with an SVG or larger PNG if available.
 - The cookie policy was rewritten in November 2026 to match reality: no cookies; the YouTube player only stores technical data (localStorage/IndexedDB on youtube-nocookie.com) once a video plays. If anything that stores data is added (analytics, another embed), update it in both languages first. A legal review is still advisable.
 - `registrationURL` points to last edition's (expired) LimeSurvey form; update it with the new survey ID.
-- Press dossier PDFs (`static/docs/`, built by `scripts/press-kit/build.js`) are published with two placeholders marked with a pink dashed border: the increase in women (`%XX`, set `womenPrev` with an earlier edition's figures) and the 2027 text (lorem ipsum). Fill both and rebuild.
+- Press dossier PDFs (`static/docs/`, eu/es/en, built by `scripts/press-kit/build.js`) are published with two placeholders marked with a pink dashed border: the increase in women (`%XX`, set `womenPrev` with an earlier edition's figures) and the 2027 text (lorem ipsum). Fill both and rebuild.
 - Home background video: YouTube (youtube-nocookie, driven by `postMessage`, no cookies). It loads by itself on desktop and its player stores technical data in the browser (localStorage/IndexedDB), which the cookie policy declares. Strictly, that may need consent; a consent box was tried and rejected by the organisers (November 2026), who chose to keep the video without it. Replacing it with a short self-hosted loop (`video.src`, see `scripts/encode-hero-video.sh`, needs the original file) removes the question; update the cookie policy in both languages then.
