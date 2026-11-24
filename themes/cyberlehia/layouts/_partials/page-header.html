@@ -10,7 +10,7 @@
   {{ end }}
   <div class="bg-grid pointer-events-none absolute inset-0" aria-hidden="true"></div>
   <div class="pointer-events-none absolute -top-40 right-0 size-[28rem] rounded-full bg-violet/20 blur-3xl" aria-hidden="true"></div>
-  <div class="container-site relative {{ if .Params.header_image }}py-20 lg:py-32{{ else }}py-14 lg:py-20{{ end }}">
+  <div class="container-site relative {{ if .Params.header_image }}pt-20 pb-10 lg:pt-32 lg:pb-14{{ else }}pt-14 pb-8 lg:pt-20 lg:pb-10{{ end }}">
     <nav aria-label="{{ i18n "breadcrumb" }}" class="font-mono text-xs text-ink-400">
       <ol class="flex flex-wrap items-center gap-2">
         {{ range .Ancestors.Reverse }}

@@ -1,7 +1,7 @@
 {{ define "main" }}
 {{ partial "page-header.html" . }}
 
-<div class="container-site py-16">
+<div class="container-site pt-10 pb-16 lg:pt-12">
   {{ with .Params.facts }}
     <div class="mb-12">{{ partial "facts.html" . }}</div>
   {{ end }}
