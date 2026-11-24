@@ -14,17 +14,13 @@ phases:
   - title: Registration
     dates: From 1 December
     status: active
-    description: Up to 1000 participants. Teams of 1, 2 or 3 people. Sign up here **ADD LINK**
+    description: ADD LINK
   - title: First qualifying phase
-    dates: Mid-January
-    description: Online CTF over four days, with challenges on different topics and of varying difficulty. The best teams go through to phase 2.
+    dates: 14 to 18 January
+    description: The best 33 teams qualify (up to 100 participants)
   - title: Second qualifying phase
-    dates: Throughout February
-    description: "Three different tests:"
-    items:
-      - Attacking Artificial Intelligence
-      - Bug Bounty
-      - Show off what you know!
+    dates: 1 to 19 February
+    description: The best 5 teams qualify
   - title: Final
     dates: 17 March
     description: Coming soon

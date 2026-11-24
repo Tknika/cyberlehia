@@ -17,10 +17,10 @@ phases:
     description: ESTEKA GEHITU
   - title: Lehen sailkatze fasea
     dates: Urtarrilaren 14tik 18ra
-    description: 100 partaiderik oneak sailkatuko dira
+    description: 33 talde onenak sailkatuko dira (gehienez 100 parte-hartzaile)
   - title: Bigarren sailkatze fasea
     dates: Otsailaren 1etik 19ra
-    description: 5 talderik oneak sailkatuko dira
+    description: 5 talde onenak sailkatuko dira
   - title: Finala
     dates: Martxoak 17
     description: Laster

@@ -31,11 +31,19 @@ Puede participar cualquier alumna o alumno de Centros Integrados de Formación P
 
 La competición consta de tres fases:
 
-1. **Primera fase clasificatoria (Online CTF):** a mediados de enero. Máximo 1000 participantes. Los 33 mejores equipos se clasificarán para la segunda fase.
-2. **Segunda fase clasificatoria:** a lo largo de febrero. Los 5 mejores equipos pasarán a la fase final.
-3. **Final**, dividida en varias partes. Todavía en preparación.
-
-Sede de la final: **Bilbao**.
+1. **Primera fase (Online CTF):**
+   - Del 14 al 18 de enero.
+   - Máximo 1000 participantes.
+   - Los 33 mejores equipos (máximo 100 participantes) se clasificarán para la segunda fase.
+2. **Segunda fase:**
+   - Plazos:
+     - Ataque a la Inteligencia Artificial: del 1 al 19 de febrero.
+     - Bug Bounty: del 1 al 19 de febrero.
+     - ¡Presume de lo que sabes!: del 1 al 5 de febrero.
+   - Los 5 mejores equipos pasarán a la fase final.
+3. **Final:**
+   - El 17 de marzo.
+   - Sede de la final: **Bilbao**.
 
 ## Límites de participantes y clasificación
 

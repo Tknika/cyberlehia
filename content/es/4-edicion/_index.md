@@ -13,17 +13,13 @@ phases:
   - title: Inscripción
     dates: A partir del 1 de diciembre
     status: active
-    description: Máximo 1000 participantes. Equipos de 1, 2 o 3 personas. Inscríbete aquí **AÑADIR ENLACE**
+    description: AÑADIR ENLACE
   - title: Primera fase clasificatoria
-    dates: A mediados de enero
-    description: CTF online durante cuatro días, con retos de distinta temática y dificultad. Los mejores equipos pasan a la 2ª fase.
+    dates: Del 14 al 18 de enero
+    description: Se clasificarán los 33 mejores equipos (máximo 100 participantes)
   - title: Segunda fase clasificatoria
-    dates: A lo largo de febrero
-    description: "Tres pruebas distintas:"
-    items:
-      - Ataque a la Inteligencia Artificial
-      - Bug Bounty
-      - ¡Presume de lo que sabes!
+    dates: Del 1 al 19 de febrero
+    description: Se clasificarán los 5 mejores equipos
   - title: Final
     dates: 17 de marzo
     description: Próximamente

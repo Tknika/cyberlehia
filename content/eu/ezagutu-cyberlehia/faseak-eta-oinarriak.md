@@ -31,19 +31,19 @@ Euskadiko Lanbide Heziketako Ikastetxe integratuetako edo Zibersegurtasun Espezi
 
 Lehiaketak hiru fase ditu:
 
-1. **Lehen fasea (Online CTF):** 
-  - Urtarrilaren 14tik 18ra. 
-  - 1000 parte-hartzaile gehienez. 
-  - 33 talde onenak bigarren sailkapen faserako sailkatuko dira.
-2. **Bigarren fasea:** 
-  - Epeak:
-    - Adimen Artifizialari eraso: Otsailaren 1etik 19ra. 
-    - Bug Bounty: Otsailaren 1etik 19ra. 
-    - Dakizunaz harro!: Otsailaren 1etik 5era. 
-  - 5 talde onenak azken fasera pasako dira.
+1. **Lehen fasea (Online CTF):**
+   - Urtarrilaren 14tik 18ra.
+   - 1000 parte-hartzaile gehienez.
+   - 33 talde onenak (gehienez 100 parte-hartzaile) bigarren sailkapen faserako sailkatuko dira.
+2. **Bigarren fasea:**
+   - Epeak:
+     - Adimen Artifizialari eraso: otsailaren 1etik 19ra.
+     - Bug Bounty: otsailaren 1etik 19ra.
+     - Dakizunaz harro!: otsailaren 1etik 5era.
+   - 5 talde onenak azken fasera pasako dira.
 3. **Finala:**
-  - Martxoaren 17an.
-  - Finalaren kokapena: **Bilbo**.
+   - Martxoaren 17an.
+   - Finalaren kokapena: **Bilbo**.
 
 ## Parte-hartzaileen mugak eta sailkapena
 
