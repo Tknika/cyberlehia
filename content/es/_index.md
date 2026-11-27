@@ -4,6 +4,11 @@ description: Campeonato de ciberseguridad (CTF) y encuentro del alumnado de Form
 # Button under the active phase of the timeline (without url: registrationURL in hugo.toml). Remove it when there is nothing to do.
 timeline_button:
   label: Participa
+# Phrase inviting to take part and registration button in the middle of the video
+# (without url: registrationURL).
+hero:
+  title: ¡Demuestra lo que sabes!
+  button: Participa
 video:
   # YouTube background (youtube-nocookie, without YouTube's IFrame API script: no cookies). When it plays,
   # the player stores technical data in the browser; the cookie policy says so.
@@ -38,6 +43,9 @@ benefits:
     - Darte a conocer
     - Poner a prueba lo aprendido
   button: Participa
+  rules:
+    page: /conoce-cyberlehia/fases-y-bases
+    button: Lee las bases
 press:
   section: /sala-de-prensa
 ---

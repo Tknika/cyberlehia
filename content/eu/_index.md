@@ -4,6 +4,11 @@ description: XXX-an final handia Bilboko Alhondigan!
 # Button under the active phase of the timeline (without url: registrationURL in hugo.toml). Remove it when there is nothing to do.
 timeline_button:
   label: Parte hartu
+# Phrase inviting to take part and registration button in the middle of the video
+# (without url: registrationURL).
+hero:
+  title: Erakutsi zer dakizun!
+  button: Parte hartu
 video:
   # YouTube background (youtube-nocookie, without YouTube's IFrame API script: no cookies). When it plays,
   # the player stores technical data in the browser; the cookie policy says so.
@@ -38,6 +43,9 @@ benefits:
     - Zure burua ezagutzera eman
     - Ikasitakoa proban jarri
   button: Parte hartu
+  rules:
+    page: /ezagutu-cyberlehia/faseak-eta-oinarriak
+    button: Irakurri oinarriak
 press:
   section: /prentsa-gunea
 ---
